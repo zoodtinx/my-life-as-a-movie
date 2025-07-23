@@ -1,6 +1,5 @@
 import { Background } from "@/app/home/components/Background";
 import { NavBar } from "@/app/home/components/NavBar";
-import { MLAMLogo } from "@/app/shared/icons/Logo";
 import React from "react";
 
 const homeLayout = ({
@@ -9,13 +8,13 @@ const homeLayout = ({
    children: React.ReactNode;
 }>) => {
    return (
-      <main className="w-full h-full flex">
+      <div className="min-w-screen flex min-h-screen">
          <Background />
-         <div className="flex flex-col h-full w-full z-10">
+         <div className="flex flex-col min-h-screen w-full z-10">
             <NavBar />
-            <div>{children}</div>
+            <main className="text-primary grow">{children}</main>
          </div>
-      </main>
+      </div>
    );
 };
 

@@ -4,13 +4,12 @@ import { MLAMLogo } from "@/app/shared/icons/Logo";
 import { SlidersHorizontal } from "phosphor-react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/app/shared/utils";
-import Link from "next/link";
 
 export const NavBar = () => {
    return (
-      <nav className="w-full p-6 flex">
+      <nav className="w-full p-5 flex">
          <div className="w-1/3 flex items-center">
-            <MLAMLogo className="text-primary pl-2" />
+            <MLAMLogo className="text-primary pl-2 w-[280px]" />
          </div>
          <div className="w-1/3 flex justify-center items-center">
             <MenuBar />
@@ -47,7 +46,9 @@ const MenuItem = ({ children }: { children: string }) => {
  
    const handleClick = (e: React.MouseEvent) => {
      e.preventDefault();
-     router.push(`/home/${menuLowercase}?${searchParams.toString()}`);
+     const newParams = new URLSearchParams(searchParams.toString());
+     newParams.set('bg', 'base');
+     router.push(`/home/${menuLowercase}?${newParams.toString()}`);
    };
  
    return (
@@ -73,7 +74,9 @@ const MenuItem = ({ children }: { children: string }) => {
  
    const handleClick = (e: React.MouseEvent) => {
      e.preventDefault();
-     router.push(`/home/${menuLowercase}?${searchParams.toString()}`);
+     const newParams = new URLSearchParams(searchParams.toString());
+     newParams.set('bg', 'settings');
+     router.push(`/home/${menuLowercase}?${newParams.toString()}`);
    };
  
    return (

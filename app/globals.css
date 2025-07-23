@@ -5,6 +5,14 @@
   --foreground: #171717;
 }
 
+.shadow-main {
+  /* Tailwind's shadow-xl with lower opacity: */
+  box-shadow:
+    0 10px 15px -5px color-mix(in srgb, var(--color-primary, #263647) 10%, transparent),
+    0 8px 10px -6px color-mix(in srgb, var(--color-primary, #263647) 5%, transparent);
+}
+
+
 @theme {
   --color-primary: #263647;
 }
@@ -16,12 +24,12 @@
   --font-header: var(--font-clash-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
