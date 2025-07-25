@@ -12,19 +12,21 @@ import { MovieFormData } from "@/app/shared/zod/movie-input.zod.schema";
 import { useForm } from "react-hook-form";
 import { Control } from "react-hook-form";
 import {
-   MovieFormFieldName,
    movieFormQuestions,
-   Prompt,
+   Prompt
 } from "@/app/shared/constants/movie-prompts";
 import { ControlledSingleSelect } from "@/app/shared/components/form-elements/SingleSelect";
 import { ControlledMultiSelect } from "@/app/shared/components/form-elements/MultiSelect";
 import { ControlledSlider } from "@/app/shared/components/form-elements/SliderInput";
+import { ControlledYesNoSelect } from "@/app/shared/components/form-elements/YesNo";
+import { getMovieSummary } from "@/app/home/today/actions";
+import { useRouter } from "next/navigation";
+
 
 export const PromptDialog = () => {
    const formMethods = useForm<MovieFormData>();
+   const router = useRouter();
 
-   const values = formMethods.watch();
-   console.log("values", values);
 
    const prompts = movieFormQuestions.map((question) => {
       return (
@@ -35,6 +37,13 @@ export const PromptDialog = () => {
          />
       );
    });
+
+   const handleSubmit = async () => {
+      const values = formMethods.getValues()
+      const result = await getMovieSummary(values)
+      console.log('result', result)
+      router.push("./result")
+   }
 
    return (
       <div className="bg-background rounded-[15px] w-[670px] min-h-[420px] shadow-main">
@@ -50,8 +59,14 @@ export const PromptDialog = () => {
                {prompts}
                <CarouselItem>
                   <div className="border-b opacity-10" />
-                  <div className="flex flex-col justify-between w-full h-full pt-4 px-6 bg">
+                  <div className="flex flex-col w-full h-full pt-4 px-6 bg">
                      Are you ready for the result?
+                     <button
+                        className="border p-3 w-fit cursor-pointer"
+                        onClick={handleSubmit}
+                     >
+                        Submit
+                     </button>
                   </div>
                </CarouselItem>
             </CarouselContent>
@@ -64,8 +79,6 @@ interface MoviePromptProps {
    prompt: Prompt;
    control: Control<MovieFormData>;
 }
-
-type InputType = "text" | "select" | "multi-select" | "slider" | "yesno";
 
 const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
    const { question } = prompt;
@@ -117,7 +130,7 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
          return <ControlledSlider fieldName={fieldName} control={control} />;
 
       case "yesno":
-         return <div>Slider Input Mock</div>;
+         return <ControlledYesNoSelect control={control} fieldName={fieldName} />;
 
       default:
          return <div>Unknown Type</div>;

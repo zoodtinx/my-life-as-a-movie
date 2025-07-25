@@ -11,7 +11,7 @@ export const Background = () => {
       {/* Base gradient layer (e.g. linear or solid) */}
       <div
         className={cn(
-          "absolute inset-0 bg-gradient-to-b from-transparent to-transparent transition-colors duration-200",
+          "absolute inset-0 bg-gradient-to-b from-transparent to-transparent transition-colors duration-1000",
           !bgParam && "from-transparent via-transparent to-sky-200",
           bgParam === "settings" && "from-transparent via-transparent to-[rgba(151,183,238,0.5)]",
           bgParam === "base" ? "opacity-0" : "opacity-100"
@@ -21,7 +21,7 @@ export const Background = () => {
       {/* Radial gradient layer */}
       <div
         className={cn(
-          "absolute inset-0 transition-opacity duration-400",
+          "absolute inset-0 transition-opacity duration-1000",
           bgParam === "base" ? "opacity-100" : "opacity-0"
         )}
         style={{
@@ -32,7 +32,7 @@ export const Background = () => {
 
       {/* Grain/noise overlay */}
       <div
-        className="absolute inset-0 bg-repeat opacity-50 pointer-events-none z-10"
+        className="absolute inset-0 bg-repeat opacity-20 pointer-events-none z-10"
         style={{
           backgroundImage: "url('/grain.png')",
           backgroundSize: "70px 70px"

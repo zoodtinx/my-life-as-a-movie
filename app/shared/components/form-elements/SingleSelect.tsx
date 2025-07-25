@@ -27,7 +27,7 @@ export const SingleSelect: React.FC<SingleSelectProps> = ({
                      "flex items-start w-full h-auto px-3 py-2 border rounded-[7px] text-left transition-colors",
                      selected
                         ? "bg-primary text-white border-primary"
-                        : "border-dashed hover:border border-white/30 text-primary"
+                        : "border-dashed hover:border border-primary text-primary"
                   )}
                >
                   <p className="whitespace-nowrap">{option.label}</p>
@@ -75,8 +75,8 @@ export function ControlledSingleSelect<T extends FieldValues>({
                         className={cn(
                            "flex items-start w-full h-auto px-3 py-2 border rounded-[7px] text-left transition-colors",
                            selected
-                              ? "bg-primary text-white border-primary"
-                              : "border-dashed hover:border border-white/30 text-primary"
+                              ? "bg-white text-primary shadow-lg border-transparent"
+                              : "border-dashed hover:bg-primary/10 border-primary text-primary"
                         )}
                      >
                         <p className="whitespace-nowrap">{option.label}</p>
