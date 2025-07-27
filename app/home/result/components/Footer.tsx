@@ -6,8 +6,10 @@ import {
    ArrowsCounterClockwise,
    Export,
    FilmSlate,
+   TrashSimple,
 } from "phosphor-react";
 import { useRouter } from "next/navigation";
+import { PageButton } from "@/app/shared/components/CustomButton";
 
 export const Footer = () => {
    const router = useRouter();
@@ -26,39 +28,14 @@ export const Footer = () => {
                text="Quit"
             />
             <PageButton
-               icon={<ArrowsCounterClockwise />}
+               icon={<TrashSimple />}
                iconPosition="left"
-               text="Retake"
+               text="Delete"
             />
          </div>
          <div className="flex gap-8">
             <PageButton icon={<Export />} iconPosition="right" text="Share" />
          </div>
       </div>
-   );
-};
-
-interface PageButtonProps
-   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-   icon: React.ReactNode;
-   iconPosition: "left" | "right";
-   text: string;
-}
-
-const PageButton = ({
-   icon,
-   iconPosition,
-   text,
-   ...buttonProps
-}: PageButtonProps) => {
-   return (
-      <button
-         className="flex items-center gap-2 cursor-pointer font-header font-medium text-[25px]"
-         {...buttonProps}
-      >
-         {iconPosition === "left" && icon}
-         <span>{text}</span>
-         {iconPosition === "right" && icon}
-      </button>
    );
 };

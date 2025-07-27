@@ -19,37 +19,37 @@
   --color-primary: #263647;
 
   --color-romantic-from: #F7C9E7;
-  --color-romantic-to: #FAF6E1;
+  --color-romantic-to: #C9F7E9; /* soft mint green */
 
   --color-comedy-drama-from: #FFD8B1;
-  --color-comedy-drama-to: #FFE9C6;
+  --color-comedy-drama-to: #B1D8FF; /* light sky blue */
 
   --color-adventure-fantasy-from: #B1D9FF;
-  --color-adventure-fantasy-to: #D6E9FF;
+  --color-adventure-fantasy-to: #FFCFB1; /* peach pastel */
 
   --color-dark-comedy-from: #B0A6FF;
-  --color-dark-comedy-to: #D3CCFF;
+  --color-dark-comedy-to: #FFC6B0; /* light coral */
 
   --color-horror-from: #FFB1B1;
-  --color-horror-to: #FFD6D6;
+  --color-horror-to: #B1FFDF; /* aqua pastel */
 
   --color-coming-of-age-from: #C1FFD7;
-  --color-coming-of-age-to: #E1FFEB;
+  --color-coming-of-age-to: #FFD1F7; /* pink pastel */
 
   --color-slice-of-life-from: #FFF5B1;
-  --color-slice-of-life-to: #FFFCD6;
+  --color-slice-of-life-to: #B1F0FF; /* light teal */
 
   --color-action-thriller-from: #FFB8A1;
-  --color-action-thriller-to: #FFD7CF;
+  --color-action-thriller-to: #B1D5FF; /* baby blue */
 
   --color-mystery-suspense-from: #A1B8FF;
-  --color-mystery-suspense-to: #CFE0FF;
+  --color-mystery-suspense-to: #FFD1B1; /* peachy tone */
 
   --color-romantic-drama-from: #F7C9E7;
-  --color-romantic-drama-to: #FAF6E1;
+  --color-romantic-drama-to: #C9F7D7; /* light mint */
 
   --color-feel-good-musical-from: #FFF1B8;
-  --color-feel-good-musical-to: #FFF9CF;
+  --color-feel-good-musical-to: #B8D6FF; /* pastel blue */
 }
 
 @theme inline {
