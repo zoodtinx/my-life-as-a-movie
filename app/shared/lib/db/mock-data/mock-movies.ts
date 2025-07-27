@@ -4,7 +4,7 @@ function getDateNDaysAgo(n: number): string {
   return date.toISOString();
 }
 
-export const mockMovies = [
+export const getDemoMovies = (userId: string) => [
    {
       genre: "MYSTERY_SUSPENSE",
       logline:
@@ -16,6 +16,7 @@ export const mockMovies = [
          "She trains a prodigy who unknowingly continues the killings.",
       summary: "Music hides secrets darker than silence.",
       date: getDateNDaysAgo(0),
+      userId,
    },
    {
       genre: "DARK_COMEDY",
@@ -26,6 +27,7 @@ export const mockMovies = [
       sequelIdea: "She plans her own wedding—disaster strikes.",
       summary: "When love meets likes, chaos follows.",
       date: getDateNDaysAgo(1),
+      userId,
    },
    {
       genre: "ROMANTIC_DRAMA",
@@ -36,6 +38,7 @@ export const mockMovies = [
       sequelIdea: "Years later, fate puts them on the same train again.",
       summary: "A love story told in eye contact and missed chances.",
       date: getDateNDaysAgo(2),
+      userId,
    },
    {
       genre: "SLICE_OF_LIFE",
@@ -45,6 +48,7 @@ export const mockMovies = [
       sequelIdea: "They expand globally through virtual dinners.",
       summary: "Food, laughter, and stories shared around the table.",
       date: getDateNDaysAgo(3),
+      userId,
    },
    {
       genre: "ACTION_THRILLER",
@@ -55,6 +59,7 @@ export const mockMovies = [
       sequelIdea: "His partner digs deeper into the conspiracy.",
       summary: "Fire isn’t the only thing that can kill.",
       date: getDateNDaysAgo(4),
+      userId,
    },
    {
       genre: "FEEL_GOOD_MUSICAL",
@@ -66,6 +71,7 @@ export const mockMovies = [
       sequelIdea: "He takes the idea nationwide with a singing taxi fleet.",
       summary: "Sometimes the best ride comes with a song.",
       date: getDateNDaysAgo(5),
+      userId,
    },
    {
       genre: "HORROR",
@@ -76,6 +82,7 @@ export const mockMovies = [
       sequelIdea: "They hunt for the one mirror that still shows the truth.",
       summary: "What happens when reflections fight back?",
       date: getDateNDaysAgo(6),
+      userId,
    },
    {
       genre: "COMING_OF_AGE",
@@ -87,6 +94,7 @@ export const mockMovies = [
       sequelIdea: "They start a real crew years later as adults.",
       summary: "Growing up sometimes takes a little role-play.",
       date: getDateNDaysAgo(7),
+      userId,
    },
    {
       genre: "ADVENTURE_FANTASY",
@@ -97,6 +105,7 @@ export const mockMovies = [
       sequelIdea: "A new drone inherits the hero’s code.",
       summary: "Even machines can dream of legends.",
       date: getDateNDaysAgo(8),
+      userId,
    },
    {
       genre: "COMEDY_DRAMA",
@@ -106,6 +115,7 @@ export const mockMovies = [
       sequelIdea: "His book becomes a movie, causing new chaos.",
       summary: "Parenting isn’t easy, but it can be hilarious.",
       date: getDateNDaysAgo(9),
+      userId,
    },
    {
       genre: "ROMANTIC_DRAMA",
@@ -117,6 +127,7 @@ export const mockMovies = [
       sequelIdea: "They travel the world cooking in street markets.",
       summary: "Love served hot, with a side of tension.",
       date: getDateNDaysAgo(10),
+      userId,
    },
    {
       genre: "MYSTERY_SUSPENSE",
@@ -127,6 +138,7 @@ export const mockMovies = [
       sequelIdea: "The detective hunts copycats inspired by the case.",
       summary: "Some crimes refuse to stay dead.",
       date: getDateNDaysAgo(11),
+      userId,
    },
    {
       genre: "FEEL_GOOD_MUSICAL",
@@ -136,6 +148,7 @@ export const mockMovies = [
       sequelIdea: "They go on tour, turning cities into stages.",
       summary: "When walls echo with music, hearts open.",
       date: getDateNDaysAgo(12),
+      userId,
     },
     {
       genre: "DARK_COMEDY",
@@ -145,6 +158,7 @@ export const mockMovies = [
       sequelIdea: "Other influencers start competing for extreme stunts.",
       summary: "When likes mean life or death.",
       date: getDateNDaysAgo(13),
+      userId,
     },
     {
       genre: "COMING_OF_AGE",
@@ -154,6 +168,7 @@ export const mockMovies = [
       sequelIdea: "They start an underground art movement.",
       summary: "Breaking rules to find your voice.",
       date: getDateNDaysAgo(14),
+      userId,
     },
     {
       genre: "ACTION_THRILLER",
@@ -163,6 +178,7 @@ export const mockMovies = [
       sequelIdea: "The hacker builds an AI to fight cybercrime.",
       summary: "One wrong click can change everything.",
       date: getDateNDaysAgo(15),
+      userId,
     },
     {
       genre: "SLICE_OF_LIFE",
@@ -172,6 +188,7 @@ export const mockMovies = [
       sequelIdea: "They open branches across the city.",
       summary: "Ordinary days, extraordinary connections.",
       date: getDateNDaysAgo(16),
+      userId,
     },
     {
       genre: "HORROR",
@@ -181,6 +198,7 @@ export const mockMovies = [
       sequelIdea: "A new family inherits the cursed sketchbook.",
       summary: "Childhood imagination becomes a nightmare.",
       date: getDateNDaysAgo(17),
+      userId,
     },
     {
       genre: "ROMANTIC_DRAMA",
@@ -190,6 +208,7 @@ export const mockMovies = [
       sequelIdea: "She builds an app to help others find love through audio.",
       summary: "Sometimes, love is just a voice away.",
       date: getDateNDaysAgo(18),
+      userId,
     },
     {
       genre: "ADVENTURE_FANTASY",
@@ -199,6 +218,7 @@ export const mockMovies = [
       sequelIdea: "They expand to the underworld and host demons.",
       summary: "Where dragons come to rest and legends to relax.",
       date: getDateNDaysAgo(19),
+      userId,
     },
     {
       genre: "MYSTERY_SUSPENSE",
@@ -208,6 +228,7 @@ export const mockMovies = [
       sequelIdea: "A new mystery arises when time jumps forward 50 years.",
       summary: "When time stops, secrets surface.",
       date: getDateNDaysAgo(20),
+      userId,
     },
     {
       genre: "COMEDY_DRAMA",
@@ -217,6 +238,7 @@ export const mockMovies = [
       sequelIdea: "He trains a team of misfit magicians.",
       summary: "Sometimes the biggest trick is healing.",
       date: getDateNDaysAgo(21),
+      userId,
     },
     {
       genre: "DARK_COMEDY",
@@ -226,6 +248,7 @@ export const mockMovies = [
       sequelIdea: "They start a motivational speaking tour about layoffs.",
       summary: "When job cuts become a spectacle.",
       date: getDateNDaysAgo(22),
+      userId,
     },
     {
       genre: "COMING_OF_AGE",
@@ -235,6 +258,7 @@ export const mockMovies = [
       sequelIdea: "The teen becomes a famous AI creator.",
       summary: "First love meets first code.",
       date: getDateNDaysAgo(23),
+      userId,
     },
     {
       genre: "ACTION_THRILLER",
@@ -244,6 +268,7 @@ export const mockMovies = [
       sequelIdea: "He hunts the people who built the car.",
       summary: "When your ride becomes your prison.",
       date: getDateNDaysAgo(24),
+      userId,
     },
     {
       genre: "SLICE_OF_LIFE",
@@ -253,6 +278,7 @@ export const mockMovies = [
       sequelIdea: "They start a global kindness movement.",
       summary: "Small notes, big changes.",
       date: getDateNDaysAgo(25),
+      userId,
     },
     {
       genre: "FEEL_GOOD_MUSICAL",
@@ -262,6 +288,7 @@ export const mockMovies = [
       sequelIdea: "They take the dance party to other cities.",
       summary: "Cleaning floors, breaking norms.",
       date: getDateNDaysAgo(26),
+      userId,
     },
     {
       genre: "HORROR",
@@ -271,6 +298,7 @@ export const mockMovies = [
       sequelIdea: "A new version of the game leaks years later.",
       summary: "Virtual nightmares become real.",
       date: getDateNDaysAgo(27),
+      userId,
     },
     {
       genre: "ROMANTIC_DRAMA",
@@ -280,6 +308,7 @@ export const mockMovies = [
       sequelIdea: "The survivor starts a letter therapy program.",
       summary: "Healing hearts, one note at a time.",
       date: getDateNDaysAgo(28),
+      userId,
     },
     {
       genre: "MYSTERY_SUSPENSE",
@@ -289,6 +318,7 @@ export const mockMovies = [
       sequelIdea: "A copycat starts forging predictive paintings.",
       summary: "Art that kills before the brush dries.",
       date: getDateNDaysAgo(29),
+      userId,
     },
     {
       genre: "ADVENTURE_FANTASY",
@@ -298,6 +328,7 @@ export const mockMovies = [
       sequelIdea: "The traveler becomes the map for someone else.",
       summary: "Not all guides are alive—but some care the most.",
       date: getDateNDaysAgo(30),
+      userId,
     },
     {
       genre: "COMEDY_DRAMA",
@@ -307,6 +338,7 @@ export const mockMovies = [
       sequelIdea: "They open a comedy-club-slash-therapy-center.",
       summary: "Laughing through the pain, literally.",
       date: getDateNDaysAgo(31),
+      userId,
     },
     {
       genre: "FEEL_GOOD_MUSICAL",
@@ -316,6 +348,7 @@ export const mockMovies = [
       sequelIdea: "They become a financial influencer with music tutorials.",
       summary: "Balancing books while dropping beats.",
       date: getDateNDaysAgo(32),
+      userId,
     },
     {
       genre: "ACTION_THRILLER",
@@ -325,6 +358,7 @@ export const mockMovies = [
       sequelIdea: "Her next flight is a covert mission.",
       summary: "When peanuts become weapons.",
       date: getDateNDaysAgo(33),
+      userId,
     },
     {
       genre: "DARK_COMEDY",
@@ -334,6 +368,7 @@ export const mockMovies = [
       sequelIdea: "He hosts a podcast about funerals gone wrong.",
       summary: "Crashing funerals for a taste of life.",
       date: getDateNDaysAgo(34),
+      userId,
     },
     {
       genre: "COMING_OF_AGE",
@@ -343,6 +378,7 @@ export const mockMovies = [
       sequelIdea: "They start a podcast empire as adults.",
       summary: "Broadcasting rebellion, one song at a time.",
       date: getDateNDaysAgo(35),
+      userId,
     },
     {
       genre: "ROMANTIC_DRAMA",
@@ -352,6 +388,7 @@ export const mockMovies = [
       sequelIdea: "They host an annual book festival that sparks more love stories.",
       summary: "Love written in the margins.",
       date: getDateNDaysAgo(36),
+      userId,
     },
     {
       genre: "HORROR",
@@ -361,6 +398,7 @@ export const mockMovies = [
       sequelIdea: "A whole building becomes sentient.",
       summary: "Some rides never end.",
       date: getDateNDaysAgo(37),
+      userId,
     },
     {
       genre: "SLICE_OF_LIFE",
@@ -370,6 +408,7 @@ export const mockMovies = [
       sequelIdea: "The group expands into a senior adventure club.",
       summary: "Friendship one step at a time.",
       date: getDateNDaysAgo(38),
+      userId,
     },
     {
       genre: "ADVENTURE_FANTASY",
@@ -379,6 +418,7 @@ export const mockMovies = [
       sequelIdea: "They start a bakery for enchanted beings.",
       summary: "Magic, yeast, and destiny.",
       date: getDateNDaysAgo(39),
+      userId,
     },
     {
       genre: "MYSTERY_SUSPENSE",
@@ -388,6 +428,7 @@ export const mockMovies = [
       sequelIdea: "Others begin experiencing the same phenomenon.",
       summary: "When identity becomes a ticking clock.",
       date: getDateNDaysAgo(40),
+      userId,
     },
     {
       genre: "COMEDY_DRAMA",
@@ -397,6 +438,7 @@ export const mockMovies = [
       sequelIdea: "They take the rivalry to food festivals worldwide.",
       summary: "Chill vibes with a sprinkle of chaos.",
       date: getDateNDaysAgo(41),
+      userId,
     },
     {
       genre: "FEEL_GOOD_MUSICAL",
@@ -406,6 +448,7 @@ export const mockMovies = [
       sequelIdea: "They tour other hospitals spreading joy.",
       summary: "Healing through harmony.",
       date: getDateNDaysAgo(42),
+      userId,
     },
     {
       genre: "DARK_COMEDY",
@@ -415,6 +458,7 @@ export const mockMovies = [
       sequelIdea: "He takes the show international while hiding bodies.",
       summary: "Strings attached in all the wrong places.",
       date: getDateNDaysAgo(43),
+      userId,
     },
     {
       genre: "ACTION_THRILLER",
@@ -424,6 +468,7 @@ export const mockMovies = [
       sequelIdea: "He becomes a culinary bodyguard for celebrity chefs.",
       summary: "Knife skills put to deadly use.",
       date: getDateNDaysAgo(44),
+      userId,
     },
     {
       genre: "HORROR",
@@ -433,6 +478,7 @@ export const mockMovies = [
       sequelIdea: "The entity wants to raise the human baby in its world.",
       summary: "Every sound has a secret.",
       date: getDateNDaysAgo(45),
+      userId,
     },
     {
       genre: "COMING_OF_AGE",
@@ -442,6 +488,7 @@ export const mockMovies = [
       sequelIdea: "They organize global gaming treasure hunts.",
       summary: "Leveling up in life, not just the game.",
       date: getDateNDaysAgo(46),
+      userId,
     },
     {
       genre: "SLICE_OF_LIFE",
@@ -451,6 +498,7 @@ export const mockMovies = [
       sequelIdea: "They franchise the dog-walking service.",
       summary: "Love and loyalty on every leash.",
       date: getDateNDaysAgo(47),
+      userId,
     },
     {
       genre: "ROMANTIC_DRAMA",
@@ -460,6 +508,7 @@ export const mockMovies = [
       sequelIdea: "They start a romance advice podcast together.",
       summary: "A love story born from rain.",
       date: getDateNDaysAgo(48),
+      userId,
     },
     {
       genre: "MYSTERY_SUSPENSE",
@@ -469,6 +518,7 @@ export const mockMovies = [
       sequelIdea: "A new hotel opens with even more secrets.",
       summary: "Checking in to your own nightmare.",
       date: getDateNDaysAgo(49),
+      userId,
     },
     {
       genre: "ADVENTURE_FANTASY",
@@ -478,6 +528,7 @@ export const mockMovies = [
       sequelIdea: "They hunt for treasure that controls the seas.",
       summary: "When the catch of the day changes destiny.",
       date: getDateNDaysAgo(50),
+      userId,
     },
     {
       genre: "COMEDY_DRAMA",
@@ -487,5 +538,6 @@ export const mockMovies = [
       sequelIdea: "The club becomes a movement for mental health.",
       summary: "Finding humor in the chaos of life.",
       date: getDateNDaysAgo(51),
+      userId,
     }
 ];
