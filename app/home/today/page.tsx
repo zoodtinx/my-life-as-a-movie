@@ -1,9 +1,10 @@
 
 import React from "react";
 import { StartButton } from "@/app/home/today/components/StartButton";
+import prisma from "@/app/shared/lib/db/prisma";
 
 const TodayPage = async () => {
-   // fetch data to check if user has taken survey
+   // const todayMovie = await prisma.movie
 
    const todayData = null;
 

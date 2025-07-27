@@ -7,7 +7,7 @@ import { cn } from "@/app/shared/utils";
 
 export const NavBar = () => {
    return (
-      <nav className="w-full p-5 flex">
+      <nav className="w-full px-5 h-[80px] flex">
          <div className="w-1/3 flex items-center">
             <MLAMLogo className="text-primary pl-2 w-[280px]" />
          </div>

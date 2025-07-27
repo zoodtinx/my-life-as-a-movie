@@ -12,7 +12,7 @@ const homeLayout = ({
          <Background />
          <div className="flex flex-col min-h-screen w-full z-10">
             <NavBar />
-            <main className="text-primary grow">{children}</main>
+            <main className="text-primary h-[calc(100vh-80px)]">{children}</main>
          </div>
       </div>
    );

@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-    output   = "./node_modules/@prisma/client"
 }
 
 datasource db {
@@ -32,6 +31,7 @@ model Movie {
   alternateEnding String?
   sequelIdea String?
   summary   String?
+  date      String
   createdAt DateTime @default(now())
 }
 

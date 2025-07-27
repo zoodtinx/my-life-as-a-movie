@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from '@/app/shared/lib/db/prisma';
 import { mockMovies } from './mock-data/mock-movies';
 import { mockUser } from './mock-data/mock-user';
-
-const prisma = new PrismaClient();
 
 export async function clearData() {
   try {
@@ -26,8 +24,6 @@ export async function clearData() {
 export async function seedDatabase() {
   try {
     console.log('🌱 Seeding database with mock data...');
-    
-    prism
 
     // Create user
     const user = await prisma.user.upsert({
@@ -45,12 +41,13 @@ export async function seedDatabase() {
       prisma.movie.create({
         data: {
           userId: user.id,
-          genre: movieData.genre as Genre,
+          genre: movieData.genre,
           logline: movieData.logline,
           review: movieData.review,
           alternateEnding: movieData.alternateEnding,
           sequelIdea: movieData.sequelIdea,
           summary: movieData.summary,
+          date: movieData.date
         },
       })
     );

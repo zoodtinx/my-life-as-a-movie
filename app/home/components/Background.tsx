@@ -1,6 +1,8 @@
 "use client";
+
 import { cn } from "@/app/shared/utils";
 import { useSearchParams } from "next/navigation";
+import { getGenreColorBgClassName } from "@/app/shared/lib/helper/getGenreColor";
 
 export const Background = () => {
   const params = useSearchParams();
@@ -13,7 +15,10 @@ export const Background = () => {
         className={cn(
           "absolute inset-0 bg-gradient-to-b from-transparent to-transparent transition-colors duration-1000",
           !bgParam && "from-transparent via-transparent to-sky-200",
-          bgParam === "settings" && "from-transparent via-transparent to-[rgba(151,183,238,0.5)]",
+          bgParam === "settings" && "via-transparent to-[rgba(151,183,238,0.5)]",
+          bgParam &&
+            bgParam !== "settings" &&
+            getGenreColorBgClassName(bgParam),
           bgParam === "base" ? "opacity-0" : "opacity-100"
         )}
       />
