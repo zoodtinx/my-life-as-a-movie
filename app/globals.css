@@ -15,10 +15,41 @@
 
 @theme {
   --font-size-base: 20px;
-  
+
   --color-primary: #263647;
-  --color-romantic-from: #F7C9E7; 
-  --color-romantic-to: #FAF6E1;   
+
+  --color-romantic-from: #F7C9E7;
+  --color-romantic-to: #FAF6E1;
+
+  --color-comedy-drama-from: #FFD8B1;
+  --color-comedy-drama-to: #FFE9C6;
+
+  --color-adventure-fantasy-from: #B1D9FF;
+  --color-adventure-fantasy-to: #D6E9FF;
+
+  --color-dark-comedy-from: #B0A6FF;
+  --color-dark-comedy-to: #D3CCFF;
+
+  --color-horror-from: #FFB1B1;
+  --color-horror-to: #FFD6D6;
+
+  --color-coming-of-age-from: #C1FFD7;
+  --color-coming-of-age-to: #E1FFEB;
+
+  --color-slice-of-life-from: #FFF5B1;
+  --color-slice-of-life-to: #FFFCD6;
+
+  --color-action-thriller-from: #FFB8A1;
+  --color-action-thriller-to: #FFD7CF;
+
+  --color-mystery-suspense-from: #A1B8FF;
+  --color-mystery-suspense-to: #CFE0FF;
+
+  --color-romantic-drama-from: #F7C9E7;
+  --color-romantic-drama-to: #FAF6E1;
+
+  --color-feel-good-musical-from: #FFF1B8;
+  --color-feel-good-musical-to: #FFF9CF;
 }
 
 @theme inline {

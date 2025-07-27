@@ -1,4 +1,4 @@
-import { PrismaClient, Genre } from '../../../generated/prisma';
+import { PrismaClient } from '@prisma/client';
 import { mockMovies } from './mock-data/mock-movies';
 import { mockUser } from './mock-data/mock-user';
 
@@ -27,6 +27,8 @@ export async function seedDatabase() {
   try {
     console.log('🌱 Seeding database with mock data...');
     
+    prism
+
     // Create user
     const user = await prisma.user.upsert({
       where: { email: mockUser.email },

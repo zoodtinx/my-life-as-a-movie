@@ -1,7 +1,7 @@
 "use client";
 
 import { Footer } from "@/app/home/result/components/Footer";
-import { MovieResult } from "@/app/shared/lib/zod/movie-result";
+import { MovieResult } from "@/app/shared/lib/zod/movie-result.zod.schema";
 import { cn } from "@/app/shared/utils";
 import { format } from "date-fns";
 import React from "react";

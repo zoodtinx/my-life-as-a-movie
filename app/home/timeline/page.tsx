@@ -1,8 +1,8 @@
 import React from "react";
+import prisma from "@/app/shared/lib/db/prisma";
 
-const TimeLinePage = () => {
-   const movies = []
-   
+const TimeLinePage = async () => {
+
    return (
       <div className="flex flex-col justify-between items-center w-full h-full px-20 pt-9 pb-0">
          <div className="flex flex-col grow gap-12">
