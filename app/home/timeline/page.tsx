@@ -1,17 +1,32 @@
-import React from 'react'
+import React from "react";
 
 const TimeLinePage = () => {
-  return (
-    <div className="flex flex-col justify-between items-center w-full h-full pb-9">
-         <div></div>
-         <div className="flex flex-col items-center gap-3">
-               <div className="text-[50px] leading-tight flex flex-col items-center">
-                  <p>Timeline Page</p>
-               </div>
-            </div>
-         <div></div>
+   const movies = []
+   
+   return (
+      <div className="flex flex-col justify-between items-center w-full h-full px-20 pt-9 pb-0">
+         <div className="flex flex-col grow gap-12">
+            <MockRow />
+            <MockRow />
+            <MockRow />
+            <MockRow />
+         </div>
       </div>
-  )
-}
+   );
+};
 
-export default TimeLinePage
+const MockRow = () => {
+   return (
+      <div className="w-fix flex gap-4">
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+         <div className="w-[170px] h-[240px] bg-gradient-to-b from-romantic-from to-romantic-to shadow-md"></div>
+      </div>
+   );
+};
+
+export default TimeLinePage;

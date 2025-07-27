@@ -1,7 +1,7 @@
 "use client";
 
 import { Controller, Control, FieldValues, Path } from "react-hook-form";
-import { Slider } from "@/app/shared/components/Slider";
+import { Slider } from "@/app/shared/components/primitives/Slider";
 import { cn } from "@/app/shared/utils";
 
 type ControlledSliderProps<T extends FieldValues> = {

@@ -1,6 +1,6 @@
 "use server"
 
-import { MovieFormData } from "@/app/shared/zod/movie-input.zod.schema";
+import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 
 export async function getMovieSummary(userInput: MovieFormData) {
 

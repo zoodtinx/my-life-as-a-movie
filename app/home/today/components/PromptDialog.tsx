@@ -6,15 +6,15 @@ import {
    CarouselItem,
    CarouselNext,
    CarouselPrevious,
-} from "@/app/shared/components/Carousel";
+} from "@/app/shared/components/primitives/Carousel";
 import { ControlledInput } from "@/app/shared/components/form-elements/TextInput";
-import { MovieFormData } from "@/app/shared/zod/movie-input.zod.schema";
+import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import { useForm } from "react-hook-form";
 import { Control } from "react-hook-form";
 import {
    movieFormQuestions,
    Prompt
-} from "@/app/shared/constants/movie-prompts";
+} from "@/app/shared/lib/constants/movie-prompts";
 import { ControlledSingleSelect } from "@/app/shared/components/form-elements/SingleSelect";
 import { ControlledMultiSelect } from "@/app/shared/components/form-elements/MultiSelect";
 import { ControlledSlider } from "@/app/shared/components/form-elements/SliderInput";
@@ -42,7 +42,7 @@ export const PromptDialog = () => {
       const values = formMethods.getValues()
       const result = await getMovieSummary(values)
       console.log('result', result)
-      router.push("./result")
+      router.push("/home/result")
    }
 
    return (

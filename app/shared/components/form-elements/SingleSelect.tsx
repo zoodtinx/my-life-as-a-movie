@@ -2,7 +2,7 @@
 
 import { Controller, Control, FieldValues, Path } from "react-hook-form";
 import { cn } from "@/app/shared/utils";
-import { Option } from "@/app/shared/constants/movie-prompts";
+import { Option } from "@/app/shared/lib/constants/movie-prompts";
 
 type SingleSelectProps = {
    options: Option[];

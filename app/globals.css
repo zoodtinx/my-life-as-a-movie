@@ -3,6 +3,7 @@
 :root {
   --background: #FFFFF9;
   --foreground: #171717;
+  --movie-romantic-comedy: linear-gradient(to bottom, #F7C9E7, #FAF6E1);
 }
 
 .shadow-main {
@@ -12,14 +13,18 @@
     0 8px 10px -6px color-mix(in srgb, var(--color-primary, #263647) 5%, transparent);
 }
 
-
 @theme {
+  --font-size-base: 20px;
+  
   --color-primary: #263647;
+  --color-romantic-from: #F7C9E7; 
+  --color-romantic-to: #FAF6E1;   
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-courier-prime);
   --font-header: var(--font-clash-grotesk);
 }

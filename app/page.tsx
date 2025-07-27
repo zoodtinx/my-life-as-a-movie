@@ -1,7 +1,6 @@
 "use client"
 
 import { MLAMLogo } from "@/app/shared/icons/Logo";
-import Image from "next/image";
 import { useState } from "react";
 
 export default function Home() {

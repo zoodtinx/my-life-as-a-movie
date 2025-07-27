@@ -7,7 +7,7 @@ import useEmblaCarousel, {
 import { CaretLeft, CaretRight } from "phosphor-react"
 
 import { cn } from "@/app/shared/utils"
-import { Button } from "@/app/shared/components/Button"
+import { Button } from "@/app/shared/components/primitives/Button"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
