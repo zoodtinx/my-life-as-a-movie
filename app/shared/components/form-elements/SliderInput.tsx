@@ -31,7 +31,11 @@ export function ControlledSlider<T extends FieldValues>({
          control={control}
          rules={required ? { required } : undefined}
          render={({ field, fieldState }) => (
-            <div className={cn("flex flex-col", className)}>
+            <div className={cn("flex flex-col pb-3 gap-2", className)}>
+               <div className="flex justify-between font-header font-medium">
+                  <p>Peaceful</p>
+                  <p className="text-secondary">Chaotic</p>
+               </div>
                <Slider
                   value={field.value ? [field.value] : [min]} // wrap in array
                   onValueChange={(val) => field.onChange(val[0])} // take first element

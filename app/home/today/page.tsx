@@ -7,24 +7,30 @@ import TodayMovie from "@/app/home/today/components/TodayMovie";
 const TodayPage = async () => {
    const session = await auth();
 
-   const start = new Date();
-   start.setHours(0, 0, 0, 0);
-
-   const end = new Date();
-   end.setHours(23, 59, 59, 999);
-
    const todayMovie = await prisma.movie.findFirst({
       where: {
          userId: session?.user?.id,
-         // logline: "love",
-         date: {
-            gte: start.toISOString(),
-            lte: end.toISOString(),
-         },
+      },
+      orderBy: {
+         date: "desc",
       },
    });
 
-   if (!todayMovie) {
+   console.log('today', todayMovie?.id)
+
+   const today = new Date();
+   today.setHours(0, 0, 0, 0);
+
+   const tomorrow = new Date(today);
+   tomorrow.setDate(today.getDate() + 1);
+
+   const isToday =
+      todayMovie &&
+      new Date(todayMovie.date) >= today &&
+      new Date(todayMovie.date) < tomorrow;
+
+
+   if (!isToday) {
       return (
          <div className="flex flex-col justify-between items-center w-full h-full pb-9">
             <div></div>

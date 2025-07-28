@@ -157,7 +157,7 @@ export const movieFormQuestions: Prompt[] = [
          description:
             "In cinematography, lighting sets the mood. If your day had a color filter, what would it be? A warm glow, cold blue, or something more surreal?",
       },
-      type: "select",
+      type: "multi-select",
       options: [
          {
             value: "warm",

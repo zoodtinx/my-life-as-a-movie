@@ -15,5 +15,3 @@ export const movieFormSchema = z.object({
 });
 
 export type MovieFormData = z.infer<typeof movieFormSchema>;
-
-

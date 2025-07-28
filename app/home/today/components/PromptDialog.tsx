@@ -7,13 +7,12 @@ import {
    CarouselNext,
    CarouselPrevious,
 } from "@/app/shared/components/primitives/Carousel";
-import { ControlledInput } from "@/app/shared/components/form-elements/TextInput";
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import { useForm } from "react-hook-form";
 import { Control } from "react-hook-form";
 import {
    movieFormQuestions,
-   Prompt
+   Prompt,
 } from "@/app/shared/lib/constants/movie-prompts";
 import { ControlledSingleSelect } from "@/app/shared/components/form-elements/SingleSelect";
 import { ControlledMultiSelect } from "@/app/shared/components/form-elements/MultiSelect";
@@ -21,12 +20,23 @@ import { ControlledSlider } from "@/app/shared/components/form-elements/SliderIn
 import { ControlledYesNoSelect } from "@/app/shared/components/form-elements/YesNo";
 import { getMovieSummary } from "@/app/home/today/actions";
 import { useRouter } from "next/navigation";
-
+import { ControlledDynamicHeightInput } from "@/app/shared/components/form-elements/DynamicHeightTextInput";
+import { LastPrompt } from "@/app/home/today/components/LastPrompt";
+import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values";
+import { useSession } from "next-auth/react";
 
 export const PromptDialog = () => {
-   const formMethods = useForm<MovieFormData>();
-   const router = useRouter();
+   const { data: session, status } = useSession();
+   
+   const formMethods = useForm<MovieFormData>({
+      defaultValues: defaultMovieFormData
+   });
+   const router = useRouter()
 
+   if (status === "loading") return <p>Loading...</p>;
+   if (!session) return <p>Not signed in</p>;
+
+   formMethods.setValue("userId", session.user?.id)
 
    const prompts = movieFormQuestions.map((question) => {
       return (
@@ -39,36 +49,22 @@ export const PromptDialog = () => {
    });
 
    const handleSubmit = async () => {
-      const values = formMethods.getValues()
-      const result = await getMovieSummary(values)
-      console.log('result', result)
-      router.push("/home/result")
-   }
+      const values = formMethods.getValues();
+      const result = await getMovieSummary(values);
+      console.log("result", result);
+      router.push("/home/today");
+   };
 
    return (
-      <div className="bg-background rounded-[15px] w-[670px] min-h-[420px] shadow-main">
+      <div className="bg-background rounded-[15px] w-[670px] min-h-[700px] shadow-main">
          <Carousel className="flex flex-col">
             <div className="flex justify-between items-center px-4 py-3 h-[55px]">
                <CarouselPrevious />
-               <p className="pt-1 font-header font-medium text-[17px]">
-                  If today were a movie...
-               </p>
                <CarouselNext />
             </div>
-            <CarouselContent className="min-h-[365px] h-fit">
+            <CarouselContent className="h-[645px]">
                {prompts}
-               <CarouselItem>
-                  <div className="border-b opacity-10" />
-                  <div className="flex flex-col w-full h-full pt-4 px-6 bg">
-                     Are you ready for the result?
-                     <button
-                        className="border p-3 w-fit cursor-pointer"
-                        onClick={handleSubmit}
-                     >
-                        Submit
-                     </button>
-                  </div>
-               </CarouselItem>
+               <LastPrompt formMethods={formMethods} handleSubmit={handleSubmit} />
             </CarouselContent>
          </Carousel>
       </div>
@@ -86,7 +82,7 @@ const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
    return (
       <CarouselItem>
          <div className="border-b opacity-10" />
-         <div className="flex flex-col justify-between w-full h-full pt-4 px-6 bg">
+         <div className="flex flex-col justify-between w-full h-full pt-6 px-6 ">
             <div>
                <p className="font-header font-medium text-[35px] leading-10 pb-5">
                   {question.head}
@@ -106,7 +102,7 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
 
    switch (type) {
       case "text":
-         return <ControlledInput fieldName={fieldName} control={control} />;
+         return <StyledInput prompt={prompt} control={control} />;
 
       case "select":
          return (
@@ -130,9 +126,22 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
          return <ControlledSlider fieldName={fieldName} control={control} />;
 
       case "yesno":
-         return <ControlledYesNoSelect control={control} fieldName={fieldName} />;
+         return (
+            <ControlledYesNoSelect control={control} fieldName={fieldName} />
+         );
 
       default:
          return <div>Unknown Type</div>;
    }
+};
+
+const StyledInput = ({ control, prompt }: MoviePromptProps) => {
+   const { fieldName } = prompt;
+   return (
+      <div className="flex flex-col w-full h-[160px] justify-between">
+         <div className="border-t opacity-20" />
+         <ControlledDynamicHeightInput className="text-[22px]" placeholder="Your answer?" fieldName={fieldName} control={control} />
+         <div className="border-t opacity-20" />
+      </div>
+   );
 };

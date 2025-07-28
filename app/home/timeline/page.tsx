@@ -4,6 +4,7 @@ import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { ScrollArea } from "@/app/shared/components/primitives/ScrollArea";
 
 const TimeLinePage = async () => {
+   
    const movies = await prisma.movie.findMany({
       orderBy: {
          date: 'desc'

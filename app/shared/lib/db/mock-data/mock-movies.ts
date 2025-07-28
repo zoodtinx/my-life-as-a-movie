@@ -1,8 +1,19 @@
 function getDateNDaysAgo(n: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() - n);
-  return date.toISOString();
+   const date = new Date();
+   date.setDate(date.getDate() - n);
+   return date.toISOString();
 }
+
+export const mockDemoMovies = {
+  genre: "DARK_COMEDY",
+  logline: "A wedding planner sabotages her clients for Instagram fame.",
+  review: "Savage humor with sharp social commentary.",
+  alternateEnding:
+     "She gets hired by Hollywood to plan celebrity breakups.",
+  sequelIdea: "She plans her own wedding—disaster strikes.",
+  summary: "When love meets likes, chaos follows.",
+  date: new Date().toISOString(),
+};
 
 export const getDemoMovies = (userId: string) => [
    {
@@ -142,15 +153,16 @@ export const getDemoMovies = (userId: string) => [
    },
    {
       genre: "FEEL_GOOD_MUSICAL",
-      logline: "A grumpy landlord turns his building into a surprise musical theater.",
+      logline:
+         "A grumpy landlord turns his building into a surprise musical theater.",
       review: "Unexpectedly heartwarming with show-stopping numbers.",
       alternateEnding: "The tenants take over and form a theater troupe.",
       sequelIdea: "They go on tour, turning cities into stages.",
       summary: "When walls echo with music, hearts open.",
       date: getDateNDaysAgo(12),
       userId,
-    },
-    {
+   },
+   {
       genre: "DARK_COMEDY",
       logline: "An influencer fakes their own kidnapping for clout.",
       review: "Disturbingly hilarious and very on-trend.",
@@ -159,8 +171,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "When likes mean life or death.",
       date: getDateNDaysAgo(13),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMING_OF_AGE",
       logline: "A teen forms a secret poetry club in detention.",
       review: "Tender and rebellious in the best way.",
@@ -169,38 +181,41 @@ export const getDemoMovies = (userId: string) => [
       summary: "Breaking rules to find your voice.",
       date: getDateNDaysAgo(14),
       userId,
-    },
-    {
+   },
+   {
       genre: "ACTION_THRILLER",
-      logline: "An ex-hacker is forced back online when their identity is stolen.",
+      logline:
+         "An ex-hacker is forced back online when their identity is stolen.",
       review: "Fast-paced and clever, though predictable in parts.",
       alternateEnding: "They vanish completely and live off the grid.",
       sequelIdea: "The hacker builds an AI to fight cybercrime.",
       summary: "One wrong click can change everything.",
       date: getDateNDaysAgo(15),
       userId,
-    },
-    {
+   },
+   {
       genre: "SLICE_OF_LIFE",
-      logline: "A barbershop becomes the heart of neighborhood drama and dreams.",
+      logline:
+         "A barbershop becomes the heart of neighborhood drama and dreams.",
       review: "Quietly profound with authentic characters.",
       alternateEnding: "The shop becomes a community center.",
       sequelIdea: "They open branches across the city.",
       summary: "Ordinary days, extraordinary connections.",
       date: getDateNDaysAgo(16),
       userId,
-    },
-    {
+   },
+   {
       genre: "HORROR",
-      logline: "Every night, a child’s drawings come alive and hunt the family.",
+      logline:
+         "Every night, a child’s drawings come alive and hunt the family.",
       review: "Creepy, imaginative, and deeply unsettling.",
       alternateEnding: "The parents learn the drawings are warnings.",
       sequelIdea: "A new family inherits the cursed sketchbook.",
       summary: "Childhood imagination becomes a nightmare.",
       date: getDateNDaysAgo(17),
       userId,
-    },
-    {
+   },
+   {
       genre: "ROMANTIC_DRAMA",
       logline: "A woman falls in love with the voice on a meditation app.",
       review: "Sweet and modern, with an unexpected emotional punch.",
@@ -209,8 +224,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Sometimes, love is just a voice away.",
       date: getDateNDaysAgo(18),
       userId,
-    },
-    {
+   },
+   {
       genre: "ADVENTURE_FANTASY",
       logline: "A retired knight starts a bed-and-breakfast for dragons.",
       review: "Whimsical and heartwarming with great world-building.",
@@ -219,8 +234,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Where dragons come to rest and legends to relax.",
       date: getDateNDaysAgo(19),
       userId,
-    },
-    {
+   },
+   {
       genre: "MYSTERY_SUSPENSE",
       logline: "A city wakes up to find every clock frozen at the same time.",
       review: "Haunting and clever with a chilling twist.",
@@ -229,8 +244,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "When time stops, secrets surface.",
       date: getDateNDaysAgo(20),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMEDY_DRAMA",
       logline: "A failed magician starts performing at kids’ therapy sessions.",
       review: "Heartfelt and funny with great character depth.",
@@ -239,48 +254,52 @@ export const getDemoMovies = (userId: string) => [
       summary: "Sometimes the biggest trick is healing.",
       date: getDateNDaysAgo(21),
       userId,
-    },
-    {
+   },
+   {
       genre: "DARK_COMEDY",
-      logline: "An HR manager turns employee terminations into performance art.",
+      logline:
+         "An HR manager turns employee terminations into performance art.",
       review: "Wickedly funny, slightly terrifying.",
       alternateEnding: "The manager is hired by a reality TV show.",
       sequelIdea: "They start a motivational speaking tour about layoffs.",
       summary: "When job cuts become a spectacle.",
       date: getDateNDaysAgo(22),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMING_OF_AGE",
-      logline: "A teen builds a robot to impress their crush, but it develops feelings too.",
+      logline:
+         "A teen builds a robot to impress their crush, but it develops feelings too.",
       review: "Funny, heartfelt, and surprisingly deep.",
       alternateEnding: "The robot runs away to find love.",
       sequelIdea: "The teen becomes a famous AI creator.",
       summary: "First love meets first code.",
       date: getDateNDaysAgo(23),
       userId,
-    },
-    {
+   },
+   {
       genre: "ACTION_THRILLER",
-      logline: "An amnesiac wakes up in a self-driving car with a bomb set to detonate.",
+      logline:
+         "An amnesiac wakes up in a self-driving car with a bomb set to detonate.",
       review: "Edge-of-your-seat action with tech paranoia.",
       alternateEnding: "The car gains sentience and helps him escape.",
       sequelIdea: "He hunts the people who built the car.",
       summary: "When your ride becomes your prison.",
       date: getDateNDaysAgo(24),
       userId,
-    },
-    {
+   },
+   {
       genre: "SLICE_OF_LIFE",
-      logline: "A lonely librarian starts leaving notes in books for strangers.",
+      logline:
+         "A lonely librarian starts leaving notes in books for strangers.",
       review: "Soft, warm, and hopeful.",
       alternateEnding: "The notes turn into a citywide game of connection.",
       sequelIdea: "They start a global kindness movement.",
       summary: "Small notes, big changes.",
       date: getDateNDaysAgo(25),
       userId,
-    },
-    {
+   },
+   {
       genre: "FEEL_GOOD_MUSICAL",
       logline: "A janitor turns the night shift into a secret dance party.",
       review: "Pure joy with dazzling choreography.",
@@ -289,8 +308,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Cleaning floors, breaking norms.",
       date: getDateNDaysAgo(26),
       userId,
-    },
-    {
+   },
+   {
       genre: "HORROR",
       logline: "A haunted VR game traps players in their worst memories.",
       review: "Inventive and terrifying with strong psychological horror.",
@@ -299,38 +318,41 @@ export const getDemoMovies = (userId: string) => [
       summary: "Virtual nightmares become real.",
       date: getDateNDaysAgo(27),
       userId,
-    },
-    {
+   },
+   {
       genre: "ROMANTIC_DRAMA",
-      logline: "Two patients in a recovery center fall in love through anonymous letters.",
+      logline:
+         "Two patients in a recovery center fall in love through anonymous letters.",
       review: "Bittersweet and tender.",
       alternateEnding: "One dies, leaving behind a final letter of hope.",
       sequelIdea: "The survivor starts a letter therapy program.",
       summary: "Healing hearts, one note at a time.",
       date: getDateNDaysAgo(28),
       userId,
-    },
-    {
+   },
+   {
       genre: "MYSTERY_SUSPENSE",
-      logline: "An artist’s paintings start depicting crimes before they happen.",
+      logline:
+         "An artist’s paintings start depicting crimes before they happen.",
       review: "Creepy, tense, and full of twists.",
       alternateEnding: "The artist is painting their own future murder.",
       sequelIdea: "A copycat starts forging predictive paintings.",
       summary: "Art that kills before the brush dries.",
       date: getDateNDaysAgo(29),
       userId,
-    },
-    {
+   },
+   {
       genre: "ADVENTURE_FANTASY",
-      logline: "A talking map guides a lonely traveler through a cursed kingdom.",
+      logline:
+         "A talking map guides a lonely traveler through a cursed kingdom.",
       review: "Epic and heartfelt with clever humor.",
       alternateEnding: "The map sacrifices itself to save the traveler.",
       sequelIdea: "The traveler becomes the map for someone else.",
       summary: "Not all guides are alive—but some care the most.",
       date: getDateNDaysAgo(30),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMEDY_DRAMA",
       logline: "A therapist starts using stand-up comedy in sessions.",
       review: "Smart, funny, and surprisingly moving.",
@@ -339,8 +361,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Laughing through the pain, literally.",
       date: getDateNDaysAgo(31),
       userId,
-    },
-    {
+   },
+   {
       genre: "FEEL_GOOD_MUSICAL",
       logline: "A shy accountant turns their spreadsheets into rap songs.",
       review: "Quirky and fun, though niche humor might not hit for all.",
@@ -349,18 +371,19 @@ export const getDemoMovies = (userId: string) => [
       summary: "Balancing books while dropping beats.",
       date: getDateNDaysAgo(32),
       userId,
-    },
-    {
+   },
+   {
       genre: "ACTION_THRILLER",
-      logline: "A flight attendant stops a hijacking mid-air using only snacks and charm.",
+      logline:
+         "A flight attendant stops a hijacking mid-air using only snacks and charm.",
       review: "Tense with comedic relief in the right places.",
       alternateEnding: "She ends up recruited by a secret agency.",
       sequelIdea: "Her next flight is a covert mission.",
       summary: "When peanuts become weapons.",
       date: getDateNDaysAgo(33),
       userId,
-    },
-    {
+   },
+   {
       genre: "DARK_COMEDY",
       logline: "A man starts attending strangers’ funerals for free food.",
       review: "Dark, ironic, and weirdly relatable.",
@@ -369,38 +392,42 @@ export const getDemoMovies = (userId: string) => [
       summary: "Crashing funerals for a taste of life.",
       date: getDateNDaysAgo(34),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMING_OF_AGE",
-      logline: "A teen finds their voice by starting an illegal pirate radio station.",
+      logline:
+         "A teen finds their voice by starting an illegal pirate radio station.",
       review: "Empowering and nostalgic, with great music.",
       alternateEnding: "The station becomes legal after a viral campaign.",
       sequelIdea: "They start a podcast empire as adults.",
       summary: "Broadcasting rebellion, one song at a time.",
       date: getDateNDaysAgo(35),
       userId,
-    },
-    {
+   },
+   {
       genre: "ROMANTIC_DRAMA",
-      logline: "Two rival bookshop owners fight for customers and fall for each other.",
+      logline:
+         "Two rival bookshop owners fight for customers and fall for each other.",
       review: "Classic setup done with modern charm.",
       alternateEnding: "They merge shops and start a literary café.",
-      sequelIdea: "They host an annual book festival that sparks more love stories.",
+      sequelIdea:
+         "They host an annual book festival that sparks more love stories.",
       summary: "Love written in the margins.",
       date: getDateNDaysAgo(36),
       userId,
-    },
-    {
+   },
+   {
       genre: "HORROR",
-      logline: "An elevator gets stuck between floors with something alive in the shadows.",
+      logline:
+         "An elevator gets stuck between floors with something alive in the shadows.",
       review: "Claustrophobic and terrifying.",
       alternateEnding: "The elevator isn’t broken—it’s hunting them.",
       sequelIdea: "A whole building becomes sentient.",
       summary: "Some rides never end.",
       date: getDateNDaysAgo(37),
       userId,
-    },
-    {
+   },
+   {
       genre: "SLICE_OF_LIFE",
       logline: "An elderly man starts a morning jogging group to make friends.",
       review: "Heartwarming and real.",
@@ -409,8 +436,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Friendship one step at a time.",
       date: getDateNDaysAgo(38),
       userId,
-    },
-    {
+   },
+   {
       genre: "ADVENTURE_FANTASY",
       logline: "A baker discovers their bread has magical powers.",
       review: "Sweet and enchanting with cozy vibes.",
@@ -419,8 +446,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Magic, yeast, and destiny.",
       date: getDateNDaysAgo(39),
       userId,
-    },
-    {
+   },
+   {
       genre: "MYSTERY_SUSPENSE",
       logline: "Every night, a woman wakes up in a different stranger’s life.",
       review: "Mind-bending and gripping.",
@@ -429,88 +456,97 @@ export const getDemoMovies = (userId: string) => [
       summary: "When identity becomes a ticking clock.",
       date: getDateNDaysAgo(40),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMEDY_DRAMA",
-      logline: "Two rival ice cream truck drivers battle for the hottest route.",
+      logline:
+         "Two rival ice cream truck drivers battle for the hottest route.",
       review: "Sweet and silly with heartfelt undertones.",
       alternateEnding: "They merge businesses and fall in love.",
       sequelIdea: "They take the rivalry to food festivals worldwide.",
       summary: "Chill vibes with a sprinkle of chaos.",
       date: getDateNDaysAgo(41),
       userId,
-    },
-    {
+   },
+   {
       genre: "FEEL_GOOD_MUSICAL",
-      logline: "A group of exhausted nurses turns the hospital into a musical stage.",
+      logline:
+         "A group of exhausted nurses turns the hospital into a musical stage.",
       review: "Inspiring and fun with powerful messages.",
-      alternateEnding: "They take the show to raise funds for better healthcare.",
+      alternateEnding:
+         "They take the show to raise funds for better healthcare.",
       sequelIdea: "They tour other hospitals spreading joy.",
       summary: "Healing through harmony.",
       date: getDateNDaysAgo(42),
       userId,
-    },
-    {
+   },
+   {
       genre: "DARK_COMEDY",
       logline: "A hitman starts a children’s puppet show as a cover.",
       review: "Absurd, hilarious, and violent in equal measure.",
-      alternateEnding: "The puppets become a viral sensation, complicating his job.",
+      alternateEnding:
+         "The puppets become a viral sensation, complicating his job.",
       sequelIdea: "He takes the show international while hiding bodies.",
       summary: "Strings attached in all the wrong places.",
       date: getDateNDaysAgo(43),
       userId,
-    },
-    {
+   },
+   {
       genre: "ACTION_THRILLER",
-      logline: "A chef must save a restaurant full of hostages during a dinner rush.",
+      logline:
+         "A chef must save a restaurant full of hostages during a dinner rush.",
       review: "Intense, unique setting for action fans.",
       alternateEnding: "The chef sacrifices the kitchen to save the diners.",
       sequelIdea: "He becomes a culinary bodyguard for celebrity chefs.",
       summary: "Knife skills put to deadly use.",
       date: getDateNDaysAgo(44),
       userId,
-    },
-    {
+   },
+   {
       genre: "HORROR",
       logline: "A baby monitor starts broadcasting from another dimension.",
       review: "Chilling and fresh take on parenting horror.",
-      alternateEnding: "The parents discover their child was swapped at birth by entities.",
+      alternateEnding:
+         "The parents discover their child was swapped at birth by entities.",
       sequelIdea: "The entity wants to raise the human baby in its world.",
       summary: "Every sound has a secret.",
       date: getDateNDaysAgo(45),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMING_OF_AGE",
-      logline: "A high school gamer starts a real-life treasure hunt to prove themselves.",
+      logline:
+         "A high school gamer starts a real-life treasure hunt to prove themselves.",
       review: "Fun and heartfelt with strong characters.",
       alternateEnding: "The treasure turns out to be a message of self-worth.",
       sequelIdea: "They organize global gaming treasure hunts.",
       summary: "Leveling up in life, not just the game.",
       date: getDateNDaysAgo(46),
       userId,
-    },
-    {
+   },
+   {
       genre: "SLICE_OF_LIFE",
-      logline: "A single dad runs a dog-walking business to spend more time with his kid.",
+      logline:
+         "A single dad runs a dog-walking business to spend more time with his kid.",
       review: "Heartwarming with gentle humor.",
       alternateEnding: "The business turns into a full community hub.",
       sequelIdea: "They franchise the dog-walking service.",
       summary: "Love and loyalty on every leash.",
       date: getDateNDaysAgo(47),
       userId,
-    },
-    {
+   },
+   {
       genre: "ROMANTIC_DRAMA",
-      logline: "Two strangers share an umbrella during a storm and never exchange names.",
+      logline:
+         "Two strangers share an umbrella during a storm and never exchange names.",
       review: "Poetic and emotional with lingering tension.",
       alternateEnding: "They find each other years later at another storm.",
       sequelIdea: "They start a romance advice podcast together.",
       summary: "A love story born from rain.",
       date: getDateNDaysAgo(48),
       userId,
-    },
-    {
+   },
+   {
       genre: "MYSTERY_SUSPENSE",
       logline: "A hotel only has guests who all look like the same person.",
       review: "Creepy and mind-bending with surreal tones.",
@@ -519,8 +555,8 @@ export const getDemoMovies = (userId: string) => [
       summary: "Checking in to your own nightmare.",
       date: getDateNDaysAgo(49),
       userId,
-    },
-    {
+   },
+   {
       genre: "ADVENTURE_FANTASY",
       logline: "A fisherman reels in a mermaid who wants to become a pirate.",
       review: "Funny and fantastical with vibrant settings.",
@@ -529,15 +565,16 @@ export const getDemoMovies = (userId: string) => [
       summary: "When the catch of the day changes destiny.",
       date: getDateNDaysAgo(50),
       userId,
-    },
-    {
+   },
+   {
       genre: "COMEDY_DRAMA",
       logline: "An overworked lawyer starts doing stand-up at night to cope.",
       review: "Sharp, funny, and painfully honest.",
-      alternateEnding: "They quit law and open a comedy club for stressed professionals.",
+      alternateEnding:
+         "They quit law and open a comedy club for stressed professionals.",
       sequelIdea: "The club becomes a movement for mental health.",
       summary: "Finding humor in the chaos of life.",
       date: getDateNDaysAgo(51),
       userId,
-    }
+   },
 ];

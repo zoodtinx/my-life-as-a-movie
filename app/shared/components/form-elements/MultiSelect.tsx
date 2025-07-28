@@ -3,11 +3,8 @@
 import React from "react";
 import { cn } from "@/app/shared/utils";
 import { Controller, Control, FieldValues, Path } from "react-hook-form";
+import { Option } from "@/app/shared/lib/constants/movie-prompts";
 
-type Option = {
-   value: string;
-   label: string;
-};
 
 type MultiSelectProps = {
    options: Option[];
@@ -29,18 +26,15 @@ const MultiSelectOption: React.FC<MultiSelectOptionProps> = ({
    <button
       type="button"
       onClick={() => onToggle(option.value)}
-      className="flex items-center"
+      className={cn(
+         "flex flex-col items-start w-full h-auto px-3 py-[4px] border rounded-[7px] text-left transition-colors duration-200",
+         selected
+            ? "bg-secondary text-white border-transparent"
+            : "hover:bg-primary/5 border-primary/20 text-primary duration-75"
+      )}
    >
-      <span
-         className={cn(
-            "px-3 py-1 rounded-[7px] cursor-pointer transition-colors select-none",
-            selected
-               ? "bg-primary text-white border border-primary"
-               : "border border-dashed border-white/30 text-primary"
-         )}
-      >
-         {option.label}
-      </span>
+      <p className="whitespace-nowrap font-header font-medium">{option.label}</p>
+      {option.description && <p className="text-sm">{option.description}</p>}
    </button>
 );
 
@@ -58,16 +52,16 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
    };
 
    return (
-      <div className="flex flex-wrap gap-2 w-fit text-[19px]">
-         {options.map((option) => (
-            <MultiSelectOption
-               key={option.value}
-               option={option}
-               selected={selectedValues.includes(option.value)}
-               onToggle={toggleValue}
-            />
-         ))}
-      </div>
+      <div className="grid grid-cols-2 gap-2 w-full text-[19px]">
+      {options.map((option) => (
+        <MultiSelectOption
+          key={option.value}
+          option={option}
+          selected={selectedValues.includes(option.value)}
+          onToggle={toggleValue}
+        />
+      ))}
+    </div>
    );
 };
 

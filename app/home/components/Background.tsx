@@ -37,7 +37,7 @@ export const Background = () => {
 
       {/* Grain/noise overlay */}
       <div
-        className="absolute inset-0 bg-repeat opacity-20 pointer-events-none z-10"
+        className="absolute inset-0 bg-repeat opacity-30 pointer-events-none z-10"
         style={{
           backgroundImage: "url('/grain.png')",
           backgroundSize: "70px 70px"
