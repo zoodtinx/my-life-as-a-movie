@@ -8,13 +8,22 @@ import {
    FilmSlate,
    TrashSimple,
 } from "phosphor-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PageButton } from "@/app/shared/components/CustomButton";
+import { deleteMovie } from "@/app/home/result/actions";
 
 export const Footer = () => {
    const router = useRouter();
+   const searchParams = useSearchParams();
+   const id = searchParams.get("id");
 
    const handleQuit = () => {
+      router.push("/home/today");
+   };
+
+   const handleDelete = async () => {
+      if (!id) return;
+      await deleteMovie(id);
       router.push("/home/today");
    };
 
@@ -31,6 +40,7 @@ export const Footer = () => {
                icon={<TrashSimple />}
                iconPosition="left"
                text="Delete"
+               onClick={handleDelete}
             />
          </div>
          <div className="flex gap-8">

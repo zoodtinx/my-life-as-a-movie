@@ -24,6 +24,7 @@ import { ControlledDynamicHeightInput } from "@/app/shared/components/form-eleme
 import { LastPrompt } from "@/app/home/today/components/LastPrompt";
 import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export const PromptDialog = () => {
    const { data: session, status } = useSession();
@@ -33,10 +34,14 @@ export const PromptDialog = () => {
    });
    const router = useRouter()
 
+   useEffect(() => {
+      if (session?.user?.id) {
+         formMethods.setValue("userId", session.user.id);
+      }
+   }, [session?.user?.id, formMethods]);
+
    if (status === "loading") return <p>Loading...</p>;
    if (!session) return <p>Not signed in</p>;
-
-   formMethods.setValue("userId", session.user?.id)
 
    const prompts = movieFormQuestions.map((question) => {
       return (
@@ -123,7 +128,7 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
          );
 
       case "slider":
-         return <ControlledSlider fieldName={fieldName} control={control} />;
+         return <ControlledSlider fieldName={fieldName} control={control} options={options!} />;
 
       case "yesno":
          return (

@@ -148,6 +148,19 @@ export const movieFormQuestions: Prompt[] = [
          description:
             "On a scale from calm to chaos, how intense was today? Think in terms of emotional highs, sudden turns, or how reactive your day felt.",
       },
+      options: [
+         {
+            label: "Peaceful",
+            value: "peaceful",
+            description: "The day is peaceful and nothing crazy happened",
+         },
+         {
+            label: "Chaotic",
+            value: "chaotic",
+            description: "The day is crazy like a sky high rollercoaster",
+         },
+      ],
+
       type: "slider",
    },
    {
@@ -188,6 +201,18 @@ export const movieFormQuestions: Prompt[] = [
          description:
             "Was your day a slow burn or a nonstop action sequence? This slider captures how fast (or slow) time felt, not how much got done.",
       },
+      options: [
+         {
+            label: "Peaceful",
+            value: "peaceful",
+            description: "The day is peaceful and nothing crazy happened",
+         },
+         {
+            label: "Chaotic",
+            value: "chaotic",
+            description: "The day is crazy like a sky high rollercoaster",
+         },
+      ],
       type: "slider",
    },
    {

@@ -1,3 +1,4 @@
+import { AccountSettings } from "@/app/home/settings/components/AccountSettings";
 import React from "react";
 
 const SettingsPage = () => {
@@ -21,7 +22,7 @@ const SettingsPage = () => {
                   <p className="font-header font-medium text-[30px] w-[300px] text-right">
                      Account Settings
                   </p>
-                  <p>Summarization & Insights Tone</p>
+                  <AccountSettings />
                </div>
             </div>
          </div>

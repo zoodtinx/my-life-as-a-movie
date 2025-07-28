@@ -2,10 +2,18 @@ import prisma from "@/app/shared/lib/db/prisma";
 import { Movie } from "@prisma/client";
 import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { ScrollArea } from "@/app/shared/components/primitives/ScrollArea";
+import { auth } from "@/app/auth";
+
 
 const TimeLinePage = async () => {
-   
+   const session = await auth()
+ 
+   if (!session?.user) return null
+
    const movies = await prisma.movie.findMany({
+      where: {
+         userId: session.user.id
+      },
       orderBy: {
          date: 'desc'
       }

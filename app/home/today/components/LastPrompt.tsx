@@ -2,12 +2,13 @@
 
 import { PageButton } from "@/app/shared/components/CustomButton";
 import { CarouselItem } from "@/app/shared/components/primitives/Carousel";
+import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import { ArrowRight } from "phosphor-react";
 import { UseFormReturn, useWatch } from "react-hook-form";
 
 interface LastPromptProps {
    handleSubmit: () => void;
-   formMethods: UseFormReturn;
+   formMethods: UseFormReturn<MovieFormData>;
 }
 
 export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {

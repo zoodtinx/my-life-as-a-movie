@@ -12,6 +12,7 @@ export const movieFormSchema = z.object({
    secondTake: z.boolean(),
    finalLine: z.string().min(1),
    endCreditsGenre: z.string().min(1),
+   userId: z.string().min(1),
 });
 
 export type MovieFormData = z.infer<typeof movieFormSchema>;

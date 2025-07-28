@@ -29,7 +29,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }),
    ],
    pages: {
-      signIn: "/login",
+      signIn: "/welcome",
    },
    session: {
       strategy: "jwt", // Use JWT instead of database sessions
@@ -80,10 +80,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       async redirect({ url, baseUrl }) {
          console.log("url", url);
-         if (url && url.includes("/login")) {
-            return `${baseUrl}/dashboard`;
+         if (url && url.includes("/welcome")) {
+            return `${baseUrl}/home`;
          }
          return url.startsWith(baseUrl) ? url : baseUrl;
       },
    },
 });
+
+
+
