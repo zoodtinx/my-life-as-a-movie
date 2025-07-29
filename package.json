@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "db:clear": "tsx app/shared/lib/db/scripts.ts",
-    "db:seed": "tsx app/shared/lib/db/scripts.ts seed"
+    "db:seed": "tsx app/shared/lib/db/scripts.ts seed",
+    "test:ai": "tsx app/tests/test-ai.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.10.0",
@@ -26,13 +27,14 @@
     "luxon": "^3.7.1",
     "next": "15.4.2",
     "next-auth": "^5.0.0-beta.29",
+    "openai": "^5.10.2",
     "phosphor-react": "^1.4.1",
     "prisma": "^6.12.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.60.0",
     "tailwind-merge": "^3.3.1",
-    "zod": "^4.0.5"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -10,6 +10,7 @@ export function createDemoSession() {
          data: {
             name: demoUser.name,
             email: demoUser.email,
+            personalContext: demoUser.personalContext
          },
       });
 

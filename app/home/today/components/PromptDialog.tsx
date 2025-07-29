@@ -61,7 +61,7 @@ export const PromptDialog = () => {
       setIsLoading(true);
       const result = await getMovieSummary(values);
       console.log("result", result);
-      router.push("/home/today");
+      router.push(`/home/today?bg=${result.data.genre}`);
    };
 
    return (

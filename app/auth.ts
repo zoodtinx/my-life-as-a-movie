@@ -45,6 +45,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             create: {
                email: user.email,
                name: user.name ?? "",
+               personalContext: ""
             },
          });
 

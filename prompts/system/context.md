@@ -1,0 +1,3 @@
+MLAM (My Life As a Movie) App Description
+
+MLAM is a self-reflection and emotional wellness app that helps users describe their day as if it were a movie. Users fill out a form capturing symbolic elements of storytelling (e.g. setting, archetype, villain, cinematography) to represent how they experienced the day emotionally, mentally, and socially. The app converts this input into a movie-style summary, consisting of a genre classification, a short logline, a long-form review, a therapeutic sequel idea, and a curated list of similar real-world movies that mirror the user’s experience.

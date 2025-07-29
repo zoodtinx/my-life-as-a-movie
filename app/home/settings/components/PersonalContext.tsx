@@ -1,12 +1,20 @@
 "use client";
 
+import { editPersonalContext } from "@/app/home/settings/actions";
 import { cn } from "@/app/shared/utils";
+import { useSession } from "next-auth/react";
+import { CircleNotch } from "phosphor-react";
 import React, { useState } from "react";
 
 export const PersonalContext = () => {
+   const { data: session, status } = useSession();
    const [isEditing, setIsEditing] = useState(false);
    const [text, setText] = useState("");
    const [tempText, setTempText] = useState(text);
+   
+   if (status === "loading")
+      return <CircleNotch className="animate-spin size-[40px] text-primary" />;
+   if (!session) return <p>Not signed in</p>;
 
    const handleSubmit = () => {
       setText(tempText);
@@ -16,6 +24,10 @@ export const PersonalContext = () => {
    const handleDiscard = () => {
       setTempText(text);
       setIsEditing(false);
+   };
+
+   const handleEditPersonalContext = () => {
+      editPersonalContext(session.user?.id, "mock");
    };
 
    return (

@@ -1,33 +1,29 @@
-import { AccountSettings } from "@/app/home/settings/components/AccountSettings";
-import { PersonalContext } from "@/app/home/settings/components/PersonalContext";
+import { auth } from "@/app/auth";
+import SettingsPageContent from "@/app/home/settings/content";
+import prisma from "@/app/shared/lib/db/prisma";
 import { SessionProvider } from "next-auth/react";
-import React from "react";
+import { id } from "zod/v4/locales";
 
-const SettingsPage = () => {
+const SettingsPage = async () => {
+   const session = await auth();
+
+   if (!session?.user) return null;
+
+   const userData = await prisma.user.findUnique({
+      where: {
+         id: session.user.id,
+      },
+   });
+
+   if (!userData) {
+      return 'unexpected error'
+   }
+
    return (
       <div className="flex flex-col justify-between items-center w-full h-full px-20 pt-9 pb-0">
          <div className="flex flex-col grow gap-5 w-full justify-center items-center h-full">
             <SessionProvider>
-               <div className="flex flex-col gap-5">
-                  {/* <div className="flex items-baseline gap-10">
-                     <p className="font-header font-medium text-[30px] w-[300px] text-right">
-                        Result Options
-                     </p>
-                     <p>Summarization & Insights Tone</p>
-                  </div> */}
-                  <div className="flex items-start gap-10">
-                     <p className="font-header font-medium text-[30px] w-[300px] text-right">
-                        Personal Context
-                     </p>
-                     <PersonalContext />
-                  </div>
-                  <div className="flex items-baseline gap-10">
-                     <p className="font-header font-medium text-[30px] w-[300px] text-right">
-                        Account Settings
-                     </p>
-                     <AccountSettings />
-                  </div>
-               </div>
+               <SettingsPageContent user={userData} />
             </SessionProvider>
          </div>
       </div>

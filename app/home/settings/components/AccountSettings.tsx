@@ -4,6 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import {
    exportEntriesCsv,
    deleteAllEntries,
+   deleteAccount,
 } from "@/app/home/settings/actions";
 import { CircleNotch } from "phosphor-react";
 
@@ -36,6 +37,11 @@ export const AccountSettings = () => {
       deleteAllEntries(session.user?.id);
    };
 
+   const handleDeleteUser = async () => {
+    await deleteAccount(session.user?.id);
+      signOut();
+   };
+
    return (
       <div className="flex flex-col items-start font-header font-medium text-[20px] gap-2">
          <button onClick={handleExport} className="cursor-pointer">
@@ -46,7 +52,9 @@ export const AccountSettings = () => {
             Delete all entries
          </button>
          <div className="w-[450px] border-b border-b-primary/20" />
-         <button className="cursor-pointer">Delete account</button>
+         <button onClick={handleDeleteUser} className="cursor-pointer">
+            Delete account
+         </button>
          <div className="w-[450px] border-b border-b-primary/20" />
          <button className="cursor-pointer" onClick={handleSignOut}>
             Sign out

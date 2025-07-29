@@ -20,7 +20,6 @@ export type Genre =
   | "DARK_COMEDY"
   | "HORROR"
   | "COMING_OF_AGE"
-  | "SLICE_OF_LIFE"
   | "ACTION_THRILLER"
   | "MYSTERY_SUSPENSE"
   | "ROMANTIC_DRAMA"

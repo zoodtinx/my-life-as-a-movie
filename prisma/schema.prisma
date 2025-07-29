@@ -18,28 +18,28 @@ model User {
   name            String
   email           String          @unique
   personalContext String
-  movies          Movie[]
+  movies          Movie[]  
   weeklySummary   WeeklySummary[]
   createdAt       DateTime        @default(now())
 }
 
 model Movie {
   id              String   @id @default(uuid())
-  user            User     @relation(fields: [userId], references: [id])
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId          String
   genre           String
   logline         String
   review          String?
-  alternateEnding String?
   sequelIdea      String?
-  summary         String?
+  similarMovie   Json?    
+  summary         String?  
   date            String
   createdAt       DateTime @default(now())
 }
 
 model WeeklySummary {
   id                String   @id @default(cuid())
-  user              User     @relation(fields: [userId], references: [id])
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId            String
   week              String
   headline          String
