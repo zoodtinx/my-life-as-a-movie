@@ -15,80 +15,93 @@ export const NavBar = () => {
             <MenuBar />
          </div>
          <div className="w-1/3 flex justify-end items-center">
-         <SettingsMenu />
+            <SettingsMenu />
          </div>
       </nav>
    );
 };
 
 const MenuBar = () => {
+   const router = useRouter();
+   const searchParams = useSearchParams();
+
+   const handleClick = (menu: string) => {
+      const newParams = new URLSearchParams(searchParams.toString());
+
+      if (menu === "today") {
+         newParams.set("bg", "base");
+         router.push(`/home/${menu}?${newParams.toString()}`);
+      } else {
+        newParams.set("bg", "settings");
+        router.push(`/home/${menu}?${newParams.toString()}`);
+      }
+   };
+
    return (
       <ul className="flex gap-4 text-sm text-muted-foreground font-header font-medium">
-         <MenuItem>Today</MenuItem>
-         <div className="flex py-2">
-            <div className="border-r-1 border-primary" />
-         </div>
-         <MenuItem>Timeline</MenuItem>
-         <div className="flex py-2">
-            <div className="border-r-1 border-primary" />
-         </div>
-         <MenuItem>Insights</MenuItem>
+         <MenuItem menu="Today" onClick={handleClick} />
+         <Divider />
+         <MenuItem menu="Timeline" onClick={handleClick} />
+         <Divider />
+         <MenuItem menu="Insights" onClick={handleClick} />
       </ul>
    );
 };
 
-const MenuItem = ({ children }: { children: string }) => {
-   const router = useRouter();
-   const searchParams = useSearchParams();
+const MenuItem = ({
+   menu,
+   onClick,
+}: {
+   menu: string;
+   onClick: (menu: string) => void;
+}) => {
    const pathName = usePathname();
-   const menuLowercase = children.toLowerCase();
+   const menuLowercase = menu.toLowerCase();
    const isActive = pathName.includes(menuLowercase);
- 
-   const handleClick = (e: React.MouseEvent) => {
-     e.preventDefault();
-     const newParams = new URLSearchParams(searchParams.toString());
-     newParams.set('bg', 'base');
-     router.push(`/home/${menuLowercase}?${newParams.toString()}`);
-   };
- 
-   return (
-     <a
-       href={`/${menuLowercase}?${searchParams.toString()}`}
-       onClick={handleClick}
-       className={cn(
-         "cursor-pointer text-primary px-5 text-center rounded-md text-[22px]",
-         isActive && "bg-primary text-white"
-       )}
-     >
-       {children}
-     </a>
-   );
- };
 
- const SettingsMenu = () => {
+   return (
+      <button
+         className={cn(
+            "cursor-pointer text-primary px-5 text-center rounded-md text-[22px]",
+            isActive && "bg-primary text-white"
+         )}
+         onClick={() => onClick(menuLowercase)}
+      >
+         {menu}
+      </button>
+   );
+};
+
+const Divider = () => (
+   <div className="flex py-2">
+      <div className="border-r border-primary" />
+   </div>
+);
+
+const SettingsMenu = () => {
    const router = useRouter();
    const searchParams = useSearchParams();
    const pathName = usePathname();
-   const menuLowercase = 'settings'
+   const menuLowercase = "settings";
    const isActive = pathName.includes(menuLowercase);
- 
+
    const handleClick = (e: React.MouseEvent) => {
-     e.preventDefault();
-     const newParams = new URLSearchParams(searchParams.toString());
-     newParams.set('bg', 'settings');
-     router.push(`/home/${menuLowercase}?${newParams.toString()}`);
+      e.preventDefault();
+      const newParams = new URLSearchParams(searchParams.toString());
+      newParams.set("bg", "settings");
+      router.push(`/home/${menuLowercase}`);
    };
- 
+
    return (
-     <a
-       href={`/${menuLowercase}?${searchParams.toString()}`}
-       onClick={handleClick}
-       className={cn(
-         "cursor-pointer text-primary text-center rounded-md p-1",
-         isActive && "bg-primary text-white"
-       )}
-     >
-       <SlidersHorizontal className="size-8" />
-     </a>
+      <a
+         href={`/${menuLowercase}?${searchParams.toString()}`}
+         onClick={handleClick}
+         className={cn(
+            "cursor-pointer text-primary text-center rounded-md p-1",
+            isActive && "bg-primary text-white"
+         )}
+      >
+         <SlidersHorizontal className="size-8" />
+      </a>
    );
- };
+};

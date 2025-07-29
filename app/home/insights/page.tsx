@@ -19,7 +19,7 @@ const InsightsPage = async () => {
    
    return (
       <ScrollArea className="h-[calc(100vh-80px)]">
-         <div className="flex flex-col justify-between items-center w-full h-full px-20 py-[90px]">
+         <div className="flex flex-col justify-between items-center w-full h-full px-20 py-[90px] fade-up-fast">
             <div className="flex flex-col items-center grow gap-10 w-full">
                <div className="text-[40px] font-header font-medium leading-snug">
                   <p className="text-center w-[650px]">

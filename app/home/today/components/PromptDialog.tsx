@@ -25,6 +25,7 @@ import { LastPrompt } from "@/app/home/today/components/LastPrompt";
 import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
+import { CircleNotch } from "phosphor-react";
 
 export const PromptDialog = () => {
    const { data: session, status } = useSession();
@@ -40,7 +41,7 @@ export const PromptDialog = () => {
       }
    }, [session?.user?.id, formMethods]);
 
-   if (status === "loading") return <p>Loading...</p>;
+   if (status === "loading") return <CircleNotch className="animate-spin size-[40px] text-primary" />;
    if (!session) return <p>Not signed in</p>;
 
    const prompts = movieFormQuestions.map((question) => {

@@ -57,7 +57,7 @@ export const Footer = ({ movieId }: { movieId: string }) => {
 
    const handleDeleteMovie = () => {
       deleteMovie(movieId);
-      router.push("/home/prompt");
+      router.push("/home");
    };
 
    return (

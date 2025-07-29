@@ -1,12 +1,7 @@
 "use client";
 
-import React from "react";
 import {
-   ArrowLeft,
-   ArrowsCounterClockwise,
-   Export,
-   FilmSlate,
-   TrashSimple,
+   ArrowLeft, Export, TrashSimple
 } from "phosphor-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PageButton } from "@/app/shared/components/CustomButton";

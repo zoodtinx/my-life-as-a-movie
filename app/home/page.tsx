@@ -1,9 +1,7 @@
-import React from 'react'
+import { redirect } from "next/navigation";
 
-const homePage = () => {
-  return (
-    <div>homePage</div>
-  )
-}
+const HomePage = () => {
+  redirect("/home/today?bg=base");
+};
 
-export default homePage
+export default HomePage;

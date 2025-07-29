@@ -16,19 +16,19 @@ export const mockDemoMovies = {
 };
 
 export const getDemoMovies = (userId: string) => [
-   {
-      genre: "MYSTERY_SUSPENSE",
-      logline:
-         "A blind pianist notices every murder in town happens after her performances.",
-      review: "Chilling and original, though the pacing dips midway.",
-      alternateEnding:
-         "She’s revealed as the mastermind using music as a signal.",
-      sequelIdea:
-         "She trains a prodigy who unknowingly continues the killings.",
-      summary: "Music hides secrets darker than silence.",
-      date: getDateNDaysAgo(0),
-      userId,
-   },
+   // {
+   //    genre: "MYSTERY_SUSPENSE",
+   //    logline:
+   //       "A blind pianist notices every murder in town happens after her performances.",
+   //    review: "Chilling and original, though the pacing dips midway.",
+   //    alternateEnding:
+   //       "She’s revealed as the mastermind using music as a signal.",
+   //    sequelIdea:
+   //       "She trains a prodigy who unknowingly continues the killings.",
+   //    summary: "Music hides secrets darker than silence.",
+   //    date: getDateNDaysAgo(0),
+   //    userId,
+   // },
    {
       genre: "DARK_COMEDY",
       logline: "A wedding planner sabotages her clients for Instagram fame.",

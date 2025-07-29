@@ -19,7 +19,7 @@ export const MoviePoster = ({ movieData, size = "small" }: MoviePosterProps) => 
    const genreColor = getGenreColorClassNames(movieData.genre);
    const formattedDate =
      size === "small"
-       ? format(movieData.date, "d MMM")
+       ? format(movieData.date, "EEE, d MMM")
        : format(movieData.createdAt, "d MMMM");
  
    const handleClick = () => {
