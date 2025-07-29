@@ -24,16 +24,17 @@ import { ControlledDynamicHeightInput } from "@/app/shared/components/form-eleme
 import { LastPrompt } from "@/app/home/today/components/LastPrompt";
 import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CircleNotch } from "phosphor-react";
 
 export const PromptDialog = () => {
    const { data: session, status } = useSession();
-   
+   const [isLoading, setIsLoading] = useState(false);
+
    const formMethods = useForm<MovieFormData>({
-      defaultValues: defaultMovieFormData
+      defaultValues: defaultMovieFormData,
    });
-   const router = useRouter()
+   const router = useRouter();
 
    useEffect(() => {
       if (session?.user?.id) {
@@ -41,7 +42,8 @@ export const PromptDialog = () => {
       }
    }, [session?.user?.id, formMethods]);
 
-   if (status === "loading") return <CircleNotch className="animate-spin size-[40px] text-primary" />;
+   if (status === "loading")
+      return <CircleNotch className="animate-spin size-[40px] text-primary" />;
    if (!session) return <p>Not signed in</p>;
 
    const prompts = movieFormQuestions.map((question) => {
@@ -56,21 +58,33 @@ export const PromptDialog = () => {
 
    const handleSubmit = async () => {
       const values = formMethods.getValues();
+      setIsLoading(true);
       const result = await getMovieSummary(values);
       console.log("result", result);
       router.push("/home/today");
    };
 
    return (
-      <div className="bg-background rounded-[15px] w-[670px] min-h-[700px] shadow-main">
+      <div className="bg-background rounded-[15px] w-[670px] min-h-[800px] shadow-main">
          <Carousel className="flex flex-col">
             <div className="flex justify-between items-center px-4 py-3 h-[55px]">
                <CarouselPrevious />
                <CarouselNext />
             </div>
-            <CarouselContent className="h-[645px]">
-               {prompts}
-               <LastPrompt formMethods={formMethods} handleSubmit={handleSubmit} />
+            <CarouselContent className="h-[745px]">
+               {isLoading ? (
+                  <div className="flex justify-center items-center w-full h-full">
+                     <CircleNotch className="animate-spin size-[40px] text-primary" />
+                  </div>
+               ) : (
+                  <>
+                     {prompts}
+                     <LastPrompt
+                        formMethods={formMethods}
+                        handleSubmit={handleSubmit}
+                     />
+                  </>
+               )}
             </CarouselContent>
          </Carousel>
       </div>
@@ -90,7 +104,7 @@ const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
          <div className="border-b opacity-10" />
          <div className="flex flex-col justify-between w-full h-full pt-6 px-6 ">
             <div>
-               <p className="font-header font-medium text-[35px] leading-10 pb-5">
+               <p className="font-header font-medium text-[35px] leading-10 pb-3">
                   {question.head}
                </p>
                <p>{question.description}</p>
@@ -129,7 +143,13 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
          );
 
       case "slider":
-         return <ControlledSlider fieldName={fieldName} control={control} options={options!} />;
+         return (
+            <ControlledSlider
+               fieldName={fieldName}
+               control={control}
+               options={options!}
+            />
+         );
 
       case "yesno":
          return (
@@ -146,7 +166,12 @@ const StyledInput = ({ control, prompt }: MoviePromptProps) => {
    return (
       <div className="flex flex-col w-full h-[160px] justify-between">
          <div className="border-t opacity-20" />
-         <ControlledDynamicHeightInput className="text-[22px]" placeholder="Your answer?" fieldName={fieldName} control={control} />
+         <ControlledDynamicHeightInput
+            className="text-[22px]"
+            placeholder="Closing line..."
+            fieldName={fieldName}
+            control={control}
+         />
          <div className="border-t opacity-20" />
       </div>
    );
