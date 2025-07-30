@@ -10,7 +10,7 @@ import { date } from "zod";
 export async function getMovieSummary(userInput: MovieFormData) {
    const timezonedDate = getTimezonedDate();
 
-   const movie = await generateMovie(userInput)
+   const movie = await generateMovie(userInput);
 
    const startDate = new Date(timezonedDate);
    startDate.setHours(0, 0, 0, 0);
@@ -35,7 +35,7 @@ export async function getMovieSummary(userInput: MovieFormData) {
          where: { id: existingMovie.id },
          data: {
             ...movie.data,
-            date: timezonedDate.toISOString()
+            date: timezonedDate.toISOString(),
          },
       });
    } else {
@@ -44,10 +44,19 @@ export async function getMovieSummary(userInput: MovieFormData) {
          data: {
             userId: userInput.userId,
             ...movie.data,
-            date: timezonedDate.toISOString()
+            date: timezonedDate.toISOString(),
          },
       });
    }
 
-   return { success:true, data: movie.data};
+   return { success: true, data: movie.data };
 }
+
+type WeeklyInsight = {
+   headline: string;
+   insights: {
+      personalitySnapshot: string;
+      weekSummary: string;
+      growthHighlight: string;
+   };
+};

@@ -1,5 +1,5 @@
+import { getDemoInsight } from "@/app/shared/lib/db/mock-data/mock-insight";
 import { getDemoMovies } from "@/app/shared/lib/db/mock-data/mock-movies";
-import { getDemoSummaries } from "@/app/shared/lib/db/mock-data/mock-summary";
 import { getDemoUser } from "@/app/shared/lib/db/mock-data/mock-user";
 import prisma from "@/app/shared/lib/db/prisma";
 
@@ -19,7 +19,7 @@ export function createDemoSession() {
          data: demoMovies,
       });
 
-      const demoSummaries = getDemoSummaries(user.id);
+      const demoSummaries = getDemoInsight(user.id);
       const summaries = await tx.weeklySummary.createMany({
          data: demoSummaries,
       });

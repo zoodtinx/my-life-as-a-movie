@@ -4,43 +4,90 @@ import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { Movie } from "@prisma/client";
 import { PageButton } from "@/app/shared/components/CustomButton";
 import { ArrowsCounterClockwise, Export, TrashSimple } from "phosphor-react";
-import { useRouter } from "next/navigation";
-import { getFormattedGenre } from "@/app/shared/lib/helper/getFormattedGenre";
+import { useRouter, useSearchParams } from "next/navigation";
 import { deleteMovie } from "@/app/home/result/actions";
+import { useEffect } from "react";
+
+interface SimilarMovie {
+   year: number;
+   movie: string;
+   director: string;
+   whySimilar: string;
+}
 
 const TodayMovie = ({ movie }: { movie: Movie }) => {
+   const router = useRouter();
+   const searchParams = useSearchParams();
+
+   useEffect(() => {
+      if (movie) {
+         const currentBg = searchParams.get("bg");
+         if (currentBg !== movie.genre) {
+            const newSearchParams = new URLSearchParams(
+               searchParams.toString()
+            );
+            newSearchParams.set("bg", movie.genre);
+
+            router.replace(
+               `${window.location.pathname}?${newSearchParams.toString()}`
+            );
+         }
+      }
+   }, [movie, router, searchParams]);
+
    if (!movie) {
       return "Unexpected Error";
    }
 
-   const genre = getFormattedGenre(movie.genre);
+   const similarMovies = Array.isArray(movie.similarMovie)
+      ? movie.similarMovie
+      : typeof movie.similarMovie === "string"
+      ? JSON.parse(movie.similarMovie)
+      : [];
 
    return (
       <div className="flex flex-col justify-between items-center w-full h-full pb-9">
          <div></div>
-         <div className="flex flex-col justify-between w-[1080px] min-h-[640px]">
+         <div className="flex flex-col justify-between w-[1200px] min-h-[640px] gap-16">
             <div className="flex flex-col gap-5">
-               <p className="font-medium text-[48px] text-center">Today is</p>
-               <div className="leading-tight flex w-full gap-11">
-                  <MoviePoster movieData={movie} size="large" />
-                  <div className="flex flex-col gap-6 grow leading-normal">
-                     <div className="flex gap-3">
-                        <p className="font-header font-medium text-[25px]">
-                           Genre
-                        </p>
-                        <p className="font-header text-[25px]">{genre}</p>
+               <div className="flex w-full gap-[60px]">
+                  <div className="flex flex-col gap-[40px]">
+                     <MoviePoster movieData={movie} size="large" />
+                     <div className="flex flex-col font-header font-medium">
+                        <p className="text-[24px]">Similar Movie</p>
+                        <div className="border-b border-b-primary/20" />
+                        <div className="flex flex-col gap-3 pt-4">
+                           {similarMovies.map((movie: SimilarMovie) => (
+                              <div
+                                 className="flex flex-col leading-snug"
+                                 key={movie.movie}
+                              >
+                                 <p>{movie.movie}</p>
+                                 <div className="flex font-normal text-[17px]">
+                                    <p>{movie.director}</p>,
+                                    <p className="pl-2">{movie.year}</p>
+                                 </div>
+                              </div>
+                           ))}
+                        </div>
                      </div>
-                     <div>
-                        <p className="font-header font-medium text-[25px]">
-                           Logline
-                        </p>
-                        <p>&quot;{movie.logline}&quot;</p>
+                  </div>
+                  <div className="flex flex-col grow">
+                     <div className="flex font-medium text-[24px] pb-14 gap-6 italic">
+                        <div className="h-full border-r-2 border-r-primary/10" />
+                        <p className="">&quot;{movie.logline}&quot;</p>
                      </div>
-                     <div>
+                     <div className="pb-6">
                         <p className="font-header font-medium text-[25px]">
                            Review
                         </p>
                         <p>&quot;{movie.review}&quot;</p>
+                     </div>
+                     <div className="pb-6">
+                        <p className="font-header font-medium text-[25px]">
+                           Sequel Idea
+                        </p>
+                        <p>&quot;{movie.sequelIdea}&quot;</p>
                      </div>
                   </div>
                </div>
@@ -69,14 +116,14 @@ export const Footer = ({ movieId }: { movieId: string }) => {
                iconPosition="left"
                text="Delete"
             />
-            <PageButton
+         </div>
+         <div className="flex gap-8">
+         <PageButton
                icon={<ArrowsCounterClockwise />}
                onClick={() => router.push("/home/prompt")}
                iconPosition="left"
                text="Retake"
             />
-         </div>
-         <div className="flex gap-8">
             <PageButton icon={<Export />} iconPosition="right" text="Share" />
          </div>
       </div>

@@ -29,8 +29,7 @@ const MenuBar = () => {
       const newParams = new URLSearchParams(searchParams.toString());
 
       if (menu === "today") {
-         newParams.set("bg", "base");
-         router.push(`/home/${menu}?${newParams.toString()}`);
+         router.push(`/home/${menu}`);
       } else {
         newParams.set("bg", "settings");
         router.push(`/home/${menu}?${newParams.toString()}`);

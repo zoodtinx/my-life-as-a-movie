@@ -36,7 +36,7 @@ export const MoviePoster = ({ movieData, size = "small" }: MoviePosterProps) => 
          "flex cursor-pointer select-none shadow-md",
          size === "small"
            ? [
-               "p-[13px] pb-[10px] w-[170px] h-[240px]",
+               "p-[13px] pb-[10px] w-[170px] h-[240px] hover:scale-107 transition-transform duration-200 ease-in-out",
                `bg-gradient-to-b ${genreColor}`,
              ]
            : [

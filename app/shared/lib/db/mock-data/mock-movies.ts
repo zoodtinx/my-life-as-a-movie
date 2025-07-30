@@ -24,7 +24,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline:
          "Two commuters share silent glances every morning on a crowded train.",
       review: "Heartfelt and slow-burning, like real love stories.",
@@ -34,7 +34,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "SLICE_OF_LIFE",
+      genre: "ACTION_THRILLER",
       logline: "Three roommates start a dinner club for strangers.",
       review: "Wholesome and funny, like a warm hug.",
       sequelIdea: "They expand globally through virtual dinners.",
@@ -102,7 +102,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline:
          "Two chefs from rival restaurants compete for a Michelin star and fall in love.",
       review: "A delicious blend of passion and rivalry.",
@@ -160,7 +160,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "SLICE_OF_LIFE",
+      genre: "ACTION_THRILLER",
       logline:
          "A barbershop becomes the heart of neighborhood drama and dreams.",
       review: "Quietly profound with authentic characters.",
@@ -180,7 +180,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline: "A woman falls in love with the voice on a meditation app.",
       review: "Sweet and modern, with an unexpected emotional punch.",
       sequelIdea: "She builds an app to help others find love through audio.",
@@ -246,7 +246,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "SLICE_OF_LIFE",
+      genre: "ACTION_THRILLER",
       logline:
          "A lonely librarian starts leaving notes in books for strangers.",
       review: "Soft, warm, and hopeful.",
@@ -274,7 +274,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline:
          "Two patients in a recovery center fall in love through anonymous letters.",
       review: "Bittersweet and tender.",
@@ -351,7 +351,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline:
          "Two rival bookshop owners fight for customers and fall for each other.",
       review: "Classic setup done with modern charm.",
@@ -372,7 +372,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "SLICE_OF_LIFE",
+      genre: "ACTION_THRILLER",
       logline: "An elderly man starts a morning jogging group to make friends.",
       review: "Heartwarming and real.",
       sequelIdea: "The group expands into a senior adventure club.",
@@ -457,7 +457,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "SLICE_OF_LIFE",
+      genre: "ACTION_THRILLER",
       logline:
          "A single dad runs a dog-walking business to spend more time with his kid.",
       review: "Heartwarming with gentle humor.",
@@ -467,7 +467,7 @@ export const getDemoMovies = (userId: string) => [
       userId,
    },
    {
-      genre: "ROMANTIC_DRAMA",
+      genre: "COMEDY_DRAMA",
       logline:
          "Two strangers share an umbrella during a storm and never exchange names.",
       review: "Poetic and emotional with lingering tension.",

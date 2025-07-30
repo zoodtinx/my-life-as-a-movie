@@ -19,15 +19,15 @@ export const Background = () => {
                   "via-transparent to-[rgba(151,183,238,0.5)]",
                bgParam === "base" ? "opacity-0" : "opacity-100",
                bgParam === "ROMANTIC_DRAMA" && "via-romantic-to to-romantic-to",
-               bgParam === "COMEDY_DRAMA" && "via-comedy-drama-to to-comedy-drama-to",
-               bgParam === "ADVENTURE_FANTASY" && "via-adventure-fantasy-to to-adventure-fantasy-to",
+               bgParam === "COMEDY_DRAMA" && "via-comedy-drama-from to-comedy-drama-from",
+               bgParam === "ADVENTURE_FANTASY" && "via-adventure-fantasy-from to-adventure-fantasy-from",
                bgParam === "DARK_COMEDY" && "via-dark-comedy-to to-dark-comedy-to",
-               bgParam === "HORROR" && "via-horror-to to-horror-to",
+               bgParam === "HORROR" && "via-horror-to/70 to-horror-to/70",
                bgParam === "COMING_OF_AGE" && "via-coming-of-age-to to-coming-of-age-to",
                bgParam === "SLICE_OF_LIFE" && "via-slice-of-life-to to-slice-of-life-to",
                bgParam === "ACTION_THRILLER" && "via-action-thriller-to to-action-thriller-to",
                bgParam === "MYSTERY_SUSPENSE" && "via-mystery-suspense-to to-mystery-suspense-to",
-               bgParam === "FEEL_GOOD_MUSICAL" && "via-feel-good-musical-to to-feel-good-musical-to"
+               bgParam === "FEEL_GOOD_MUSICAL" && "via-feel-good-musical-from to-feel-good-musical-from"
              )}
          />
 

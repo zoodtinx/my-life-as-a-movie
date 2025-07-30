@@ -1,20 +1,33 @@
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import OpenAI from "openai";
+import prisma from "@/app/shared/lib/db/prisma";
 
 const openai = new OpenAI({
    apiKey: process.env.OPENAI_API_KEY,
 });
 
 export async function generateMovie(userInput: MovieFormData) {
-   const userInputJson = JSON.stringify(userInput);
+   const user = await prisma.user.findUnique({
+      where: {
+         id: userInput.userId
+      }
+   })
+
+   const context = user?.personalContext
+   const inputWithContext = { ...userInput, context };
+   const userInputJson = JSON.stringify(inputWithContext);
 
    try {
       const response = await openai.responses.create({
          prompt: {
-            id: "pmpt_6888c5412e648196b1af516c7f41c0c508af32e8900dfef7",
-            version: "10",
-         },
+            "id": "pmpt_6888c5412e648196b1af516c7f41c0c508af32e8900dfef7",
+            "version": "13"
+          },
          input: [
+            {
+               role: "user",
+               content: userInputJson,
+            },
             {
                role: "user",
                content: userInputJson,
