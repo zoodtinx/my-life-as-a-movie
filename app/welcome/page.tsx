@@ -29,8 +29,8 @@ const Page = () => {
          <div className="min-w-screen flex min-h-screen text-lg">
             <Background />
             <div className="w-full h-screen flex justify-center items-center text-primary z-10">
-               <div className="flex flex-col items-center gap-2">
-                  <MLAMLogo className="w-[550px] h-auto" />
+               <div className="flex flex-col items-center gap-0 xl:gap-2">
+                  <MLAMLogo className="w-[300px] xl:w-[550px] h-auto" />
                   <div className="flex flex-col items-center gap-2 pt-5 font-header">
                      <button
                         className={cn(

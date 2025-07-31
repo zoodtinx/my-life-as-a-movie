@@ -26,6 +26,7 @@ import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values"
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { CircleNotch } from "phosphor-react";
+import { cn } from "@/app/shared/utils";
 
 export const PromptDialog = () => {
    const { data: session, status } = useSession() || {}
@@ -65,13 +66,25 @@ export const PromptDialog = () => {
    };
 
    return (
-      <div className="bg-background rounded-[15px] w-[670px] min-h-[800px] shadow-main">
+      <div
+         className={cn(
+            "bg-background rounded-[15px] w-full min-h-fit shadow-main",
+            "md:w-[670px] md:min-h-[700px]",
+            "xl:min-h-[800px]"
+         )}
+      >
          <Carousel className="flex flex-col">
-            <div className="flex justify-between items-center px-4 py-3 h-[55px]">
+            <div
+               className={cn(
+                  "flex justify-between items-center",
+                  "h-[35px] px-1 py-3",
+                  "2xl:px-4 2xl:h-[55px] "
+               )}
+            >
                <CarouselPrevious />
                <CarouselNext />
             </div>
-            <CarouselContent className="h-[745px]">
+            <CarouselContent className="md:h-[665px] xl:h-[745px]">
                {isLoading ? (
                   <div className="flex justify-center items-center w-full h-full">
                      <CircleNotch className="animate-spin size-[40px] text-primary" />
@@ -102,14 +115,27 @@ const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
    return (
       <CarouselItem>
          <div className="border-b opacity-10" />
-         <div className="flex flex-col justify-between w-full h-full pt-6 px-6 ">
-            <div>
-               <p className="font-header font-medium text-[35px] leading-10 pb-3">
+         <div
+            className={cn(
+               "flex flex-col justify-between w-full h-fit",
+               "pt-3 px-4",
+               "md:h-full md:pb-4",
+               "2xl:pt-6 2xl:px-6"
+            )}
+         >
+            <div className="pb-7 2xl:pb-0">
+               <p
+                  className={cn(
+                     "font-header font-medium pb-3",
+                     "text-[26px] leading-tight",
+                     "2xl:text-[35px] 2xl:leading-10"
+                  )}
+               >
                   {question.head}
                </p>
-               <p>{question.description}</p>
+               <p className="text-sm md:text-base">{question.description}</p>
             </div>
-            <div className="pb-6">
+            <div className="pb-6 md:pb-0">
                <InputElement control={control} prompt={prompt} />
             </div>
          </div>
@@ -167,7 +193,7 @@ const StyledInput = ({ control, prompt }: MoviePromptProps) => {
       <div className="flex flex-col w-full h-[160px] justify-between">
          <div className="border-t opacity-20" />
          <ControlledDynamicHeightInput
-            className="text-[22px]"
+            className="text-[19px] md:text-[22px]"
             placeholder="Closing line..."
             fieldName={fieldName}
             control={control}

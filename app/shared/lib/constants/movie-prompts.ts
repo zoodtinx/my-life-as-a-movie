@@ -115,7 +115,7 @@ export const movieFormQuestions: Prompt[] = [
             value: "rebel",
             label: "The Rebel",
             description:
-               "Challenging conventions, thinking outside the box, disrupting the status quo",
+               "Challenging conventions, thinking outside the box, break the status quo",
          },
          {
             value: "observer",

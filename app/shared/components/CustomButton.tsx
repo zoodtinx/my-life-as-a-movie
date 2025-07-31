@@ -1,3 +1,5 @@
+import { cn } from "@/app/shared/utils";
+
 interface PageButtonProps
    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    icon: React.ReactNode;
@@ -13,7 +15,11 @@ export const PageButton = ({
 }: PageButtonProps) => {
    return (
       <button
-         className="flex items-center gap-2 cursor-pointer font-header font-medium text-[25px]"
+         className={cn(
+            "flex items-center gap-2 cursor-pointer font-header font-medium text-[18px]",
+            "md:text-[20px]",
+            "2xl:text-[25px]"
+         )}
          {...buttonProps}
       >
          {iconPosition === "left" && icon}

@@ -6,6 +6,7 @@ import {
 import { useRouter, useSearchParams } from "next/navigation";
 import { PageButton } from "@/app/shared/components/CustomButton";
 import { deleteMovie } from "@/app/home/result/actions";
+import { cn } from "@/app/shared/utils";
 
 export const Footer = () => {
    const router = useRouter();
@@ -23,8 +24,14 @@ export const Footer = () => {
    };
 
    return (
-      <div className="flex justify-between">
-         <div className="flex gap-8">
+      <div
+         className={cn(
+            "flex justify-between",
+            "px-5 pb-5",
+            "2xl:px-0 2xl:pb-0"
+         )}
+      >
+         <div className="flex gap-5 2xl:gap-8">
             <PageButton
                onClick={handleQuit}
                icon={<ArrowLeft />}

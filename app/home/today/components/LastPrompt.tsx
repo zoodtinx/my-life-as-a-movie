@@ -3,6 +3,7 @@
 import { PageButton } from "@/app/shared/components/CustomButton";
 import { CarouselItem } from "@/app/shared/components/primitives/Carousel";
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
+import { cn } from "@/app/shared/utils";
 import { ArrowRight } from "phosphor-react";
 import { UseFormReturn, useWatch } from "react-hook-form";
 
@@ -23,14 +24,20 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
    return (
       <CarouselItem>
          <div className="border-b opacity-10" />
-         <div className="flex flex-col justify-center items-center w-full h-full gap-5">
+         <div
+            className={cn(
+               "flex flex-col items-center w-full h-full gap-5",
+               "justify-start pt-8",
+               "md:justify-center md:pt-0"
+            )}
+         >
             {hasUnanswered ? (
                <div className="flex flex-col items-center gap-2 w-4/5">
                   {/* <WarningCircle className="size-[60px] stroke-[0.5px]" /> */}
                   <p className="font-header font-medium text-[28px] text-center leading-tight">
                      Still {undefinedFields.length} unanswered question
                   </p>
-                  <p className="text-center">
+                  <p className="text-center md:text-base text-sm">
                      You can leave them, but your results might not be as
                      accurate as it should be.
                   </p>

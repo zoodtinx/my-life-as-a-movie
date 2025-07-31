@@ -2,6 +2,7 @@ import { auth } from "@/app/auth";
 import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { ScrollArea } from "@/app/shared/components/primitives/ScrollArea";
 import prisma from "@/app/shared/lib/db/prisma";
+import { cn } from "@/app/shared/utils";
 import { Movie } from "@prisma/client";
 import { format } from "date-fns";
 import React from "react";
@@ -26,40 +27,97 @@ const InsightsPage = async () => {
    console.log("weeklySummary", weeklySummary);
 
    return (
-      <ScrollArea className="h-[calc(100vh-80px)]">
-         <div className="flex flex-col justify-between items-center w-full h-full px-20 py-[90px] fade-up-fast">
-            <div className="flex flex-col items-center grow gap-[60px] w-full">
-               <div className="flex flex-col gap-2 font-header font-medium leading-snug">
-                  <p className="font-normal text-center text-[20px]">
+      <ScrollArea
+         className={cn(
+            "h-[calc(100vh-45px)]",
+            "md:h-[calc(100vh-65px)]",
+            "xl:h-[calc(100vh-80px)]"
+         )}
+      >
+         <div
+            className={cn(
+               "flex flex-col justify-between items-center w-screen h-full fade-up-fast px-5 py-0 pt-6 pb-[100px]",
+               "md:px-7 md:pt-10",
+               "xl:w-full xl:px-20 xl:py-[90px] xl:pt-12"
+            )}
+         >
+            <div
+               className={cn(
+                  "flex flex-col items-center grow gap-[37px] w-full",
+                  "xl:gap-[60px]"
+               )}
+            >
+               <div
+                  className={cn(
+                     "flex flex-col font-header font-medium leading-snug",
+                     "gap-0",
+                     "xl:gap-2"
+                  )}
+               >
+                  <p
+                     className={cn(
+                        "font-normal text-center text-[15px]",
+                        "md:text-[20px]",
+                        "xl:text-[25px]"
+                     )}
+                  >
                      A summary of your week ({weeklySummary?.week})
                   </p>
-                  <p className="text-center w-[850px] text-[35px] ">
-                     {/* [&nbsp;&nbsp;if this week were a franchise&nbsp;&nbsp;] */}
+                  <p
+                     className={cn(
+                        "text-center w-auto text-[23px] px-0",
+                        "md:px-[55px]",
+                        "xl:text-[35px] xl:w-[850px]"
+                     )}
+                  >
                      &quot;{weeklySummary?.headline}&quot;
                   </p>
                </div>
+
                <div>
                   <MovieRows movies={weeklySummary?.movies ?? []} />
                </div>
-               <div className="w-[1000px]">
-                  <p className="font-header font-medium text-[27px] text-center pb-4">
+
+               <div className={cn("w-auto", "xl:w-[1000px]")}>
+                  <p
+                     className={cn(
+                        "font-header font-medium text-[25px] text-center pb-2",
+                        "xl:text-center"
+                     )}
+                  >
                      You, The Main Character
                   </p>
-                  <p className="indent-8">
+                  <p className={cn("text-sm indent-8", "xl:text-base xl:px-0")}>
                      {weeklySummary?.personalitySnapshot}
                   </p>
                </div>
-               <div className="w-[1000px]">
-                  <p className="font-header font-medium text-[27px] text-center pb-4">
+
+               <div className={cn("w-auto", "xl:w-[1000px]")}>
+                  <p
+                     className={cn(
+                        "font-header font-medium text-[25px] text-center pb-2",
+                        "xl:text-center"
+                     )}
+                  >
                      This Week, Your Story
                   </p>
-                  <p className="indent-8">{weeklySummary?.weekSummary}</p>
+                  <p className={cn("text-sm indent-8", "xl:text-base xl:px-0")}>
+                     {weeklySummary?.weekSummary}
+                  </p>
                </div>
-               <div className="w-[1000px]">
-                  <p className="font-header font-medium text-[27px] text-center pb-4">
+
+               <div className={cn("w-auto", "xl:w-[1000px]")}>
+                  <p
+                     className={cn(
+                        "font-header font-medium text-[25px] text-center pb-2",
+                        "xl:text-center"
+                     )}
+                  >
                      Changes, As They Happen
                   </p>
-                  <p className="indent-8">{weeklySummary?.growthHighlight}</p>
+                  <p className={cn("text-sm indent-8", "xl:text-base xl:px-0")}>
+                     {weeklySummary?.growthHighlight}
+                  </p>
                </div>
             </div>
          </div>
@@ -78,7 +136,7 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
             <div className="border-b border-b-primary/30 grow" />
             <p>{lastDate}</p>
          </div>
-         <div className="flex gap-4 pt-2">
+         <div className="flex flex-wrap gap-2 2xl:gap-4 pt-2">
             {movies.map((movie) => (
                <MoviePoster key={movie.id} movieData={movie} />
             ))}

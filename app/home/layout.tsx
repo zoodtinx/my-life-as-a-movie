@@ -1,5 +1,6 @@
 import { Background } from "@/app/home/components/Background";
 import { NavBar } from "@/app/home/components/NavBar";
+import { cn } from "@/app/shared/utils";
 import React, { Suspense } from "react";
 
 const homeLayout = ({
@@ -16,7 +17,14 @@ const homeLayout = ({
             <Suspense>
                <NavBar />
             </Suspense>
-            <main className="text-primary h-[calc(100vh-80px)]">
+            <main
+               className={cn(
+                  "text-primary",
+                  "h-[calc(100vh-45px)]",
+                  "md:h-[calc(100vh-65px)]",
+                  "2xl:h-[calc(100vh-80px)]"
+               )}
+            >
                {children}
             </main>
          </div>

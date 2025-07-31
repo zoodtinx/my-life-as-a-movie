@@ -1,23 +1,90 @@
 "use client";
 
+import {
+   DropdownMenu,
+   DropdownMenuContent,
+   DropdownMenuItem,
+   DropdownMenuTrigger,
+} from "@/app/shared/components/DropdownMenu";
 import { MLAMLogo } from "@/app/shared/icons/Logo";
-import { SlidersHorizontal } from "phosphor-react";
+import { List, SlidersHorizontal } from "phosphor-react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/app/shared/utils";
 
 export const NavBar = () => {
    return (
-      <nav className="w-full px-5 h-[80px] flex">
-         <div className="w-1/3 flex items-center">
-            <MLAMLogo className="text-primary pl-2 w-[280px]" />
-         </div>
-         <div className="w-1/3 flex justify-center items-center">
-            <MenuBar />
-         </div>
-         <div className="w-1/3 flex justify-end items-center">
-            <SettingsMenu />
-         </div>
-      </nav>
+      <>
+         <nav
+            className={cn(
+               "w-full h-[45px] flex items-center justify-between pl-3 pr-4",
+               "md:h-[65px] md:pl-5",
+               "lg:hidden"
+            )}
+         >
+            <MLAMLogo
+               className={cn(
+                  "text-primary w-[200px]",
+                  "md:w-[275px]",
+                  "h-auto"
+               )}
+            />
+            <MobileMenu />
+         </nav>
+
+         <nav
+            className={cn(
+               "w-full xl:h-[80px] xl:px-5 hidden",
+               "lg:flex lg:h-[60px] lg:px-3"
+            )}
+         >
+            <div className="w-1/3 flex items-center">
+               <MLAMLogo
+                  className={cn(
+                     "text-primary pl-2",
+                     "lg:w-[220px]",
+                     "xl:w-[280px]"
+                  )}
+               />
+            </div>
+            <div className="w-1/3 flex justify-center items-center">
+               <MenuBar />
+            </div>
+            <div className="w-1/3 flex justify-end items-center">
+               <SettingsMenu />
+            </div>
+         </nav>
+      </>
+   );
+};
+
+const MobileMenu = () => {
+   const router = useRouter();
+   const searchParams = useSearchParams();
+
+   const handleClick = (page: string) => {
+      router.push(`/home/${page}`);
+   };
+
+   return (
+      <DropdownMenu>
+         <DropdownMenuTrigger className="focus:outline-0">
+            <List className="size-6 md:size-9" />{" "}
+         </DropdownMenuTrigger>
+         <DropdownMenuContent className="bg-white border-transparent shadow-sm mr-3 font-header uppercase font-medium">
+            <DropdownMenuItem onClick={() => handleClick("today")}>
+               Today
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleClick("timeline")}>
+               Timeline
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleClick("insights")}>
+               Insights
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleClick("settings")}>
+               Settings
+            </DropdownMenuItem>
+         </DropdownMenuContent>
+      </DropdownMenu>
    );
 };
 
@@ -31,8 +98,8 @@ const MenuBar = () => {
       if (menu === "today") {
          router.push(`/home/${menu}`);
       } else {
-        newParams.set("bg", "settings");
-        router.push(`/home/${menu}?${newParams.toString()}`);
+         newParams.set("bg", "settings");
+         router.push(`/home/${menu}?${newParams.toString()}`);
       }
    };
 
@@ -61,7 +128,9 @@ const MenuItem = ({
    return (
       <button
          className={cn(
-            "cursor-pointer text-primary px-5 text-center rounded-md text-[22px]",
+            "cursor-pointer text-primary px-5 text-center rounded-md",
+            "md:text-[18px]",
+            "xl:text-[22px]",
             isActive && "bg-primary text-white"
          )}
          onClick={() => onClick(menuLowercase)}
@@ -72,7 +141,7 @@ const MenuItem = ({
 };
 
 const Divider = () => (
-   <div className="flex py-2">
+   <div className="flex py-1 xl:py-2">
       <div className="border-r border-primary" />
    </div>
 );
@@ -100,7 +169,7 @@ const SettingsMenu = () => {
             isActive && "bg-primary text-white"
          )}
       >
-         <SlidersHorizontal className="size-8" />
+         <SlidersHorizontal className="lg:size-7 xl:size-8" />
       </a>
    );
 };

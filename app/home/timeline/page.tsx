@@ -6,17 +6,16 @@ import { auth } from "@/app/auth";
 import React from "react";
 import { format } from "date-fns";
 import LoadMoreButton from "@/app/home/timeline/components/LoadMoreButton";
+import { cn } from "@/app/shared/utils";
 
 type PageProps = {
    searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
-const TimeLinePage = async ({
-   searchParams,
-}: PageProps) => {
+const TimeLinePage = async ({ searchParams }: PageProps) => {
    const params = await searchParams;
    const session = await auth();
-   const takeAmount = Number(params?.take) || 42
+   const takeAmount = Number(params?.take) || 42;
 
    if (!session?.user) return null;
 
@@ -31,7 +30,7 @@ const TimeLinePage = async ({
    });
 
    return (
-      <div className="flex flex-col justify-between items-center w-full pb-0">
+      <div className="flex flex-col justify-between items-center w-full pb-0 px-0 md:px-3 2xl:px-0">
          <MovieRows movies={movies} />
       </div>
    );
@@ -44,20 +43,32 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
    }
 
    return (
-      <ScrollArea className="h-[calc(100vh-80px)]">
-         <div className="flex flex-col gap-4 pb-[500px] px-3">
+      <ScrollArea
+         className={cn(
+            "h-[calc(100vh-45px)]",
+            "md:h-[calc(100vh-65px)]",
+            "2xl:h-[calc(100vh-80px)]"
+         )}
+      >
+         <div className={cn("flex flex-col gap-4 pb-[500px] px-3")}>
             {rows.map((row, i) => {
                const firstDate = format(row[0]?.date, "dd MMM");
                const lastDate = format(row[row.length - 1]?.date, "dd MMM");
 
                return (
                   <React.Fragment key={i}>
-                     <div className="flex items-center gap-3 pt-7">
+                     <div
+                        className={cn(
+                           "flex items-center gap-3 pt-3",
+                           "2xl:pt-7"
+                        )}
+                     >
                         <p>{firstDate}</p>
                         <div className="border-b border-b-primary/30 grow" />
                         <p>{lastDate}</p>
                      </div>
-                     <div className="flex gap-4">
+
+                     <div className={cn("flex gap-3 flex-wrap", "2xl:gap-4")}>
                         {row.map((movie) => (
                            <MoviePoster key={movie.id} movieData={movie} />
                         ))}
@@ -75,7 +86,7 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
                );
             })}
             <div className="flex w-full justify-center pt-[50px]">
-            <LoadMoreButton moviesLength={movies.length} />
+               <LoadMoreButton moviesLength={movies.length} />
             </div>
          </div>
       </ScrollArea>
