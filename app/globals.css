@@ -52,6 +52,11 @@
 
   --color-feel-good-musical-to: #ffdbe7;
   --color-feel-good-musical-from: #d3f4ff;
+
+    --breakpoint-md: 768px; /* iPad portrait */
+   --breakpoint-lg: 1024px; /* iPad landscape */
+   --breakpoint-xl: 1280px;
+   --breakpoint-2xl: 1536px;
 }
 
 @theme inline {

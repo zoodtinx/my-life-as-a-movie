@@ -31,13 +31,13 @@ const TodayPage = async () => {
 
    if (!isToday) {
       return (
-         <Suspense fallback={<div>Loading...</div>}>
+         <Suspense>
             <TodayPageContent />
          </Suspense>
       );
    } else {
       return (
-         <Suspense fallback={<div>Loading...</div>}>
+         <Suspense>
             <TodayMovie movie={todayMovie} />
          </Suspense>
       );
