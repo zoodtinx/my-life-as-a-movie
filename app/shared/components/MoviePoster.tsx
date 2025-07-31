@@ -23,7 +23,7 @@ export const MoviePoster = ({
    const formattedDate =
       size === "small"
          ? format(movieData.date, "EEE, d MMM")
-         : format(movieData.createdAt, "d MMMM");
+         : format(movieData.createdAt, "EEE, d MMMM");
 
    const handleClick = () => {
       if (size === "small") {
@@ -45,7 +45,8 @@ export const MoviePoster = ({
             `bg-gradient-to-b ${genreColor}`,
 
             // Large size override
-            size === "large" && "w-[170px] h-[240px] p-[13px] pb-[10px] shadow-md"
+            size === "large" &&
+               "w-[170px] h-[240px] p-[13px] pb-[10px] shadow-md  md:pt-5 md:pb-5 md:px-5 md:w-[276px] md:h-[391px]"
          )}
          onClick={handleClick}
       >
@@ -60,7 +61,7 @@ export const MoviePoster = ({
                   "font-header font-medium",
                   "text-[17px] leading-[19px]",
                   "2xl:text-[25px] 2xl:leading-[26px]",
-                  size === "large" && "text-[25px] leading-[26px]"
+                  size === "large" && "text-[25px] leading-[26px] md:text-[40px] md:leading-[45px]"
                )}
             >
                {genre}
@@ -70,7 +71,7 @@ export const MoviePoster = ({
                   "text-right font-header",
                   "text-[15px]",
                   "2xl:text-[20px] 2xl:leading-[26px]",
-                  size === "large" && "text-[20px] leading-[26px]"
+                  size === "large" && "text-[20px] leading-[26px] md:font-normal md:text-[30px]"
                )}
             >
                {formattedDate}

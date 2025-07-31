@@ -48,148 +48,178 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
 
    return (
       <div
+      className={cn(
+         "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start",
+         "xl:justify-between"
+      )}
+   >
+      <div></div>
+      <div
          className={cn(
-            "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start",
-            "2xl:justify-between"
+            "flex flex-col justify-start xl:justify-between w-full h-full gap-0",
+            "xl:w-[1200px] xl:min-h-[640px] xl:h-fit xl:gap-16"
          )}
       >
-         <div></div>
-         <div
-            className={cn(
-               "flex flex-col justify-between w-full h-full gap-0",
-               "2xl:w-[1200px] 2xl:min-h-[640px] 2xl:h-fit 2xl:gap-16"
-            )}
-         >
-            <div className={cn("flex flex-col gap-5", "pt-[30px]", "2xl:pt-0")}>
+         <div className={cn("flex flex-col gap-5", "pt-[30px]", "xl:pt-0")}>
+            <div
+               className={cn(
+                  "flex w-full",
+                  "flex-col gap-[30px]",
+                  "xl:flex-row xl:gap-[60px]"
+               )}
+            >
                <div
                   className={cn(
-                     "flex w-full",
-                     "flex-col gap-[30px]",
-                     "2xl:flex-row 2xl:gap-[60px]"
+                     "flex flex-col gap-[40px]",
+                     "items-center",
+                     "xl:items-start"
                   )}
                >
+                  <div className="px-0 md:py-8 xl:py-0">
+                     <MoviePoster movieData={movie} size="large" />
+                  </div>
                   <div
                      className={cn(
-                        "flex flex-col gap-[40px]",
-                        "items-center",
-                        "2xl:items-start"
+                        "font-header font-medium flex-col",
+                        "hidden",
+                        "xl:flex"
                      )}
                   >
-                     <MoviePoster movieData={movie} size="large" />
-                     <div
-                        className={cn(
-                           "font-header font-medium flex-col",
-                           "hidden",
-                           "2xl:flex"
-                        )}
-                     >
-                        <p className="text-[24px]">Similar Movie</p>
-                        <div className="border-b border-b-primary/20" />
-                        <div className="flex flex-col gap-3 pt-4">
-                           {similarMovies.map((movie: SimilarMovie) => (
-                              <div
-                                 className="flex flex-col leading-snug"
-                                 key={movie.movie}
-                              >
-                                 <p>{movie.movie}</p>
-                                 <div className="flex font-normal text-[17px]">
-                                    <p>{movie.director}</p>,
-                                    <p className="pl-2">{movie.year}</p>
-                                 </div>
+                     <p className="text-[24px]">Similar Movie</p>
+                     <div className="border-b border-b-primary/20" />
+                     <div className="flex flex-col gap-3 pt-4">
+                        {similarMovies.map((movie: SimilarMovie) => (
+                           <div
+                              className="flex flex-col leading-snug"
+                              key={movie.movie}
+                           >
+                              <p>{movie.movie}</p>
+                              <div className="flex font-normal text-[17px]">
+                                 <p>{movie.director}</p>,
+                                 <p className="pl-2">{movie.year}</p>
                               </div>
-                           ))}
-                        </div>
+                           </div>
+                        ))}
                      </div>
-                  </div>
-                  <div className="flex flex-col grow">
-                     <Separator className="mb-6 mt-2" />
-                     <div className={cn("flex gap-6 italic pb-5", "2xl:pb-14")}>
-                        <div
-                           className={cn(
-                              "hidden h-full border-r-2 border-r-primary/10",
-                              "2xl:block"
-                           )}
-                        />
-                        <p
-                           className={cn(
-                              "font-medium text-[15px] text-center px-5",
-                              "2xl:text-[24px] 2xl:text-left 2xl:px-0"
-                           )}
-                        >
-                           &quot;{movie.logline}&quot;
-                        </p>
-                     </div>
-                     <Separator />
-                     <div className="pb-6">
-                        <p
-                           className={cn(
-                              "font-header font-medium text-[25px]",
-                              "text-center pb-2",
-                              "2xl:text-left 2xl:pb-0"
-                           )}
-                        >
-                           Review
-                        </p>
-                        <p
-                           className={cn(
-                              "text-sm px-5",
-                              "2xl:text-base 2xl:px-0"
-                           )}
-                        >
-                           &quot;{movie.review}&quot;
-                        </p>
-                     </div>
-                     <Separator />
-                     <div className="pb-6">
-                        <p
-                           className={cn(
-                              "font-header font-medium text-[25px]",
-                              "text-center pb-2",
-                              "2xl:text-left 2xl:pb-0"
-                           )}
-                        >
-                           Sequel Idea
-                        </p>
-                        <p
-                           className={cn(
-                              "text-sm px-5",
-                              "2xl:text-base 2xl:px-0"
-                           )}
-                        >
-                           &quot;{movie.sequelIdea}&quot;
-                        </p>
-                     </div>
-                     <Separator />
-                     <div
-                        className={cn(
-                           "font-header font-medium flex flex-col px-5 pb-4",
-                           "2xl:hidden"
-                        )}
-                     >
-                        <p className="text-[24px] text-center">Similar Movie</p>
-                        <div className="flex flex-col items-center gap-3 pt-1">
-                           {similarMovies.map((movie: SimilarMovie) => (
-                              <div
-                                 className="flex flex-col leading-snug"
-                                 key={movie.movie}
-                              >
-                                 <p className="text-center">{movie.movie}</p>
-                                 <div className="flex justify-center font-normal text-[17px]">
-                                    <p>{movie.director}</p>,
-                                    <p className="pl-2">{movie.year}</p>
-                                 </div>
-                              </div>
-                           ))}
-                        </div>
-                     </div>
-                     <Separator />
                   </div>
                </div>
+               <div className="flex flex-col grow">
+                  <div
+                     className={cn(
+                        "mb-6 block border-b mx-5 border-b-primary/15",
+                        "xl:hidden"
+                     )}
+                  />
+                  <div className={cn("flex gap-6 italic pb-5", "xl:pb-14")}>
+                     <div
+                        className={cn(
+                           "hidden h-full border-r-2 border-r-primary/10",
+                           "xl:block"
+                        )}
+                     />
+                     <p
+                        className={cn(
+                           "font-medium text-[15px] text-center px-5",
+                           "md:text-base md:px-7",
+                           "xl:text-[24px] xl:text-left xl:px-0"
+                        )}
+                     >
+                        &quot;{movie.logline}&quot;
+                     </p>
+                  </div>
+                  <div
+                     className={cn(
+                        "mb-4 block border-b mx-5 border-b-primary/15",
+                        "xl:hidden"
+                     )}
+                  />
+                  <div className="pb-6">
+                     <p
+                        className={cn(
+                           "font-header font-medium text-[25px]",
+                           "text-center pb-2",
+                           "xl:text-left xl:pb-0"
+                        )}
+                     >
+                        Review
+                     </p>
+                     <p
+                        className={cn(
+                           "text-sm px-5",
+                           "md:text-base md:px-7",
+                           "xl:px-0"
+                        )}
+                     >
+                        &quot;{movie.review}&quot;
+                     </p>
+                  </div>
+                  <div
+                     className={cn(
+                        "mb-4 block border-b mx-5 border-b-primary/15",
+                        "xl:hidden"
+                     )}
+                  ></div>
+                  <div className="pb-6">
+                     <p
+                        className={cn(
+                           "font-header font-medium text-[25px]",
+                           "text-center pb-2",
+                           "xl:text-left xl:pb-0"
+                        )}
+                     >
+                        Sequel Idea
+                     </p>
+                     <p
+                        className={cn(
+                           "text-sm px-5",
+                           "md:text-base md:px-7",
+                           "xl:px-0"
+                        )}
+                     >
+                        &quot;{movie.sequelIdea}&quot;
+                     </p>
+                  </div>
+                  <div
+                     className={cn(
+                        "mb-4 block border-b mx-5 border-b-primary/15",
+                        "xl:hidden"
+                     )}
+                  />
+                  <div
+                     className={cn(
+                        "font-header font-medium flex flex-col px-5 pb-4",
+                        "xl:hidden"
+                     )}
+                  >
+                     <p className="text-[24px] text-center">Similar Movie</p>
+                     <div className="flex flex-col items-center gap-3 pt-1">
+                        {similarMovies.map((movie: SimilarMovie) => (
+                           <div
+                              className="flex flex-col leading-snug"
+                              key={movie.movie}
+                           >
+                              <p className="text-center">{movie.movie}</p>
+                              <div className="flex justify-center font-normal text-[17px]">
+                                 <p>{movie.director}</p>,
+                                 <p className="pl-2">{movie.year}</p>
+                              </div>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+                  <div
+                     className={cn(
+                        "mb-4 block border-b mx-5 border-b-primary/15",
+                        "xl:hidden"
+                     )}
+                  />
+               </div>
             </div>
-            <Footer movieId={movie.id} />
          </div>
-         <div></div>
+         <Footer movieId={movie.id} />
       </div>
+      <div></div>
+   </div>
    );
 };
 
