@@ -1,11 +1,9 @@
 "use server";
 
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
-import { mockDemoMovies } from "@/app/shared/lib/db/mock-data/mock-movies";
 import { getTimezonedDate } from "@/app/shared/lib/timezone/getTimezonedDate";
 import prisma from "@/app/shared/lib/db/prisma";
 import { generateMovie } from "@/app/shared/lib/ai/gpt-api";
-import { date } from "zod";
 
 export async function getMovieSummary(userInput: MovieFormData) {
    const timezonedDate = getTimezonedDate();
@@ -51,12 +49,3 @@ export async function getMovieSummary(userInput: MovieFormData) {
 
    return { success: true, data: movie.data };
 }
-
-type WeeklyInsight = {
-   headline: string;
-   insights: {
-      personalitySnapshot: string;
-      weekSummary: string;
-      growthHighlight: string;
-   };
-};

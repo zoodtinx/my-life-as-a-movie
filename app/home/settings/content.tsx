@@ -118,7 +118,10 @@ export const AccountSettings = ({ user }: { user: User }) => {
    const handleExport = async () => {
       const csvData = await exportEntriesCsv(user.id);
 
-      // Create and download the file
+      if (!csvData) {
+         return
+      }
+
       const blob = new Blob([csvData], { type: "text/csv" });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");

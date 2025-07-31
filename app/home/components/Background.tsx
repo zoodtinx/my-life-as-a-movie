@@ -2,7 +2,6 @@
 
 import { cn } from "@/app/shared/utils";
 import { useSearchParams } from "next/navigation";
-import { getGenreColorBgClassName } from "@/app/shared/lib/helper/getGenreColor";
 
 export const Background = () => {
    const params = useSearchParams();

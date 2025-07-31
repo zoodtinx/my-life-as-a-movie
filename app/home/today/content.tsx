@@ -3,20 +3,23 @@
 import { StartButton } from "@/app/home/today/components/StartButton";
 import { cn } from "@/app/shared/utils";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 
 export const TodayPageContent = () => {
    const router = useRouter();
    const searchParams = useSearchParams();
 
-   const newSearchParams = new URLSearchParams(searchParams.toString());
-   newSearchParams.set("bg", "base");
+   const newSearchParams = useMemo(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("bg", "base");
+      return params;
+   }, [searchParams]);
 
    useEffect(() => {
       router.replace(
          `${window.location.pathname}?${newSearchParams.toString()}`
       );
-   }, []);
+   }, [newSearchParams, router]);
 
    return (
       <div className="flex flex-col justify-between items-center w-full h-full pb-9">
@@ -27,7 +30,6 @@ export const TodayPageContent = () => {
                "pb-7 pt-9"
             )}
          >
-            {/* <CircleWavyQuestion weight="fill" className="size-[55px] mb-4 text-secondary" /> */}
             <div className="text-[60px] leading-tight flex flex-col items-center w-full pb-5">
                <p>If your day were a movie,</p>
                <p>what genre would it be ?</p>

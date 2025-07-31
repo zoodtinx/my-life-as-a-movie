@@ -1,6 +1,4 @@
 import prisma from '@/app/shared/lib/db/prisma';
-import { mockMovies } from './mock-data/mock-movies';
-import { mockUser } from './mock-data/mock-user';
 
 export async function clearData() {
   try {
@@ -21,62 +19,62 @@ export async function clearData() {
   }
 }
 
-export async function seedDatabase() {
-  try {
-    console.log('🌱 Seeding database with mock data...');
+// export async function seedDatabase() {
+//   try {
+//     console.log('🌱 Seeding database with mock data...');
 
-    // Create user
-    const user = await prisma.user.upsert({
-      where: { email: mockUser.email },
-      update: {},
-      create: {
-        name: mockUser.name,
-        email: mockUser.email,
-      },
-    });
-    console.log(`✅ Created/updated user: ${user.name}`);
+//     // Create user
+//     const user = await prisma.user.upsert({
+//       where: { email: mockUser.email },
+//       update: {},
+//       create: {
+//         name: mockUser.name,
+//         email: mockUser.email,
+//       },
+//     });
+//     console.log(`✅ Created/updated user: ${user.name}`);
     
-    // Create movies
-    const moviePromises = mockMovies.map((movieData) =>
-      prisma.movie.create({
-        data: {
-          userId: user.id,
-          genre: movieData.genre,
-          logline: movieData.logline,
-          review: movieData.review,
-          alternateEnding: movieData.alternateEnding,
-          sequelIdea: movieData.sequelIdea,
-          summary: movieData.summary,
-          date: movieData.date
-        },
-      })
-    );
+//     // Create movies
+//     const moviePromises = mockMovies.map((movieData) =>
+//       prisma.movie.create({
+//         data: {
+//           userId: user.id,
+//           genre: movieData.genre,
+//           logline: movieData.logline,
+//           review: movieData.review,
+//           alternateEnding: movieData.alternateEnding,
+//           sequelIdea: movieData.sequelIdea,
+//           summary: movieData.summary,
+//           date: movieData.date
+//         },
+//       })
+//     );
     
-    const movies = await Promise.all(moviePromises);
-    console.log(`✅ Created ${movies.length} movies`);
+//     const movies = await Promise.all(moviePromises);
+//     console.log(`✅ Created ${movies.length} movies`);
     
-    console.log('🎉 Database seeded successfully!');
-  } catch (error) {
-    console.error('❌ Error seeding database:', error);
-    throw error;
-  } finally {
-    await prisma.$disconnect();
-  }
-}
+//     console.log('🎉 Database seeded successfully!');
+//   } catch (error) {
+//     console.error('❌ Error seeding database:', error);
+//     throw error;
+//   } finally {
+//     await prisma.$disconnect();
+//   }
+// }
 
 if (require.main === module) {
   const command = process.argv[2];
   
   if (command === 'seed') {
-    seedDatabase()
-      .then(() => {
-        console.log('Seed script completed successfully');
-        process.exit(0);
-      })
-      .catch((error) => {
-        console.error('Seed script failed:', error);
-        process.exit(1);
-      });
+    // seedDatabase()
+    //   .then(() => {
+    //     console.log('Seed script completed successfully');
+    //     process.exit(0);
+    //   })
+    //   .catch((error) => {
+    //     console.error('Seed script failed:', error);
+    //     process.exit(1);
+    //   });
   } else {
     clearData()
       .then(() => {

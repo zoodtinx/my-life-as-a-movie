@@ -21,7 +21,7 @@ export async function generateMovie(userInput: MovieFormData) {
       const response = await openai.responses.create({
          prompt: {
             "id": "pmpt_6888c5412e648196b1af516c7f41c0c508af32e8900dfef7",
-            "version": "13"
+            "version": "19"
           },
          input: [
             {

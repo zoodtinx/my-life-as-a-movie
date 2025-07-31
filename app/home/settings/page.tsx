@@ -2,7 +2,6 @@ import { auth } from "@/app/auth";
 import SettingsPageContent from "@/app/home/settings/content";
 import prisma from "@/app/shared/lib/db/prisma";
 import { SessionProvider } from "next-auth/react";
-import { id } from "zod/v4/locales";
 
 const SettingsPage = async () => {
    const session = await auth();

@@ -28,7 +28,7 @@ import { useEffect, useState } from "react";
 import { CircleNotch } from "phosphor-react";
 
 export const PromptDialog = () => {
-   const { data: session, status } = useSession();
+   const { data: session, status } = useSession() || {}
    const [isLoading, setIsLoading] = useState(false);
 
    const formMethods = useForm<MovieFormData>({

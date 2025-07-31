@@ -22,17 +22,18 @@
   --color-romantic-from: #F7C9E7;
   --color-romantic-to: #C9F7E9;
 
-  --color-comedy-drama-from: #fcefe3;
-  --color-comedy-drama-to: #dceef2;
+  --color-comedy-drama-from: #fff3eb;
+  --color-comedy-drama-to: #fceacf;
 
-  --color-adventure-fantasy-from: #fff9d6;
-  --color-adventure-fantasy-to: #d9ebff;
+  --color-adventure-fantasy-from: #f2eef9;
+  --color-adventure-fantasy-to: #e7d9fd;
 
-  --color-dark-comedy-to: #c3d9c3;
-  --color-dark-comedy-from: #e0f0e0;
+  --color-dark-comedy-from: #dff5df;
+  --color-dark-comedy-to: #c3e2d8;
 
-  --color-horror-from: #ebe8e8;
-  --color-horror-to: #bab8b8;
+
+  --color-horror-from: #efefee;
+  --color-horror-to: #dad5db;
 
   --color-coming-of-age-from: #f5f0e6;
   --color-coming-of-age-to: #fceabb;
@@ -43,8 +44,8 @@
   --color-action-thriller-from: #fbe6df; 
   --color-action-thriller-to: #f8c8b8;
 
-  --color-mystery-suspense-to: #c9c3e6;
-  --color-mystery-suspense-from: #e4dff7;
+  --color-mystery-suspense-from: #daf2ff;
+  --color-mystery-suspense-to: #b7e2f3;
 
   --color-romantic-drama-from: #F7C9E7;
   --color-romantic-drama-to: #C9F7D7;

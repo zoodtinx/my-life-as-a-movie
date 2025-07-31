@@ -15,7 +15,7 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
    const values = useWatch({ control: formMethods.control });
 
    const undefinedFields = Object.entries(values)
-      .filter(([_, value]) => value === undefined || value === "")
+      .filter(([, value]) => value === undefined || value === "")
       .map(([key]) => key);
 
    const hasUnanswered = undefinedFields.length > 0;

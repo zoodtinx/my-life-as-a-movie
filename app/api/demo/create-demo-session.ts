@@ -10,18 +10,29 @@ export function createDemoSession() {
          data: {
             name: demoUser.name,
             email: demoUser.email,
-            personalContext: demoUser.personalContext
+            personalContext: demoUser.personalContext,
          },
       });
 
       const demoMovies = getDemoMovies(user.id);
-      const movies = await tx.movie.createMany({
+      const movies = await tx.movie.createManyAndReturn({
          data: demoMovies,
       });
 
+      const weekMovie = movies.slice(0, 7)
+
       const demoSummaries = getDemoInsight(user.id);
-      const summaries = await tx.weeklySummary.createMany({
-         data: demoSummaries,
+      const summaries = await tx.weeklySummary.create({
+         data: {
+            ...demoSummaries,
+            movies: {
+               connect: weekMovie.map((movie) => {
+                  return {
+                     id: movie.id,
+                  };
+               }),
+            },
+         },
       });
 
       return { user, movies, summaries };

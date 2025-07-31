@@ -1,6 +1,6 @@
 import { Background } from "@/app/home/components/Background";
 import { NavBar } from "@/app/home/components/NavBar";
-import React from "react";
+import React, { Suspense } from "react";
 
 const homeLayout = ({
    children,
@@ -9,10 +9,16 @@ const homeLayout = ({
 }>) => {
    return (
       <div className="min-w-screen flex min-h-screen text-lg">
-         <Background />
+         <Suspense>
+            <Background />
+         </Suspense>
          <div className="flex flex-col min-h-screen w-full z-10">
-            <NavBar />
-            <main className="text-primary h-[calc(100vh-80px)]">{children}</main>
+            <Suspense>
+               <NavBar />
+            </Suspense>
+            <main className="text-primary h-[calc(100vh-80px)]">
+               {children}
+            </main>
          </div>
       </div>
    );

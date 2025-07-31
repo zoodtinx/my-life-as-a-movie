@@ -7,13 +7,16 @@ import React from "react";
 import { format } from "date-fns";
 import LoadMoreButton from "@/app/home/timeline/components/LoadMoreButton";
 
+type PageProps = {
+   searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
 const TimeLinePage = async ({
    searchParams,
-}: {
-   searchParams: { [key: string]: string | string[] | undefined };
-}) => {
+}: PageProps) => {
+   const params = await searchParams;
    const session = await auth();
-   const takeAmount = Number(searchParams.take) || 49
+   const takeAmount = Number(params?.take) || 42
 
    if (!session?.user) return null;
 

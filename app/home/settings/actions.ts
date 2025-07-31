@@ -1,7 +1,6 @@
 "use server";
 
 import prisma from "@/app/shared/lib/db/prisma";
-import { cookies } from "next/headers";
 
 export async function exportEntriesCsv(userId?: string) {
    const entries = await prisma.movie.findMany({

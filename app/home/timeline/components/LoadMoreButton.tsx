@@ -10,7 +10,7 @@ interface LoadMoreButtonProps {
 const LoadMoreButton = ({ moviesLength}: LoadMoreButtonProps) => {
    const searchParams = useSearchParams();
    const router = useRouter();
-   const currentTake = Math.round(Number(searchParams.get("take"))) || 49;
+   const currentTake = Math.round(Number(searchParams.get("take"))) || 42;
    const newTake = currentTake + 28;
    const params = new URLSearchParams(searchParams.toString());
 

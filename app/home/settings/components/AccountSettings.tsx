@@ -21,8 +21,12 @@ export const AccountSettings = () => {
    const handleExport = async () => {
       const csvData = await exportEntriesCsv(session.user?.id);
 
+      if (!csvData) {
+         return
+      }
+
       // Create and download the file
-      const blob = new Blob([csvData], { type: "text/csv" });
+      const blob = new Blob([csvData as string], { type: "text/csv" });
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;

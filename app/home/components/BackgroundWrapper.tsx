@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BackgroundWrapper = ({children}) => {
+const BackgroundWrapper = () => {
   return (
     <div>BackgroundWrapper</div>
   )

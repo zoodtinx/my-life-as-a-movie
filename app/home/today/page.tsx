@@ -1,9 +1,8 @@
-import React from "react";
-import { StartButton } from "@/app/home/today/components/StartButton";
 import prisma from "@/app/shared/lib/db/prisma";
 import { auth } from "@/app/auth";
 import TodayMovie from "@/app/home/today/components/TodayMovie";
 import { TodayPageContent } from "@/app/home/today/content";
+import { Suspense } from "react";
 
 const TodayPage = async () => {
    const session = await auth();
@@ -17,7 +16,7 @@ const TodayPage = async () => {
       },
    });
 
-   console.log('today', todayMovie?.id)
+   console.log("today", todayMovie?.id);
 
    const today = new Date();
    today.setHours(0, 0, 0, 0);
@@ -30,13 +29,18 @@ const TodayPage = async () => {
       new Date(todayMovie.date) >= today &&
       new Date(todayMovie.date) < tomorrow;
 
-
    if (!isToday) {
       return (
-         <TodayPageContent />
+         <Suspense fallback={<div>Loading...</div>}>
+            <TodayPageContent />
+         </Suspense>
       );
    } else {
-      return <TodayMovie movie={todayMovie} />;
+      return (
+         <Suspense fallback={<div>Loading...</div>}>
+            <TodayMovie movie={todayMovie} />
+         </Suspense>
+      );
    }
 };
 
