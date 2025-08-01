@@ -41,12 +41,16 @@ export const MoviePoster = ({
             "flex cursor-pointer select-none shrink-0",
             "hover:scale-104 transition-transform duration-200 ease-in-out",
             "w-[105px] h-[148px] p-2 pb-1 shadow-sm",
-            "2xl:w-[170px] 2xl:h-[240px] 2xl:p-[13px] 2xl:pb-[10px] 2xl:shadow-md",
+            "xl:w-[170px] xl:h-[240px] xl:p-[13px] xl:pb-[10px] xl:shadow-md",
             `bg-gradient-to-b ${genreColor}`,
 
             // Large size override
             size === "large" &&
-               "w-[170px] h-[240px] p-[13px] pb-[10px] shadow-md  md:pt-5 md:pb-5 md:px-5 md:w-[276px] md:h-[391px]"
+               cn(
+                  "w-[170px] h-[240px] p-[13px] pb-[10px] shadow-md",
+                  "md:pt-5 md:pb-5 md:px-5 md:w-[276px] md:h-[391px]",
+                  "xl:pt-5 xl:pb-5 xl:px-5 xl:w-[276px] xl:h-[391px]"
+               )
          )}
          onClick={handleClick}
       >
@@ -60,8 +64,13 @@ export const MoviePoster = ({
                className={cn(
                   "font-header font-medium",
                   "text-[17px] leading-[19px]",
-                  "2xl:text-[25px] 2xl:leading-[26px]",
-                  size === "large" && "text-[25px] leading-[26px] md:text-[40px] md:leading-[45px]"
+                  "xl:text-[25px] xl:leading-[26px]",
+                  size === "large" &&
+                     cn(
+                        "text-[25px] leading-[26px]",
+                        "md:text-[40px] md:leading-[45px]",
+                        "xl:text-[40px] xl:leading-[45px]"
+                     )
                )}
             >
                {genre}
@@ -70,8 +79,13 @@ export const MoviePoster = ({
                className={cn(
                   "text-right font-header",
                   "text-[15px]",
-                  "2xl:text-[20px] 2xl:leading-[26px]",
-                  size === "large" && "text-[20px] leading-[26px] md:font-normal md:text-[30px]"
+                  "xl:text-[20px] xl:leading-[26px]",
+                  size === "large" &&
+                     cn(
+                        "text-[20px] leading-[26px]",
+                        "md:font-normal md:text-[30px]",
+                        "xl:font-normal xl:text-[30px]"
+                     )
                )}
             >
                {formattedDate}

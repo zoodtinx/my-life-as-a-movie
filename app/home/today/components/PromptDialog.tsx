@@ -86,7 +86,7 @@ export const PromptDialog = () => {
             </div>
             <CarouselContent className="md:h-[665px] xl:h-[745px]">
                {isLoading ? (
-                  <div className="flex justify-center items-center w-full h-full">
+                  <div className="flex justify-center items-start md:items-center w-full h-screen md:h-full pt-[100px] md:pt-0">
                      <CircleNotch className="animate-spin size-[40px] text-primary" />
                   </div>
                ) : (
@@ -161,11 +161,14 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
 
       case "multi-select":
          return (
-            <ControlledMultiSelect
-               fieldName={fieldName}
-               control={control}
-               options={options!}
-            />
+            <div className="flex flex-col gap-2">
+               <p className="text-sm text-center">Pick all that apply</p>
+               <ControlledMultiSelect
+                  fieldName={fieldName}
+                  control={control}
+                  options={options!}
+               />
+            </div>
          );
 
       case "slider":
@@ -190,7 +193,7 @@ const InputElement = ({ control, prompt }: MoviePromptProps) => {
 const StyledInput = ({ control, prompt }: MoviePromptProps) => {
    const { fieldName } = prompt;
    return (
-      <div className="flex flex-col w-full h-[160px] justify-between">
+      <div className="flex flex-col w-full h-[160px] justify-between my-3 px-2">
          <div className="border-t opacity-20" />
          <ControlledDynamicHeightInput
             className="text-[19px] md:text-[22px]"

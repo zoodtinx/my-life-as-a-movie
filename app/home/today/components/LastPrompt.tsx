@@ -15,9 +15,25 @@ interface LastPromptProps {
 export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
    const values = useWatch({ control: formMethods.control });
 
-   const undefinedFields = Object.entries(values)
-      .filter(([, value]) => value === undefined || value === "")
-      .map(([key]) => key);
+   const requiredFields = [
+      "setting",
+      "archetype",
+      "supportingCast",
+      "plotDevice",
+      "villain",
+      "unexpected",
+      "cinematography",
+      "dramaticIntensity",
+      "pacing",
+      "trailer",
+      "soundtrack",
+      "closingLine",
+      "userId",
+   ];
+
+   const undefinedFields = requiredFields.filter(
+      (field) => values[field as keyof MovieFormData] === undefined
+   );
 
    const hasUnanswered = undefinedFields.length > 0;
 
@@ -33,9 +49,8 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
          >
             {hasUnanswered ? (
                <div className="flex flex-col items-center gap-2 w-4/5">
-                  {/* <WarningCircle className="size-[60px] stroke-[0.5px]" /> */}
                   <p className="font-header font-medium text-[28px] text-center leading-tight">
-                     Still {undefinedFields.length} unanswered question
+                     {undefinedFields.length} unanswered
                   </p>
                   <p className="text-center md:text-base text-sm">
                      You can leave them, but your results might not be as
@@ -44,11 +59,10 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
                </div>
             ) : (
                <div className="flex flex-col items-center gap-2 w-4/5">
-                  {/* <WarningCircle className="size-[60px] stroke-[0.5px]" /> */}
                   <p className="font-header font-medium text-[28px] text-center leading-tight">
                      Ready to see your day as a movie ?
                   </p>
-                  <p className="text-center">
+                  <p className="text-center md:text-base text-sm">
                      Last chance to edit your script.
                   </p>
                </div>

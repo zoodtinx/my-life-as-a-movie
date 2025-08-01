@@ -13,6 +13,23 @@
     0 8px 10px -6px color-mix(in srgb, var(--color-primary, #263647) 5%, transparent);
 }
 
+.all-gradient {
+  background: linear-gradient(
+    to right,
+    #fbe6df,
+    #fff3eb,
+    #f5f0e6,
+    #f7c9e7,
+    #ffdbe7,
+    #fff5b1,
+    #dff5df,
+    #f2eef9,
+    #daf2ff,
+    #d3f4ff,
+    #efefee
+  ); 
+}
+
 @theme {
   --font-size-base: 20px;
 

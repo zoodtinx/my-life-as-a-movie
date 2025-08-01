@@ -38,7 +38,7 @@ export const Background = () => {
             )}
             style={{
                background:
-                  "radial-gradient(circle at 50% 150%, #E97B34 30%, #D690AE 50%, #97B7EE 60%, transparent 90%)",
+                  "radial-gradient(circle at 50% 150%, #fa914d 30%, #f7abcc 45%, #bbd4fc 55%, transparent 85%)",
             }}
          />
 
