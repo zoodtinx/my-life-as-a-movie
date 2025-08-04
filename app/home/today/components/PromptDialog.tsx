@@ -68,8 +68,8 @@ export const PromptDialog = () => {
    return (
       <div
          className={cn(
-            "bg-background rounded-[15px] w-full min-h-fit shadow-main",
-            "md:w-[670px] md:min-h-[700px]",
+            "rounded-[15px] w-full min-h-[calc(100vh-45px)] overflow-auto",
+            "md:w-[670px] md:min-h-fit md:overflow-auto",
             "xl:min-h-[800px]"
          )}
       >
@@ -84,7 +84,7 @@ export const PromptDialog = () => {
                <CarouselPrevious />
                <CarouselNext />
             </div>
-            <CarouselContent className="md:h-[665px] xl:h-[745px]">
+            <CarouselContent className="md:h-fit xl:h-[745px]">
                {isLoading ? (
                   <div className="flex justify-center items-start md:items-center w-full h-screen md:h-full pt-[100px] md:pt-0">
                      <CircleNotch className="animate-spin size-[40px] text-primary" />
@@ -114,12 +114,12 @@ const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
 
    return (
       <CarouselItem>
-         <div className="border-b opacity-10" />
          <div
             className={cn(
-               "flex flex-col justify-between w-full h-fit",
-               "pt-3 px-4",
-               "md:h-full md:pb-4",
+               "flex flex-col w-full h-fit justify-start",
+               "px-4 pt-2",
+               "md:h-full md:pb-4 md:pt-2",
+               "xl:justify-between",
                "2xl:pt-6 2xl:px-6"
             )}
          >

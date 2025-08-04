@@ -25,7 +25,7 @@ export const TodayPageContent = () => {
    return (
       <div
          className={cn(
-            "flex flex-col justify-between items-center w-full h-full pb-5",
+            "flex flex-col justify-between items-center w-full h-full pb-5 px-5",
             "2xl:pb-9"
          )}
       >
@@ -33,7 +33,7 @@ export const TodayPageContent = () => {
 
          <div
             className={cn(
-               "flex flex-col items-center w-full h-fit fade-up pb-7 pt-9",
+               "flex flex-col items-center w-full h-fit fade-up pb-7 pt-9 border-b border-t",
                "2xl:w-[1000px]"
             )}
          >
@@ -69,9 +69,9 @@ export const TodayPageContent = () => {
                "invisible"
             )}
          >
-            [ my life as a movie ] turns your daily moods into a cinematic
-            journey. Rate your day, jot down your thoughts, and watch your story
-            unfold. No filters, no fluff — just your life, honestly told.
+            [my life as a movie] turns your daily moods into a cinematic
+            journey. Rate your day, jot your thoughts, and watch your story
+            unfold—honestly, no fluff.
          </p>
       </div>
    );

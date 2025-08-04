@@ -39,7 +39,6 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
 
    return (
       <CarouselItem>
-         <div className="border-b opacity-10" />
          <div
             className={cn(
                "flex flex-col items-center w-full h-full gap-5",
