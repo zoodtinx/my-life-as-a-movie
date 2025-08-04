@@ -25,7 +25,7 @@ export const TodayPageContent = () => {
    return (
       <div
          className={cn(
-            "flex flex-col justify-between items-center w-full h-full pb-5 px-5",
+            "flex flex-col justify-between items-center w-full h-full pb-5 px-7",
             "2xl:pb-9"
          )}
       >
@@ -33,9 +33,11 @@ export const TodayPageContent = () => {
 
          <div
             className={cn(
-               "flex flex-col items-center w-full h-fit fade-up pb-7 pt-9 border-b border-t",
-               "2xl:w-[1000px]"
-            )}
+               "flex flex-col items-center justify-between",
+               "border-b border-t border-b-primary/25 border-t-primary/25",
+               "w-full h-[240px] pb-3 pt-3",
+               "md:w-[650px] md:h-[400px]"
+             )}
          >
             <div
                className={cn(
@@ -44,20 +46,14 @@ export const TodayPageContent = () => {
                   "xl:text-[40px]"
                )}
             >
-               <FilmSlateQuestion className="size-[50px] mb-4 md:size-[75px] lg:size-[80px]" />
-               <p>If your day were a movie,</p>
-               <p>what genre would it be ?</p>
+               <p className="text-left text-[28px] md:text-[42px]">
+                  If today were a movie, what genre would it be ?
+               </p>
             </div>
 
-            <div
-               className={cn(
-                  "bg-black all-gradient w-[250px] h-[2px] mb-2",
-                  "md:w-[370px] md:h-[3px] md:mb-4",
-                  "xl:w-[500px] xl:mb-5"
-               )}
-            />
-
-            <StartButton />
+            <div className="w-full flex justify-end">
+               <StartButton />
+            </div>
          </div>
 
          <p
@@ -69,9 +65,7 @@ export const TodayPageContent = () => {
                "invisible"
             )}
          >
-            [my life as a movie] turns your daily moods into a cinematic
-            journey. Rate your day, jot your thoughts, and watch your story
-            unfold—honestly, no fluff.
+            
          </p>
       </div>
    );

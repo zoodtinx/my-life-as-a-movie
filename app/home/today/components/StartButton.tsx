@@ -11,8 +11,9 @@ export const StartButton = () => {
       <button
          className={cn(
             "flex items-center gap-1 font-header rounded-xl cursor-pointer hover:hover:-translate-y-1 transition-transform ease-in-out duration-200",
-            "text-[22px] font-medium p-1 px-9 text-white",
-            "2xl:text-[28px] font-medium p-1 px-9 text-primary",
+            "text-[20px] font-medium text-white",
+            "md:text-[25px]",
+            "2xl:text-[28px] font-medium  text-primary",
          )}
          onClick={() => router.push("/home/prompt")}
       >

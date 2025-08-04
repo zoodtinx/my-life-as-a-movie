@@ -119,11 +119,9 @@ const MoviePrompt = ({ control, prompt }: MoviePromptProps) => {
                "flex flex-col w-full h-fit justify-start",
                "px-4 pt-2",
                "md:h-full md:pb-4 md:pt-2",
-               "xl:justify-between",
-               "2xl:pt-6 2xl:px-6"
             )}
          >
-            <div className="pb-7 2xl:pb-0">
+            <div className="pb-7">
                <p
                   className={cn(
                      "font-header font-medium pb-3",

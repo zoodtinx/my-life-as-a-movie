@@ -23,8 +23,8 @@ export const NavBar = () => {
          >
             <MLAMLogo
                className={cn(
-                  "text-primary w-[200px]",
-                  "md:w-[275px]",
+                  "text-primary w-[170px]",
+                  "md:w-[210px]",
                   "h-auto"
                )}
             />
@@ -68,9 +68,9 @@ const MobileMenu = () => {
    return (
       <DropdownMenu>
          <DropdownMenuTrigger className="focus:outline-0">
-            <List className="size-6 md:size-9" />{" "}
+            <List className="size-5 md:size-7" />{" "}
          </DropdownMenuTrigger>
-         <DropdownMenuContent className="bg-white border-transparent shadow-sm mr-3 font-header uppercase font-medium">
+         <DropdownMenuContent className="bg-white border-transparent shadow-sm mr-3 font-medium rounded-[13px]">
             <DropdownMenuItem onClick={() => handleClick("today")}>
                Today
             </DropdownMenuItem>
