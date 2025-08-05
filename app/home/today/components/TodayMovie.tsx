@@ -20,6 +20,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
    const router = useRouter();
    const searchParams = useSearchParams();
 
+   // background color change effect
    useEffect(() => {
       if (movie) {
          const currentBg = searchParams.get("bg");
