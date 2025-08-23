@@ -1,7 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { MLAMLogo } from "@/app/shared/icons/Logo";
 import {
    ArrowLineUpLeft,
@@ -20,12 +21,22 @@ import Image from "next/image";
 const Page = () => {
    const [isLoading, setisLoading] = useState(false);
    const featuresRef = useRef<HTMLDivElement>(null);
+   const router = useRouter();
+
+   useEffect(() => {
+      // Add ?bg=base to URL when component mounts
+      const currentUrl = new URL(window.location.href);
+      if (!currentUrl.searchParams.has("bg")) {
+         currentUrl.searchParams.set("bg", "base");
+         router.replace(currentUrl.pathname + currentUrl.search);
+      }
+   }, [router]);
 
    if (isLoading) {
       return (
          <div className="w-full h-screen flex justify-center items-center bg-background text-primary">
             <div className="w-fit overflow-hidden">
-               <MLAMLogo className="animate-slide overflow-hidden" />
+               <MLAMLogo className="animate-slide overflow-hidden animate-pulse" />
             </div>
          </div>
       );
@@ -42,32 +53,30 @@ const Page = () => {
       }
    };
 
-   const exportScreenshots = [1, 2, 3, 4, 5];
-
    return (
       <div className="w-full h-screen flex justify-center items-center text-primary text-[18px]">
          <div className="w-full h-full z-10">
             <div className="w-full h-full flex flex-col items-center overflow-y-auto overflow-x-hidden">
                <div className="flex flex-col gap-2 w-[1200px]">
                   <div className="pt-[61px] h-screen w-full flex flex-col justify-between">
-                     <div>
-                        <div className="flex justify-between mb-[40px]">
-                           <MLAMLogo className="w-[300px] h-auto text-secondary" />
-                           <button
-                              onClick={(e) => {
-                                 e.currentTarget.focus();
-                                 // signInWithProvider("credentials");
-                              }}
-                              className={
-                                 "flex items-center text-[16px] bg-secondary h-[30px] text-primary px-2 rounded-[10px] font-header uppercase font-semibold tracking-widest " +
-                                 "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
-                              }
-                           >
-                              <Enter />
-                              <p className="px-2">Launch Demo</p>
-                           </button>
-                        </div>
-                        <div className="flex gap-7 w-[840px] mx-auto mt-[90px] mb-[60px]">
+                     <div className="flex justify-between mb-[40px]">
+                        <MLAMLogo className="w-[300px] h-auto text-secondary" />
+                        <button
+                           onClick={(e) => {
+                              e.currentTarget.focus();
+                              signInWithProvider("credentials");
+                           }}
+                           className={
+                              "flex items-center text-[16px] bg-secondary h-[30px] text-primary px-2 rounded-[10px] font-header uppercase font-semibold tracking-widest " +
+                              "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
+                           }
+                        >
+                           <Enter />
+                           <p className="px-2">Launch Demo</p>
+                        </button>
+                     </div>
+                     <div className="grow flex flex-col justify-center pb-[8%]">
+                        <div className="flex gap-7 w-[840px] mx-auto mb-[60px]">
                            <MoviePoster />
                            <div className="flex flex-col justify-between border-b border-b-primary opacity-70">
                               <p className="italic">
@@ -137,14 +146,16 @@ const Page = () => {
                         <div className="flex flex-col">
                            <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
                            <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
-                              Not reliving, But Revisiting Your Day As An
-                              Audience
+                              You, <br />
+                              The Main Character
                            </p>
                            <p className="w-[600px] leading-tight opacity-70">
-                              An AI-powered journal app that listens to your
-                              daily experiences, turns them into engaging
-                              movie-style stories, and offers supportive
-                              insights to help you feel more grounded.
+                              Step back and see your day through a director's
+                              lens. Answer movie-themed questions that help you
+                              objectively reflect on your experiences without
+                              the emotional weight—because sometimes the best
+                              way to understand your story is to view yourself
+                              as the protagonist of your own film.
                            </p>
                         </div>
                         <div className="w-[385px] h-[480px]">
@@ -163,14 +174,15 @@ const Page = () => {
                         <div className="flex flex-col">
                            <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
                            <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
-                              Not reliving, But Revisiting Your Day As An
-                              Audience
+                              Every Day Deserves <br />a Movie Poster
                            </p>
-                           <p className="w-[600px] leading-tight opacity-70">
-                              An AI-powered journal app that listens to your
-                              daily experiences, turns them into engaging
-                              movie-style stories, and offers supportive
-                              insights to help you feel more grounded.
+                           <p className="w-[580px] leading-tight opacity-70">
+                              There's no such thing as a bad day—just different
+                              genres. Whether today was an action-packed
+                              thriller, a quiet indie drama, or a romantic
+                              comedy, your real experiences transform into an
+                              imaginative film story that makes every single day
+                              worth remembering and rewatching.
                            </p>
                         </div>
                         <div className="w-[355px] h-[480px]">
@@ -189,14 +201,15 @@ const Page = () => {
                         <div className="flex flex-col">
                            <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
                            <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
-                              Not reliving, But Revisiting Your Day As An
-                              Audience
+                           From Daily Scenes <br/>to Life Insights
                            </p>
                            <p className="w-[600px] leading-tight opacity-70">
-                              An AI-powered journal app that listens to your
-                              daily experiences, turns them into engaging
-                              movie-style stories, and offers supportive
-                              insights to help you feel more grounded.
+                              More than just a fun gimmick. This is your daily
+                              journal reimagined. Log each day as its own film
+                              while getting personalized mental health insights
+                              that help you live your story better. Because when
+                              you see patterns in your personal cinema, you can
+                              start directing a better tomorrow.
                            </p>
                         </div>
                         <div className="w-[365px] h-[480px]">
@@ -294,7 +307,7 @@ const Page = () => {
                      <button
                         onClick={(e) => {
                            e.currentTarget.focus();
-                           // signInWithProvider("credentials");
+                           signInWithProvider("credentials");
                         }}
                         className={
                            "flex items-center text-[24px] bg-secondary h-[40px] text-primary px-[7px] rounded-[13px] font-header uppercase font-semibold tracking-widest mx-auto " +
