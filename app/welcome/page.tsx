@@ -17,6 +17,17 @@ import { Enter } from "@/app/welcome/components/Enter";
 import { Background } from "@/app/home/components/Background";
 import { MoviePoster } from "@/app/welcome/components/Poster";
 import Image from "next/image";
+import SvgPinkHeartEmoji from "@/app/welcome/components/Emoji/PinkHeartEmoji";
+import SvgHandshakeEmoji from "@/app/welcome/components/Emoji/HandshakeEmoji";
+import SvgFilmEmoji from "@/app/welcome/components/Emoji/FilmEmoji";
+import SvgSuperheroEmoji from "@/app/welcome/components/Emoji/SuperheroEmoji";
+import SvgFistEmoji from "@/app/welcome/components/Emoji/FistEmoji";
+import SvgSparkleEmoji from "@/app/welcome/components/Emoji/SparkleEmoji";
+import SvgPopCornEmoji from "@/app/welcome/components/Emoji/PopCornEmoji";
+import SvgPictureFrameEmojiU1F5Bc from "@/app/welcome/components/Emoji/PictureFrameEmojiU1F5Bc";
+import SvgWorkingEmoji from "@/app/welcome/components/Emoji/WorkingEmoji";
+import SvgGlassEmoji from "@/app/welcome/components/Emoji/GlassEmoji";
+import SvgTreeEmoji from "@/app/welcome/components/Emoji/TreeEmoji";
 
 const Page = () => {
    const [isLoading, setisLoading] = useState(false);
@@ -67,7 +78,7 @@ const Page = () => {
                               signInWithProvider("credentials");
                            }}
                            className={
-                              "flex items-center text-[16px] bg-secondary h-[30px] text-primary px-2 rounded-[10px] font-header uppercase font-semibold tracking-widest " +
+                              "flex items-center text-[16px] bg-secondary h-[30px] text-primary px-2 rounded-[10px] font-header uppercase font-semibold tracking-widest  mb-2 " +
                               "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
                            }
                         >
@@ -115,9 +126,11 @@ const Page = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center">
                            <div className="font-header font-normal tracking-[0.5px] w-[760px] text-[55px] leading-16 text-center mb-6">
-                              <p className="tracking-widest text-[30px]">
-                                 🩷🤝🏻🎬
-                              </p>
+                              <div className="flex gap-1 justify-center mb-2">
+                                 <SvgPinkHeartEmoji className="size-12" />
+                                 <SvgHandshakeEmoji className="size-12" />
+                                 <SvgFilmEmoji className="size-12" />
+                              </div>
                               <p className="font-medium">
                                  Mood tracking meets movies
                               </p>
@@ -144,8 +157,12 @@ const Page = () => {
                   <div ref={featuresRef} className="w-full pt-[60px]">
                      <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
                         <div className="flex flex-col">
-                           <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
-                           <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
+                           <div className="flex gap-1 mb-2">
+                              <SvgSuperheroEmoji className="size-10" />
+                              <SvgFistEmoji className="size-10" />
+                              <SvgSparkleEmoji className="size-10" />
+                           </div>
+                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
                               You, <br />
                               The Main Character
                            </p>
@@ -172,8 +189,12 @@ const Page = () => {
                   <div className="w-full pt-[60px]">
                      <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
                         <div className="flex flex-col">
-                           <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
-                           <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
+                           <div className="flex gap-1 mb-2">
+                              <SvgFilmEmoji className="size-10" />
+                              <SvgPopCornEmoji className="size-10" />
+                              <SvgPictureFrameEmojiU1F5Bc className="size-10" />
+                           </div>
+                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
                               Every Day Deserves <br />a Movie Poster
                            </p>
                            <p className="w-[580px] leading-tight opacity-70">
@@ -199,9 +220,14 @@ const Page = () => {
                   <div className="w-full pt-[60px]">
                      <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
                         <div className="flex flex-col">
-                           <Popcorn className="size-[48px] text-orimary mb-3 text-secondary" />
-                           <p className="w-[440px] text-[30px] font-header text-primary font-medium leading-tight mb-6">
-                           From Daily Scenes <br/>to Life Insights
+                           <div className="flex gap-1 mb-2">
+                              <SvgWorkingEmoji className="size-10" />
+                              <SvgGlassEmoji className="size-10" />
+                              <SvgTreeEmoji className="size-10" />
+                           </div>
+                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
+                              From Daily Scenes <br />
+                              to Life Insights
                            </p>
                            <p className="w-[600px] leading-tight opacity-70">
                               More than just a fun gimmick. This is your daily
@@ -235,7 +261,7 @@ const Page = () => {
                            <div className="border-b border-secondary/50" />
                            <div className="flex flex-col gap-1 px-5 pt-3 py-4">
                               <div className="leading-tight pt-1">
-                                 <p className=" text-[30px]">Next.js</p>
+                                 <p className=" text-[37px]">Next.js</p>
                               </div>
 
                               <div className="leading-tight opacity-70">
@@ -255,7 +281,7 @@ const Page = () => {
                            <div className="border-b border-secondary/50" />
                            <div className="flex flex-col gap-1 px-5 pt-3 py-4">
                               <div className="leading-tight pt-1">
-                                 <p className=" text-[30px]">Railway</p>
+                                 <p className=" text-[37px]">Railway</p>
                               </div>
 
                               <div className="leading-tight opacity-70">
@@ -275,7 +301,7 @@ const Page = () => {
                            <div className="border-b border-secondary/50" />
                            <div className="flex flex-col gap-1 px-5 pt-3 py-4">
                               <div className="leading-tight pt-1">
-                                 <p className=" text-[30px]">OpenAI API</p>
+                                 <p className=" text-[37px]">OpenAI API</p>
                               </div>
 
                               <div className="leading-tight opacity-70">
@@ -310,7 +336,7 @@ const Page = () => {
                            signInWithProvider("credentials");
                         }}
                         className={
-                           "flex items-center text-[24px] bg-secondary h-[40px] text-primary px-[7px] rounded-[13px] font-header uppercase font-semibold tracking-widest mx-auto " +
+                           "flex items-center text-[24px] bg-secondary h-[40px] text-primary px-[7px] rounded-[13px] font-header uppercase font-semibold tracking-widest  mb-2 mx-auto " +
                            "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
                         }
                      >
