@@ -3,6 +3,10 @@
 import { StartButton } from "@/app/home/today/components/StartButton";
 import { FilmSlateQuestion } from "@/app/shared/icons/FilmSlateQuestion";
 import { cn } from "@/app/shared/utils";
+import SvgFilmEmoji from "@/app/welcome/components/Emoji/FilmEmoji";
+import SvgPopCornEmoji from "@/app/welcome/components/Emoji/PopCornEmoji";
+import SvgSparkleEmoji from "@/app/welcome/components/Emoji/SparkleEmoji";
+import SvgWorkingEmoji from "@/app/welcome/components/Emoji/WorkingEmoji";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useMemo } from "react";
 
@@ -37,15 +41,20 @@ export const TodayPageContent = () => {
                "border-b border-t border-b-primary/25 border-t-primary/25",
                "w-full h-[240px] pb-3 pt-3",
                "md:w-[650px] md:h-[400px]"
-             )}
+            )}
          >
             <div
                className={cn(
-                  "text-[21px] leading-tight flex flex-col items-center w-full pb-3",
+                  "text-[21px] leading-tight flex flex-col w-full pb-3",
                   "md:text-[35px] md:pb-5",
                   "xl:text-[40px]"
                )}
             >
+               <div className="flex gap-1 py-3">
+                  <SvgPopCornEmoji />
+                  <SvgFilmEmoji />
+                  <SvgSparkleEmoji />
+               </div>
                <p className="text-left text-[28px] md:text-[42px]">
                   If today were a movie, what genre would it be ?
                </p>
@@ -64,9 +73,7 @@ export const TodayPageContent = () => {
                "2xl:text-base",
                "invisible"
             )}
-         >
-            
-         </p>
+         ></p>
       </div>
    );
 };

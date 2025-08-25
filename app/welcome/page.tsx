@@ -46,9 +46,10 @@ const Page = () => {
    if (isLoading) {
       return (
          <div className="w-full h-screen flex justify-center items-center bg-background text-primary">
-            <div className="w-fit overflow-hidden">
+            <div className="w-fit overflow-hidden z-10">
                <MLAMLogo className="animate-slide overflow-hidden animate-pulse" />
             </div>
+            <Background />
          </div>
       );
    }
@@ -68,28 +69,28 @@ const Page = () => {
       <div className="w-full h-screen flex justify-center items-center text-primary text-[18px]">
          <div className="w-full h-full z-10">
             <div className="w-full h-full flex flex-col items-center overflow-y-auto overflow-x-hidden">
-               <div className="flex flex-col gap-2 w-[1200px]">
-                  <div className="pt-[61px] h-screen w-full flex flex-col justify-between">
-                     <div className="flex justify-between mb-[40px]">
-                        <MLAMLogo className="w-[300px] h-auto text-secondary" />
+               <div className="flex flex-col gap-2 w-screen xl:w-[1200px] px-4 md:px-10 lg:px-10 xl:px-0">
+                  <div className="pt-3 lg:pt-[25px] xl:pt-[61px] h-screen w-full flex flex-col justify-between">
+                     <div className="flex justify-between items-center mb-[40px]">
+                        <MLAMLogo className="w-[180px] lg:w-[230px] xl:w-[300px] text-secondary" />
                         <button
                            onClick={(e) => {
                               e.currentTarget.focus();
                               signInWithProvider("credentials");
                            }}
                            className={
-                              "flex items-center text-[16px] bg-secondary h-[30px] text-primary px-2 rounded-[10px] font-header uppercase font-semibold tracking-widest  mb-2 " +
+                              "flex items-center text-sm lg:text-[16px] bg-secondary h-[25px] lg:h-[30px] text-primary px-2 rounded-[7px] lg:rounded-[10px] font-header uppercase font-semibold tracking-widest " +
                               "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
                            }
                         >
-                           <Enter />
-                           <p className="px-2">Launch Demo</p>
+                           <Enter className="hidden lg:block" />
+                           <p className="px-0 lg:px-2">Launch Demo</p>
                         </button>
                      </div>
-                     <div className="grow flex flex-col justify-center pb-[8%]">
-                        <div className="flex gap-7 w-[840px] mx-auto mb-[60px]">
+                     <div className="grow flex flex-col justify-center xl:pb-[8%] ">
+                        <div className="flex justify-center gap-7 w-full lg:w-[840px] mx-auto mb-[30px] xl:mb-[60px]">
                            <MoviePoster />
-                           <div className="flex flex-col justify-between border-b border-b-primary opacity-70">
+                           <div className="hidden xl:flex flex-col justify-between border-b border-b-primary opacity-70">
                               <p className="italic">
                                  &quot;In a city where everyday routines
                                  transform into extraordinary escapades, one
@@ -125,18 +126,18 @@ const Page = () => {
                            </div>
                         </div>
                         <div className="flex flex-col items-center justify-center">
-                           <div className="font-header font-normal tracking-[0.5px] w-[760px] text-[55px] leading-16 text-center mb-6">
+                           <div className="font-header font-normal tracking-[0.5px] lg:w-[760px] text-[25px] md:text-[40px] lg:text-[55px] leading-tight lg:leading-16 text-center mb-3 lg:mb-6">
                               <div className="flex gap-1 justify-center mb-2">
-                                 <SvgPinkHeartEmoji className="size-12" />
-                                 <SvgHandshakeEmoji className="size-12" />
-                                 <SvgFilmEmoji className="size-12" />
+                                 <SvgPinkHeartEmoji className="size-8 md:size-12" />
+                                 <SvgHandshakeEmoji className="size-8 md:size-12" />
+                                 <SvgFilmEmoji className="size-8 md:size-12" />
                               </div>
                               <p className="font-medium">
                                  Mood tracking meets movies
                               </p>
                               <p>What genre is your day?</p>
                            </div>
-                           <p className="w-[830px] text-center">
+                           <p className="lg:w-[830px] text-center text-sm md:text-base">
                               Transform your daily diary into a movie with a few
                               simple questions. Watch your day become cinematic
                               scenes, track your mood through film genres, and
@@ -145,28 +146,28 @@ const Page = () => {
                         </div>
                      </div>
                      <button
-                        className="pb-7 group w-fit mx-auto text-white"
+                        className="pb-3 xl:pb-7 group w-fit mx-auto text-white shrink-0"
                         onClick={handleExploreFeatures}
                      >
-                        <p className="uppercase text-center font-medium font-header tracking-wider pb-1 text-[16px]">
+                        <p className="uppercase text-center font-medium font-header tracking-wider pb-1 text-[12px] lg:text-[16px]">
                            Explore Features
                         </p>
                         <NavArrowDown className="mx-auto animate-shake" />
                      </button>
                   </div>
                   <div ref={featuresRef} className="w-full pt-[60px]">
-                     <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
-                        <div className="flex flex-col">
+                     <div className="flex flex-col lg:flex-row justify-between border-t border-t-secondary lg:h-[500px] pt-[30px] md:items-center lg:items-start">
+                        <div className="flex flex-col mb-6 lg:mb-0">
                            <div className="flex gap-1 mb-2">
                               <SvgSuperheroEmoji className="size-10" />
                               <SvgFistEmoji className="size-10" />
                               <SvgSparkleEmoji className="size-10" />
                            </div>
-                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
+                           <p className="lg:w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-3 lg:mb-6">
                               You, <br />
                               The Main Character
                            </p>
-                           <p className="w-[600px] leading-tight opacity-70">
+                           <p className="lg:w-[600px] leading-tight opacity-70 text-sm md:text-base">
                               Step back and see your day through a director's
                               lens. Answer movie-themed questions that help you
                               objectively reflect on your experiences without
@@ -175,7 +176,7 @@ const Page = () => {
                               as the protagonist of your own film.
                            </p>
                         </div>
-                        <div className="w-[385px] h-[480px]">
+                        <div className="md:w-2/3 lg:w-[385px] lg:h-[480px]">
                            <Image
                               width={400}
                               height={400}
@@ -187,17 +188,17 @@ const Page = () => {
                      </div>
                   </div>
                   <div className="w-full pt-[60px]">
-                     <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
-                        <div className="flex flex-col">
+                     <div className="flex flex-col lg:flex-row justify-between border-t border-t-secondary lg:h-[500px] pt-[30px] md:items-center lg:items-start">
+                        <div className="flex flex-col mb-6 lg:mb-0">
                            <div className="flex gap-1 mb-2">
                               <SvgFilmEmoji className="size-10" />
                               <SvgPopCornEmoji className="size-10" />
                               <SvgPictureFrameEmojiU1F5Bc className="size-10" />
                            </div>
-                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
+                           <p className="lg:w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-3 lg:mb-6">
                               Every Day Deserves <br />a Movie Poster
                            </p>
-                           <p className="w-[580px] leading-tight opacity-70">
+                           <p className="lg:w-[600px] leading-tight opacity-70 text-sm md:text-base">
                               There's no such thing as a bad day—just different
                               genres. Whether today was an action-packed
                               thriller, a quiet indie drama, or a romantic
@@ -206,30 +207,31 @@ const Page = () => {
                               worth remembering and rewatching.
                            </p>
                         </div>
-                        <div className="w-[355px] h-[480px]">
+                        <div className="md:w-2/3 lg:w-[385px] lg:h-[480px]">
                            <Image
                               width={400}
                               height={400}
-                              className="w-full h-ull"
+                              className="w-full h-full"
                               src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat2.webp?updatedAt=1755573972757"
                               alt=""
                            />
                         </div>
                      </div>
                   </div>
+
                   <div className="w-full pt-[60px]">
-                     <div className="flex justify-between border-t border-t-secondary h-[500px] pt-[30px]">
-                        <div className="flex flex-col">
+                     <div className="flex flex-col lg:flex-row justify-between border-t border-t-secondary lg:h-[500px] pt-[30px] md:items-center lg:items-start">
+                        <div className="flex flex-col mb-6 lg:mb-0">
                            <div className="flex gap-1 mb-2">
                               <SvgWorkingEmoji className="size-10" />
                               <SvgGlassEmoji className="size-10" />
                               <SvgTreeEmoji className="size-10" />
                            </div>
-                           <p className="w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-6">
+                           <p className="lg:w-[440px] text-[37px] font-header text-primary font-medium leading-11 mb-3 lg:mb-6">
                               From Daily Scenes <br />
                               to Life Insights
                            </p>
-                           <p className="w-[600px] leading-tight opacity-70">
+                           <p className="lg:w-[600px] leading-tight opacity-70 text-sm md:text-base">
                               More than just a fun gimmick. This is your daily
                               journal reimagined. Log each day as its own film
                               while getting personalized mental health insights
@@ -238,22 +240,23 @@ const Page = () => {
                               start directing a better tomorrow.
                            </p>
                         </div>
-                        <div className="w-[365px] h-[480px]">
+                        <div className="md:w-2/3 lg:w-[385px] lg:h-[480px]">
                            <Image
                               width={400}
                               height={400}
-                              className="w-full h-ull"
+                              className="w-full h-full"
                               src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat3.webp?updatedAt=1755573972784"
                               alt=""
                            />
                         </div>
                      </div>
                   </div>
-                  <div className="border-t border-t-secondary pt-[30px] mb-[30px]">
+
+                  <div className="border-t border-t-secondary mt-14  pt-[30px] mb-[30px]">
                      <p className="text-center font-header font-medium text-primary text-[35px] mb-[30px]">
                         Tech Stack
                      </p>
-                     <div className="flex gap-[17px] mb-[30px]">
+                     <div className="flex flex-col lg:flex-row gap-[17px] mb-[30px]">
                         <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
                            <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
                               Client & Server
@@ -343,7 +346,7 @@ const Page = () => {
                         <Enter className="size-[38px]" />
                         <p className="px-3">Launch Demo</p>
                      </button>
-                     <div className="w-[440px] text-sm mx-auto pt-[50px]">
+                     <div className="lg:w-[440px] text-sm mx-auto pt-[50px]">
                         <p className="pb-4">
                            Each demo session is generated personally for each
                            user. Users are free to explore features, try
@@ -361,7 +364,9 @@ const Page = () => {
                         <ArrowUpLeft className="size-4" />
                         <p>See More Of My Portfolio Projects</p>
                      </button>
-                     <p>© 2025 Peerapol Glaajing, All Rights Reserved.</p>
+                     <p className="hidden lg:block">
+                        © 2025 Peerapol Glaajing, All Rights Reserved.
+                     </p>
                   </div>
                </div>
             </div>
