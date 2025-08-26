@@ -1,71 +1,52 @@
-# My Life As A Movie
+# RunningMan
+__RunningMan__ is a running tool that helps runners make smart decisions by checking outdoor conditions and tracking personal data. The app features custom post-run stats pics, manual logging for distance and time, and helps runners prepare better based on current outdoor vibes.
 
-_A timeline-style life journaling app with tags, moods, and media._
+## ✨ Features
 
----
+### • Running Readiness Insights
+View daily running readiness score and summary based on air quality, weather conditions, and sunrise/sunset times to plan safer and optimal runs.
 
-## Overview
+### • Save Favorite Routes
+Select from previously saved routes in popular parks, specify lap counts, and manually log start and finish times to track performance.
 
-**My Life As A Movie** helps users record their life as a sequence of entries—like scenes in a film. Each entry can include notes, moods, tags, and attachments, helping users reflect and visualize their personal journey over time.
+### • Stunning Post Run Pics
+Create and customize beautiful post-run statistics images with your distance, time, and route details to share your running achievements.
 
----
 
-## Features
-
-### 🎬 Timeline Journal
-Capture life events as chronological entries with timestamp, mood, and notes.
-
-### 🏷️ Tags & Mood Tracking
-Organize your entries with custom tags and mood icons to reveal patterns over time.
-
-### 📎 Media Attachments
-Attach files or images to your entries—like photos, audio clips, or documents.
-
-### 🧹 Demo Data Auto-Cleanup (Cron Job)
-Demo users' data is cleared daily with a scheduled job to keep the app clean and light.
-
----
-
-## Demo
+## 📱 Live Demo
 
 - **Live Demo**: [Insert Live URL]
-- **Screenshots**: [Insert images or links]
 
----
+## ⚙️ Tech Stack
 
-## Tech Stack
+### Architecture
+### Architecture
+- __App__: Next.js, Tailwind, React Hook Form, Shadcn (Radix UI), Phosphor Icons  
+  - Auth.js with JWT authentication  
+  - Get real-time weather and air quality data from 3rd Party API
+  - Update weather data hourly with cron job implement via github action
 
-### 🧠 Language
-- TypeScript
+- __Database__: PostgreSQL  
+  - Relational design with Prisma ORM  
 
-### 💻 Frontend
-- Framework: Next.js (App Router)
-- UI: Tailwind CSS, Shadcn
-- State Management: Zustand
-- API Client: React Query
+### Infrastructure
+- __Deployment__:  
+  - App & Managed Database on Railway
 
-### 🛠 Backend
-- Framework: Nest.js
-- Database: PostgreSQL (via Prisma ORM)
-- Background Jobs: cron + node-cron
+- __3rd Party API__:  
+  - Tomorrow.io for weather data
+  - IQAir for air quality index
 
-### ☁ Services
-- File Storage: AWS S3
+## 💡 What I Learned  
 
----
+### 3rd Party API Integration  
+- **Multiple APIs**:  
+  - Standardizing data from different sources into a consistent format  
+- **Data Processing**:  
+  - Converting raw API responses into scores and translating them into clear, actionable insights  
 
-## What I learned
-
----
-
-## Challenges & Solutions
-
----
-
-## How to Run Locally
-
-```bash
-git clone https://github.com/yourusername/my-life-as-a-movie.git
-cd my-life-as-a-movie
-npm install
-npm run dev
+### Data Visualization  
+- **Stat-to-Image Conversion**:  
+  - Generating PNG images from user running stats for easy sharing or download  
+- **UI Mapping**:  
+  - Presenting running metrics in a visually clear and engaging way  
