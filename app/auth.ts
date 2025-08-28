@@ -8,12 +8,10 @@ const prisma = new PrismaClient();
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
    providers: [
-      Google(
-         {
-            clientId: process.env.AUTH_GOOGLE_ID!,
-            clientSecret: process.env.AUTH_GOOGLE_SECRET!,
-         }
-      ),
+      Google({
+         clientId: process.env.AUTH_GOOGLE_ID!,
+         clientSecret: process.env.AUTH_GOOGLE_SECRET!,
+      }),
       CredentialsProvider({
          name: "demo",
          credentials: {},
@@ -21,40 +19,40 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             const demoUser = await createDemoSession();
 
             if (demoUser) {
-               console.log("demoUser", demoUser);
-               return demoUser.user; // returned user goes into token & session
+               return demoUser.user;
             }
             return null;
          },
       }),
    ],
    pages: {
-      signIn: "/welcome",
+      signIn: "/welcome?bg=base",
    },
    session: {
-      strategy: "jwt", // Use JWT instead of database sessions
+      strategy: "jwt",
+      maxAge: 2 * 60 * 60,
+   },
+   jwt: {
+      maxAge: 2 * 60 * 60,
    },
    callbacks: {
       async signIn({ user }) {
-         console.log("user", user);
          if (!user.email) return false;
 
-         const newUser = await prisma.user.upsert({
+         await prisma.user.upsert({
             where: { email: user.email },
             update: {},
             create: {
                email: user.email,
                name: user.name ?? "",
-               personalContext: ""
+               personalContext: "",
             },
          });
 
-         console.log("newUser", newUser);
          return true;
       },
 
       async jwt({ token, user }) {
-         // Store user data in JWT token during sign-in
          if (user?.email) {
             const dbUser = await prisma.user.findUnique({
                where: { email: user.email },
@@ -70,7 +68,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
 
       async session({ session, token }) {
-         // Get user data from JWT token (no database query needed)
          if (token.id && session.user) {
             session.user.id = token.id as string;
             session.user.email = token.email as string;
@@ -80,7 +77,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
 
       async redirect({ url, baseUrl }) {
-         console.log("url", url);
          if (url && url.includes("/welcome")) {
             return `${baseUrl}/home`;
          }
@@ -88,6 +84,3 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
    },
 });
-
-
-

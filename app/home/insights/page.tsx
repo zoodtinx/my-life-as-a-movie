@@ -1,4 +1,5 @@
 import { auth } from "@/app/auth";
+import { InsightPlaceholder } from "@/app/home/insights/components/InsightPlacehodler";
 import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { ScrollArea } from "@/app/shared/components/primitives/ScrollArea";
 import prisma from "@/app/shared/lib/db/prisma";
@@ -24,7 +25,9 @@ const InsightsPage = async () => {
       },
    });
 
-   console.log("weeklySummary", weeklySummary);
+   if (!weeklySummary) {
+      return <InsightPlaceholder />
+   }
 
    return (
       <ScrollArea

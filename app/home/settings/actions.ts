@@ -27,6 +27,10 @@ export async function deleteAllEntries(userId?: string) {
    await prisma.movie.deleteMany({
       where: { userId },
    });
+   
+   await prisma.weeklySummary.deleteMany({
+      where: { userId },
+   });
 }
 
 export async function editPersonalContext(

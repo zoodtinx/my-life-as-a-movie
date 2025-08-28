@@ -43,7 +43,7 @@ const ResultPage = async ({ searchParams }: PageProps) => {
    return (
       <div
          className={cn(
-            "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start",
+            "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start animate-fade-in",
             "xl:justify-between"
          )}
       >

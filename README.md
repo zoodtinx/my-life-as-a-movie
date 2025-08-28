@@ -1,52 +1,41 @@
-# RunningMan
-__RunningMan__ is a running tool that helps runners make smart decisions by checking outdoor conditions and tracking personal data. The app features custom post-run stats pics, manual logging for distance and time, and helps runners prepare better based on current outdoor vibes.
+<p align="center">
+    <img src="https://ik.imagekit.io/freelanceman/github/mlam-readme-header.png?updatedAt=1756222222220" alt="My life as a movie - Daily journal meets movie" />
+</p>
+
+**My Life Is A Movie** _(yes, that's the application name)_ is an AI-powered journaling app that transforms your daily reflections into cinematic scenes, connects your emotions with film genres, and offers tailored insights for deeper self-understanding.
 
 ## ✨ Features
 
-### • Running Readiness Insights
-View daily running readiness score and summary based on air quality, weather conditions, and sunrise/sunset times to plan safer and optimal runs.
+### • Objective Self-Reflection
+Film-themed prompts help you step outside your emotions to analyze daily events as if watching a movie, creating distance for clearer perspective.
 
-### • Save Favorite Routes
-Select from previously saved routes in popular parks, specify lap counts, and manually log start and finish times to track performance.
+### • Mood As A Movie Genre
+Each day gets categorized into film genres based on your responses—action, drama, comedy, or others. Reframing routine experiences as memorable stories with narrative structure.
 
-### • Stunning Post Run Pics
-Create and customize beautiful post-run statistics images with your distance, time, and route details to share your running achievements.
-
+### • Life & Mental Health Tips
+The app tracks recurring themes in your daily film entries and provides mental health insights and practical recommendations based on identified patterns in your personal narrative.
 
 ## 📱 Live Demo
-
-- **Live Demo**: [Insert Live URL]
+-  **Live Demo**: [my-life-as-a-movie.peerapol.dev/](https://my-life-as-a-movie.peerapol.dev/)
 
 ## ⚙️ Tech Stack
 
 ### Architecture
-### Architecture
-- __App__: Next.js, Tailwind, React Hook Form, Shadcn (Radix UI), Phosphor Icons  
+- **App**: Next.js, Tailwind, React Hook Form, Shadcn (Radix UI), Phosphor Icons  
   - Auth.js with JWT authentication  
-  - Get real-time weather and air quality data from 3rd Party API
-  - Update weather data hourly with cron job implement via github action
+  - Multi-step form carousel  
+  - Generate imaginary movies from user input via OpenAI API  
 
-- __Database__: PostgreSQL  
+- **Database**: PostgreSQL  
   - Relational design with Prisma ORM  
 
 ### Infrastructure
-- __Deployment__:  
-  - App & Managed Database on Railway
+- **Deployment**: App & Managed Database on Railway  
 
-- __3rd Party API__:  
-  - Tomorrow.io for weather data
-  - IQAir for air quality index
+- **3rd Party API**: OpenAI API (**GPT-4o mini**) for interpreting user input  
 
-## 💡 What I Learned  
+## 💡 What I learned
 
-### 3rd Party API Integration  
-- **Multiple APIs**:  
-  - Standardizing data from different sources into a consistent format  
-- **Data Processing**:  
-  - Converting raw API responses into scores and translating them into clear, actionable insights  
-
-### Data Visualization  
-- **Stat-to-Image Conversion**:  
-  - Generating PNG images from user running stats for easy sharing or download  
-- **UI Mapping**:  
-  - Presenting running metrics in a visually clear and engaging way  
+### AI Integration
+- **Prompt Engineering**: Crafting clear and structured prompts to guide AI for accurate and creative outputs  
+- **Response Interpretation**: Analyzing AI outputs to map them into meaningful, user-friendly content within the app

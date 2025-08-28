@@ -1,14 +1,12 @@
 "use client";
 
 import { StartButton } from "@/app/home/today/components/StartButton";
-import { FilmSlateQuestion } from "@/app/shared/icons/FilmSlateQuestion";
 import { cn } from "@/app/shared/utils";
 import SvgFilmEmoji from "@/app/welcome/components/Emoji/FilmEmoji";
 import SvgPopCornEmoji from "@/app/welcome/components/Emoji/PopCornEmoji";
 import SvgSparkleEmoji from "@/app/welcome/components/Emoji/SparkleEmoji";
-import SvgWorkingEmoji from "@/app/welcome/components/Emoji/WorkingEmoji";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 export const TodayPageContent = () => {
    const router = useRouter();
@@ -29,7 +27,7 @@ export const TodayPageContent = () => {
    return (
       <div
          className={cn(
-            "flex flex-col justify-between items-center w-full h-full pb-5 px-7",
+            "flex flex-col justify-between items-center w-full h-full pb-5 px-7 animate-fade-in",
             "2xl:pb-9"
          )}
       >

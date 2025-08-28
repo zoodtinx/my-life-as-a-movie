@@ -7,7 +7,7 @@ export default auth((req) => {
 
    if (!req.auth) {
       console.log("🔒 Redirecting unauthenticated user to /login");
-      return NextResponse.redirect(new URL("/welcome", req.url));
+      return NextResponse.redirect(new URL("/welcome?bg=base", req.url));
    }
 });
 

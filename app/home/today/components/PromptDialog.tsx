@@ -27,6 +27,7 @@ import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { CircleNotch } from "phosphor-react";
 import { cn } from "@/app/shared/utils";
+import { LoadingTexts } from "@/app/home/today/components/LoadingTexts";
 
 export const PromptDialog = () => {
    const { data: session, status } = useSession() || {}
@@ -61,9 +62,10 @@ export const PromptDialog = () => {
       const values = formMethods.getValues();
       setIsLoading(true);
       const result = await getMovieSummary(values);
-      console.log("result", result);
       router.push(`/home/today?bg=${result.data.genre}`);
    };
+
+   
 
    return (
       <div
@@ -87,7 +89,11 @@ export const PromptDialog = () => {
             <CarouselContent className="md:h-fit xl:h-[745px]">
                {isLoading ? (
                   <div className="flex justify-center items-start md:items-center w-full h-screen md:h-full pt-[100px] md:pt-0">
-                     <CircleNotch className="animate-spin size-[40px] text-primary" />
+                     <div className="flex flex-col items-center">
+                        <CircleNotch className="animate-spin size-[40px] text-primary mb-3" />
+                        <LoadingTexts />
+                        <p className="font-header text-sm font-medium opacity-50">Getting result. This may take a while.</p>
+                     </div>
                   </div>
                ) : (
                   <>

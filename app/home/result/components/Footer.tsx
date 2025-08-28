@@ -1,7 +1,7 @@
 "use client";
 
 import {
-   ArrowLeft, Export, TrashSimple
+   ArrowLeft, TrashSimple
 } from "phosphor-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { PageButton } from "@/app/shared/components/CustomButton";
@@ -20,7 +20,7 @@ export const Footer = () => {
    const handleDelete = async () => {
       if (!id) return;
       await deleteMovie(id);
-      router.push("/home/today");
+      router.push("/home/timeline");
    };
 
    return (
@@ -46,7 +46,7 @@ export const Footer = () => {
             />
          </div>
          <div className="flex gap-8">
-            <PageButton icon={<Export />} iconPosition="right" text="Share" />
+            {/* <PageButton icon={<Export />} iconPosition="right" text="Share" /> */}
          </div>
       </div>
    );

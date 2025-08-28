@@ -16,8 +16,6 @@ const TodayPage = async () => {
       },
    });
 
-   console.log("today", todayMovie?.id);
-
    const today = new Date();
    today.setHours(0, 0, 0, 0);
 

@@ -3,7 +3,7 @@
 import { MoviePoster } from "@/app/shared/components/MoviePoster";
 import { Movie } from "@prisma/client";
 import { PageButton } from "@/app/shared/components/CustomButton";
-import { ArrowsCounterClockwise, Export, TrashSimple } from "phosphor-react";
+import { ArrowsCounterClockwise, TrashSimple } from "phosphor-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { deleteMovie } from "@/app/home/result/actions";
 import { useEffect } from "react";
@@ -50,7 +50,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
    return (
       <div
          className={cn(
-            "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start",
+            "flex flex-col items-center w-full h-full pb-9 overflow-y-auto justify-start animate-fade-in",
             "xl:justify-between"
          )}
       >
@@ -221,18 +221,6 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
          </div>
          <div></div>
       </div>
-   );
-};
-
-const Separator = ({ className }: { className?: string }) => {
-   return (
-      <div
-         className={cn(
-            "mb-4 block border-b mx-5 border-b-primary/30",
-            "2xl:hidden",
-            className
-         )}
-      />
    );
 };
 

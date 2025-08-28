@@ -1,17 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { Suspense, useRef, useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { MLAMLogo } from "@/app/shared/icons/Logo";
-import {
-   ArrowLineUpLeft,
-   ArrowRight,
-   ArrowUpLeft,
-   ArrowUpLeft as ArrowUpLeftOld,
-   ArrowDown as NavArrowDown,
-   Popcorn,
-} from "phosphor-react";
+import { ArrowUpLeft, ArrowDown as NavArrowDown } from "phosphor-react";
 import { GithubLogo } from "@/app/welcome/components/Github";
 import { Enter } from "@/app/welcome/components/Enter";
 import { Background } from "@/app/home/components/Background";
@@ -32,16 +24,6 @@ import SvgTreeEmoji from "@/app/welcome/components/Emoji/TreeEmoji";
 const Page = () => {
    const [isLoading, setisLoading] = useState(false);
    const featuresRef = useRef<HTMLDivElement>(null);
-   const router = useRouter();
-
-   useEffect(() => {
-      // Add ?bg=base to URL when component mounts
-      const currentUrl = new URL(window.location.href);
-      if (!currentUrl.searchParams.has("bg")) {
-         currentUrl.searchParams.set("bg", "base");
-         router.replace(currentUrl.pathname + currentUrl.search);
-      }
-   }, [router]);
 
    if (isLoading) {
       return (
@@ -49,7 +31,9 @@ const Page = () => {
             <div className="w-fit overflow-hidden z-10">
                <MLAMLogo className="animate-slide overflow-hidden animate-pulse" />
             </div>
-            <Background />
+            <Suspense>
+               <Background />
+            </Suspense>
          </div>
       );
    }
@@ -87,7 +71,7 @@ const Page = () => {
                            <p className="px-0 lg:px-2">Launch Demo</p>
                         </button>
                      </div>
-                     <div className="grow flex flex-col justify-center xl:pb-[8%] ">
+                     <div className="grow flex flex-col justify-center xl:pb-[8%] animate-fade-in ">
                         <div className="flex justify-center gap-7 w-full lg:w-[840px] mx-auto mb-[30px] xl:mb-[60px]">
                            <MoviePoster />
                            <div className="hidden xl:flex flex-col justify-between border-b border-b-primary opacity-70">
@@ -168,12 +152,13 @@ const Page = () => {
                               The Main Character
                            </p>
                            <p className="lg:w-[600px] leading-tight opacity-70 text-sm md:text-base">
-                              Step back and see your day through a director's
-                              lens. Answer movie-themed questions that help you
-                              objectively reflect on your experiences without
-                              the emotional weight—because sometimes the best
-                              way to understand your story is to view yourself
-                              as the protagonist of your own film.
+                              Step back and see your day through a
+                              director&apos;s lens. Answer movie-themed
+                              questions that help you objectively reflect on
+                              your experiences without the emotional
+                              weight—because sometimes the best way to
+                              understand your story is to view yourself as the
+                              protagonist of your own film.
                            </p>
                         </div>
                         <div className="md:w-2/3 lg:w-[385px] lg:h-[480px]">
@@ -199,12 +184,12 @@ const Page = () => {
                               Every Day Deserves <br />a Movie Poster
                            </p>
                            <p className="lg:w-[600px] leading-tight opacity-70 text-sm md:text-base">
-                              There's no such thing as a bad day—just different
-                              genres. Whether today was an action-packed
-                              thriller, a quiet indie drama, or a romantic
-                              comedy, your real experiences transform into an
-                              imaginative film story that makes every single day
-                              worth remembering and rewatching.
+                              There&apos;s no such thing as a bad day—just
+                              different genres. Whether today was an
+                              action-packed thriller, a quiet indie drama, or a
+                              romantic comedy, your real experiences transform
+                              into an imaginative film story that makes every
+                              single day worth remembering and rewatching.
                            </p>
                         </div>
                         <div className="md:w-2/3 lg:w-[385px] lg:h-[480px]">
@@ -320,7 +305,14 @@ const Page = () => {
                            "flex items-center text-md bg-secondary h-[34px] text-white mx-auto px-2 pr-3 gap-2 rounded-full " +
                            "focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-[2.5px]"
                         }
-                        onClick={(e) => e.currentTarget.focus()}
+                        onClick={(e) => {
+                           e.currentTarget.focus();
+                           window.open(
+                              "https://github.com/zoodtinx/my-life-as-a-movie",
+                              "_blank",
+                              "noopener,noreferrer"
+                           );
+                        }}
                      >
                         <GithubLogo className="size-[20px]" />
                         <span className="text-[16px] font-header uppercase font-semibold tracking-wider">
@@ -354,16 +346,21 @@ const Page = () => {
                            records, or delete content during their session.
                         </p>
                         <p className="font-semibold">
-                           All data will be automatically deleted 1 hour after
+                           All data will be automatically deleted 2 hour after
                            creation.
                         </p>
                      </div>
                   </div>
                   <div className="flex justify-between items-center text-[14px] pt-1 px-4 w-full h-[39px] bg-secondary font-medium rounded-tr-2xl rounded-tl-2xl">
-                     <button className="flex gap-1 items-center">
+                     <a
+                        href="https://www.peerapol.dev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex gap-1 items-center"
+                     >
                         <ArrowUpLeft className="size-4" />
                         <p>See More Of My Portfolio Projects</p>
-                     </button>
+                     </a>
                      <p className="hidden lg:block">
                         © 2025 Peerapol Glaajing, All Rights Reserved.
                      </p>
@@ -371,7 +368,9 @@ const Page = () => {
                </div>
             </div>
          </div>
-         <Background />
+         <Suspense>
+            <Background />
+         </Suspense>
       </div>
    );
 };

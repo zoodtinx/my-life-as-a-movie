@@ -10,6 +10,7 @@ import { MLAMLogo } from "@/app/shared/icons/Logo";
 import { List, SlidersHorizontal } from "phosphor-react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/app/shared/utils";
+import { Suspense } from "react";
 
 export const NavBar = () => {
    return (
@@ -47,10 +48,15 @@ export const NavBar = () => {
                />
             </div>
             <div className="w-1/3 flex justify-center items-center">
-               <MenuBar />
+               <Suspense>
+                  <MenuBar />
+               </Suspense>
             </div>
             <div className="w-1/3 flex justify-end items-center">
+            <Suspense>
+
                <SettingsMenu />
+            </Suspense>
             </div>
          </nav>
       </>
@@ -59,7 +65,6 @@ export const NavBar = () => {
 
 const MobileMenu = () => {
    const router = useRouter();
-   const searchParams = useSearchParams();
 
    const handleClick = (page: string) => {
       router.push(`/home/${page}`);

@@ -7,6 +7,7 @@ import React from "react";
 import { format } from "date-fns";
 import LoadMoreButton from "@/app/home/timeline/components/LoadMoreButton";
 import { cn } from "@/app/shared/utils";
+import { TimelinePlaceholder } from "@/app/home/timeline/components/TimelinePlaceholder";
 
 type PageProps = {
    searchParams?: Promise<Record<string, string | string[] | undefined>>;
@@ -29,6 +30,10 @@ const TimeLinePage = async ({ searchParams }: PageProps) => {
       take: takeAmount as number,
    });
 
+   if (!movies.length) {
+      return <TimelinePlaceholder/>
+   }
+
    return (
       <div className="flex flex-col justify-between items-center w-full pb-0 px-0 md:px-3 2xl:px-0">
          <MovieRows movies={movies} />
@@ -47,7 +52,7 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
          className={cn(
             "h-[calc(100vh-45px)]",
             "md:h-[calc(100vh-65px)]",
-            "2xl:h-[calc(100vh-80px)]"
+            "2xl:h-[calc(100vh-80px)] 2xl:min-w-[800px]"
          )}
       >
          <div className={cn("flex flex-col gap-4 pb-[500px] px-3")}>

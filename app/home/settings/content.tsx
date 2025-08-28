@@ -8,7 +8,7 @@ import {
    editPersonalContext,
    deleteAccount,
 } from "@/app/home/settings/actions";
-import { CircleNotch } from "phosphor-react";
+import { Check, CircleNotch } from "phosphor-react";
 import { cn } from "@/app/shared/utils";
 import { User } from "@prisma/client";
 
@@ -16,11 +16,11 @@ const SettingsPageContent = ({ user }: { user: User }) => {
    const { data: session, status } = useSession();
    if (status === "loading")
       return (
-   <div></div>
-      // <div className="h-screen w-screen flex justify-center items-center">
-      //    <CircleNotch className="animate-spin size-[40px] text-primary" />
-      // </div>
-   );
+         <div></div>
+         // <div className="h-screen w-screen flex justify-center items-center">
+         //    <CircleNotch className="animate-spin size-[40px] text-primary" />
+         // </div>
+      );
    if (!session || !session.user) return <p>Not signed in</p>;
 
    return (
@@ -92,8 +92,12 @@ export const PersonalContext = ({ user }: { user: User }) => {
                className="text-left flex items-center pt-2 text-base w-full 2xl:w-[450px] justify-center"
                onClick={() => setIsEditing(true)}
             >
-               <p className="hidden 2xl:block">{text ? text : "Add Personal Context"}</p>
-               <p className="block 2xl:hidden text-center border font-header rounded-lg px-3">Edit Personal Context</p>
+               <p className="hidden 2xl:block">
+                  {text ? text : "Add Personal Context"}
+               </p>
+               <p className="block 2xl:hidden text-center border font-header rounded-lg px-3">
+                  Edit Personal Context
+               </p>
             </button>
          ) : (
             <div>
@@ -132,16 +136,27 @@ export const PersonalContext = ({ user }: { user: User }) => {
 };
 
 export const AccountSettings = ({ user }: { user: User }) => {
-   const handleSignOut = () => {
-      signOut();
+   const [loadingDeleteEntries, setLoadingDeleteEntries] = useState(false);
+   const [successDeleteEntries, setSuccessDeleteEntries] = useState(false);
+
+   const [loadingExport, setLoadingExport] = useState(false);
+   const [successExport, setSuccessExport] = useState(false);
+
+   const [loadingDeleteUser, setLoadingDeleteUser] = useState(false);
+   const [loadingSignOut, setLoadingSignOut] = useState(false);
+
+   const handleSignOut = async () => {
+      setLoadingSignOut(true);
+      await signOut();
+      setLoadingSignOut(false);
    };
 
    const handleExport = async () => {
+      setLoadingExport(true);
       const csvData = await exportEntriesCsv(user.id);
+      setLoadingExport(false);
 
-      if (!csvData) {
-         return;
-      }
+      if (!csvData) return;
 
       const blob = new Blob([csvData], { type: "text/csv" });
       const url = window.URL.createObjectURL(blob);
@@ -152,34 +167,80 @@ export const AccountSettings = ({ user }: { user: User }) => {
       a.click();
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
+
+      setSuccessExport(true);
+      setTimeout(() => setSuccessExport(false), 6000);
    };
 
-   const handleDeleteAllEntries = () => {
-      deleteAllEntries(user.id);
+   const handleDeleteAllEntries = async () => {
+      setLoadingDeleteEntries(true);
+      await deleteAllEntries(user.id);
+      setLoadingDeleteEntries(false);
+      setSuccessDeleteEntries(true);
+      setTimeout(() => setSuccessDeleteEntries(false), 6000);
    };
 
    const handleDeleteUser = async () => {
+      setLoadingDeleteUser(true);
       await deleteAccount(user.id);
-      signOut();
+      setLoadingDeleteUser(false);
+      await signOut();
    };
 
    return (
       <div className="flex flex-col items-start font-header font-medium text-[20px] gap-2">
-         <button onClick={handleExport} className="cursor-pointer">
-            Export entries
-         </button>
+         <div className="flex justify-between w-full items-center">
+            <button
+               onClick={handleExport}
+               className="cursor-pointer"
+               disabled={loadingExport}
+            >
+               Export entries
+            </button>
+            {loadingExport && <CircleNotch className="animate-spin" />}
+            {!loadingExport && successExport && (
+               <Check />
+            )}
+         </div>
          <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
-         <button onClick={handleDeleteAllEntries} className="cursor-pointer">
-            Delete all entries
-         </button>
+
+         <div className="flex justify-between w-full items-center">
+            <button
+               onClick={handleDeleteAllEntries}
+               className="cursor-pointer"
+               disabled={loadingDeleteEntries}
+            >
+               Delete all entries
+            </button>
+            {loadingDeleteEntries && <CircleNotch className="animate-spin" />}
+            {!loadingDeleteEntries && successDeleteEntries && (
+               <Check />
+            )}
+         </div>
          <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
-         <button onClick={handleDeleteUser} className="cursor-pointer">
-            Delete account
-         </button>
+
+         <div className="flex justify-between w-full items-center">
+            <button
+               onClick={handleDeleteUser}
+               className="cursor-pointer"
+               disabled={loadingDeleteUser}
+            >
+               Delete account
+            </button>
+            {loadingDeleteUser && <CircleNotch className="animate-spin ml-2" />}
+         </div>
          <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
-         <button className="cursor-pointer" onClick={handleSignOut}>
-            Sign out
-         </button>
+
+         <div className="flex justify-between w-full items-center">
+            <button
+               onClick={handleSignOut}
+               className="cursor-pointer"
+               disabled={loadingSignOut}
+            >
+               Sign out
+            </button>
+            {loadingSignOut && <CircleNotch className="animate-spin ml-2" />}
+         </div>
       </div>
    );
 };
