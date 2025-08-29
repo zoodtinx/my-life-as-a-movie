@@ -294,7 +294,7 @@ const Page = () => {
 
                               <div className="leading-tight opacity-70">
                                  <p className="font-semibold">Usage: </p>
-                                 <p>For weather-related raw information</p>
+                                 <p>For interpreting user input into a movie & generate weekly mental health insights</p>
                               </div>
                            </div>
                         </div>
@@ -346,7 +346,7 @@ const Page = () => {
                            records, or delete content during their session.
                         </p>
                         <p className="font-semibold">
-                           All data will be automatically deleted 2 hour after
+                           All data will be automatically deleted 2 hours after
                            creation.
                         </p>
                      </div>

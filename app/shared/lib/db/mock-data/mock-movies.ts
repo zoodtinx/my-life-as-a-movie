@@ -1,5 +1,7 @@
+import { getTimezonedDate } from "@/app/shared/lib/timezone/getTimezonedDate";
+
 function getDateNDaysAgo(n: number): string {
-   const date = new Date();
+   const date = getTimezonedDate();
    date.setDate(date.getDate() - n);
    return date.toISOString();
 }

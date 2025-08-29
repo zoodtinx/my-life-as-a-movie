@@ -23,30 +23,29 @@ import { useRouter } from "next/navigation";
 import { ControlledDynamicHeightInput } from "@/app/shared/components/form-elements/DynamicHeightTextInput";
 import { LastPrompt } from "@/app/home/today/components/LastPrompt";
 import { defaultMovieFormData } from "@/app/shared/lib/constants/default-values";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CircleNotch } from "phosphor-react";
 import { cn } from "@/app/shared/utils";
 import { LoadingTexts } from "@/app/home/today/components/LoadingTexts";
+import { User } from "@prisma/client";
+import { useEffect } from "react";
 
-export const PromptDialog = () => {
-   const { data: session, status } = useSession() || {}
+export const PromptDialog = ({user}:{user: User}) => {
    const [isLoading, setIsLoading] = useState(false);
 
    const formMethods = useForm<MovieFormData>({
-      defaultValues: defaultMovieFormData,
+      defaultValues: {
+         ...defaultMovieFormData,
+      },
    });
    const router = useRouter();
 
    useEffect(() => {
-      if (session?.user?.id) {
-         formMethods.setValue("userId", session.user.id);
+      if (user) {
+         formMethods.setValue("userId", user.id);
+         // formMethods.setValue("userContext", user.personalContext);
       }
-   }, [session?.user?.id, formMethods]);
-
-   if (status === "loading")
-      return <CircleNotch className="animate-spin size-[40px] text-primary" />;
-   if (!session) return <p>Not signed in</p>;
+   }, [user, formMethods]);
 
    const prompts = movieFormQuestions.map((question) => {
       return (
@@ -60,6 +59,7 @@ export const PromptDialog = () => {
 
    const handleSubmit = async () => {
       const values = formMethods.getValues();
+      console.log('values', values)
       setIsLoading(true);
       const result = await getMovieSummary(values);
       router.push(`/home/today?bg=${result.data.genre}`);

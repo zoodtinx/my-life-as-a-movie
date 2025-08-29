@@ -22,8 +22,6 @@ const ResultPage = async ({ searchParams }: PageProps) => {
       return "Unexpected Error";
    }
 
-   console.log("Movie id from param:", id);
-
    const movie = await prisma.movie.findUnique({
       where: {
          id: id as string,

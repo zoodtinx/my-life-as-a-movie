@@ -13,6 +13,7 @@ export const movieFormSchema = z.object({
    trailer: z.array(z.string()).min(1),
    soundtrack: z.string().min(1),
    closingLine: z.string().min(1),
+   userContext: z.string().min(1),
    userId: z.string().min(1),
  });
 export type MovieFormData = z.infer<typeof movieFormSchema>;
