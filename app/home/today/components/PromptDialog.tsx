@@ -43,7 +43,6 @@ export const PromptDialog = ({user}:{user: User}) => {
    useEffect(() => {
       if (user) {
          formMethods.setValue("userId", user.id);
-         // formMethods.setValue("userContext", user.personalContext);
       }
    }, [user, formMethods]);
 
@@ -59,7 +58,6 @@ export const PromptDialog = ({user}:{user: User}) => {
 
    const handleSubmit = async () => {
       const values = formMethods.getValues();
-      console.log('values', values)
       setIsLoading(true);
       const result = await getMovieSummary(values);
       router.push(`/home/today?bg=${result.data.genre}`);
