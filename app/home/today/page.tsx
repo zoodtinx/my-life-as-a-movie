@@ -1,3 +1,4 @@
+import { getTimezonedDate } from "@/app/shared/lib/timezone/getTimezonedDate";
 import prisma from "@/app/shared/lib/db/prisma";
 import { auth } from "@/app/auth";
 import TodayMovie from "@/app/home/today/components/TodayMovie";
@@ -16,11 +17,8 @@ const TodayPage = async () => {
       },
    });
 
-   const today = new Date();
-   today.setHours(0, 0, 0, 0);
-
-   const tomorrow = new Date(today);
-   tomorrow.setDate(today.getDate() + 1);
+   const today = getTimezonedDate();
+   const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 
    const isToday =
       todayMovie &&
