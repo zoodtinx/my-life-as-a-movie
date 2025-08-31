@@ -4,6 +4,7 @@ import { auth } from "@/app/auth";
 import TodayMovie from "@/app/home/today/components/TodayMovie";
 import { TodayPageContent } from "@/app/home/today/content";
 import { Suspense } from "react";
+import { updateInsights } from "@/app/home/today/actions";
 
 const TodayPage = async () => {
    const session = await auth();
@@ -24,6 +25,8 @@ const TodayPage = async () => {
       todayMovie &&
       new Date(todayMovie.date) >= today &&
       new Date(todayMovie.date) < tomorrow;
+
+   await updateInsights(session?.user?.id);
 
    if (!isToday) {
       return (

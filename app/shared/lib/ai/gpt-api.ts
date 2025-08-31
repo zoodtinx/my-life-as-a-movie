@@ -1,6 +1,9 @@
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import OpenAI from "openai";
 import prisma from "@/app/shared/lib/db/prisma";
+import { WeeklySummary } from "@/app/shared/lib/zod/weekly-insights.zod.schema";
+import { MovieResult } from "@/app/shared/lib/zod/movie-result.zod.schema";
+import { Movie } from "@prisma/client";
 
 const openai = new OpenAI({
    apiKey: process.env.OPENAI_API_KEY,
@@ -9,20 +12,20 @@ const openai = new OpenAI({
 export async function generateMovie(userInput: MovieFormData) {
    const user = await prisma.user.findUnique({
       where: {
-         id: userInput.userId
-      }
-   })
+         id: userInput.userId,
+      },
+   });
 
-   const context = user?.personalContext
+   const context = user?.personalContext;
    const inputWithContext = { ...userInput, context };
    const userInputJson = JSON.stringify(inputWithContext);
 
    try {
       const response = await openai.responses.create({
          prompt: {
-            "id": "pmpt_6888c5412e648196b1af516c7f41c0c508af32e8900dfef7",
-            "version": "19"
-          },
+            id: "pmpt_6888c5412e648196b1af516c7f41c0c508af32e8900dfef7",
+            version: "19",
+         },
          input: [
             {
                role: "user",
@@ -116,6 +119,75 @@ export async function generateMovie(userInput: MovieFormData) {
                      "review",
                      "sequelIdea",
                      "similarMovie",
+                  ],
+                  additionalProperties: false,
+               },
+            },
+         },
+         reasoning: {},
+         max_output_tokens: 2048,
+         store: true,
+      });
+
+      const output = response.output_text;
+      const parsed = JSON.parse(output || "");
+
+      return { success: true, data: parsed };
+   } catch (error) {
+      console.log("error", error);
+      return { success: false };
+   }
+}
+
+export async function generateInsights(weeklyData: Movie[]) {
+   const userInputJson = JSON.stringify(weeklyData);
+
+   try {
+      const response = await openai.responses.create({
+         prompt: {
+            id: "pmpt_7b2e3a9c4d5f6e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e",
+            version: "8",
+         },
+         input: [
+            {
+               role: "user",
+               content: userInputJson,
+            },
+         ],
+         text: {
+            format: {
+               type: "json_schema",
+               name: "weekly_summary",
+               strict: true,
+               schema: {
+                  type: "object",
+                  properties: {
+                     headline: {
+                        type: "string",
+                        description:
+                           "A short, striking headline summarizing the overall theme of the user's week.",
+                     },
+                     personalitySnapshot: {
+                        type: "string",
+                        description:
+                           "A concise description of the user's mood, traits, or vibe across the week.",
+                     },
+                     weekSummary: {
+                        type: "string",
+                        description:
+                           "A reflective narrative capturing the key events, emotions, and patterns of the week.",
+                     },
+                     growthHighlight: {
+                        type: "string",
+                        description:
+                           "An uplifting highlight showing how the user grew, learned, or overcame something this week.",
+                     },
+                  },
+                  required: [
+                     "headline",
+                     "personalitySnapshot",
+                     "weekSummary",
+                     "growthHighlight",
                   ],
                   additionalProperties: false,
                },

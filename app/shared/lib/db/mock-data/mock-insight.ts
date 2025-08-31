@@ -1,7 +1,20 @@
+import { getTimezonedDate } from "@/app/shared/lib/timezone/getTimezonedDate";
+import { format } from "date-fns";
+
 export const getDemoInsight = (userId: string) => {
+   const timezonedDateObject = getTimezonedDate();
+
+   const yesterday = new Date(timezonedDateObject);
+   yesterday.setDate(yesterday.getDate() - 1);
+   const yLabel = format(yesterday, "d MMM");
+
+   const weekAgo = new Date(yesterday);
+   weekAgo.setDate(weekAgo.getDate() - 7);
+   const weekAgoLabel = format(weekAgo, "d MMM");
+
    return {
       userId,
-      week: "23 Jul - 30 Jul",
+      week: `${yLabel} - ${weekAgoLabel}`,
       headline:
          "A week painted in shades of struggle and triumph, where quiet reflections lead to moments of unexpected clarity, illuminating the path forward.",
       personalitySnapshot:
