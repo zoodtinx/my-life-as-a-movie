@@ -7,7 +7,7 @@ import {
    DropdownMenuTrigger,
 } from "@/app/shared/components/DropdownMenu";
 import { MLAMLogo } from "@/app/shared/icons/Logo";
-import { List, SlidersHorizontal } from "phosphor-react";
+import { List, SlidersHorizontal, Calendar, Sliders, FilmSlate, Flower } from "phosphor-react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/app/shared/utils";
 import { Suspense } from "react";
@@ -72,20 +72,24 @@ const MobileMenu = () => {
 
    return (
       <DropdownMenu>
-         <DropdownMenuTrigger className="focus:outline-0">
-            <List className="size-5 md:size-7" />{" "}
+         <DropdownMenuTrigger className="focus:outline-0 p-1 rounded-md active:bg-primary/15">
+            <List className="size-5 md:size-7" />
          </DropdownMenuTrigger>
          <DropdownMenuContent className="bg-white border-transparent shadow-sm mr-3 font-medium rounded-[13px]">
-            <DropdownMenuItem onClick={() => handleClick("today")}>
-               Today
+            <DropdownMenuItem onClick={() => handleClick("today")} className="gap-1">
+            <FilmSlate />
+               <p>Today</p>
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleClick("timeline")}>
+            <DropdownMenuItem onClick={() => handleClick("timeline")} className="gap-1">
+            <Calendar />
                Timeline
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleClick("insights")}>
+            <DropdownMenuItem onClick={() => handleClick("insights")} className="gap-1">
+            <Flower />
                Insights
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleClick("settings")}>
+            <DropdownMenuItem onClick={() => handleClick("settings")} className="gap-1">
+            <SlidersHorizontal />
                Settings
             </DropdownMenuItem>
          </DropdownMenuContent>

@@ -187,7 +187,7 @@ function CarouselPrevious({
          variant={variant}
          size={size}
          className={cn(
-            "rounded-full border-0 cursor-pointer shadow-none bg-transparent",
+            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20",
             className
          )}
          disabled={!canScrollPrev}
@@ -214,7 +214,7 @@ function CarouselNext({
          variant={variant}
          size={size}
          className={cn(
-            "rounded-full border-0 cursor-pointer shadow-none bg-transparent",
+            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20",
             className
          )}
          disabled={!canScrollNext}
