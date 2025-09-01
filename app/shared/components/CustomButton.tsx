@@ -4,7 +4,7 @@ interface PageButtonProps
    extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    icon: React.ReactNode;
    iconPosition: "left" | "right";
-   className: string,
+   className?: string,
    text: string;
 }
 

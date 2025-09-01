@@ -1,8 +1,6 @@
 import { MovieFormData } from "@/app/shared/lib/zod/movie-input.zod.schema";
 import OpenAI from "openai";
 import prisma from "@/app/shared/lib/db/prisma";
-import { WeeklySummary } from "@/app/shared/lib/zod/weekly-insights.zod.schema";
-import { MovieResult } from "@/app/shared/lib/zod/movie-result.zod.schema";
 import { Movie } from "@prisma/client";
 
 const openai = new OpenAI({
