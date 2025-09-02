@@ -34,16 +34,15 @@ export const NavBar = () => {
 
          <nav
             className={cn(
-               "w-full xl:h-[80px] xl:px-5 hidden",
-               "lg:flex lg:h-[60px] lg:px-3"
+               "w-full hidden pt-3 h-[45px]",
+               "lg:flex "
             )}
          >
             <div className="w-1/3 flex items-center">
                <MLAMLogo
                   className={cn(
                      "text-primary pl-2",
-                     "lg:w-[220px]",
-                     "xl:w-[280px]"
+                     "lg:w-[200px]",
                   )}
                />
             </div>
@@ -138,8 +137,7 @@ const MenuItem = ({
       <button
          className={cn(
             "cursor-pointer text-primary px-5 text-center rounded-md",
-            "md:text-[18px]",
-            "xl:text-[22px]",
+            "md:text-md",
             isActive && "bg-primary text-white"
          )}
          onClick={() => onClick(menuLowercase)}
@@ -150,7 +148,7 @@ const MenuItem = ({
 };
 
 const Divider = () => (
-   <div className="flex py-1 xl:py-2">
+   <div className="flex py-1">
       <div className="border-r border-primary" />
    </div>
 );
@@ -178,7 +176,7 @@ const SettingsMenu = () => {
             isActive && "bg-primary text-white"
          )}
       >
-         <SlidersHorizontal className="lg:size-7 xl:size-8" />
+         <SlidersHorizontal className="lg:size-6" />
       </a>
    );
 };

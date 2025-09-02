@@ -26,7 +26,7 @@ const LoadMoreButton = ({ moviesLength}: LoadMoreButtonProps) => {
    return (
       <button
          onClick={handleClick}
-         className="font-header font-medium text-[22px] border px-4 w-fit rounded-xl"
+         className="font-header font-medium text-md border leading-none py-1 px-3 w-fit rounded-lg"
       >
          Load More
       </button>

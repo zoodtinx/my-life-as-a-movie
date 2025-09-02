@@ -41,15 +41,15 @@ export const MoviePoster = ({
             "flex cursor-pointer select-none shrink-0",
             "hover:scale-104 transition-transform duration-200 ease-in-out",
             "w-[105px] h-[148px] p-2 pb-1 shadow-sm",
-            "xl:w-[170px] xl:h-[240px] xl:p-[13px] xl:pb-[10px] xl:shadow-md",
+            "xl:w-[150px] xl:h-[210px] xl:p-[13px] xl:pb-[8px] xl:shadow-md",
             `bg-gradient-to-b ${genreColor}`,
 
-            // Large size override
+            // Large size override - a bit smaller for "large"
             size === "large" &&
                cn(
-                  "w-[170px] h-[240px] p-[13px] pb-[10px] shadow-md",
-                  "md:pt-5 md:pb-5 md:px-5 md:w-[276px] md:h-[391px]",
-                  "xl:pt-5 xl:pb-5 xl:px-5 xl:w-[276px] xl:h-[391px]"
+                  "w-[150px] h-[210px] p-[10px] pb-[8px] shadow-md",
+                  "md:w-[160px] md:h-[220px] md:p-[11px] md:pb-[8px]",
+                  "xl:pt-3 xl:pb-3 xl:px-3 xl:w-[180px] xl:h-[255px]"
                )
          )}
          onClick={handleClick}
@@ -64,12 +64,12 @@ export const MoviePoster = ({
                className={cn(
                   "font-header font-medium",
                   "text-[17px] leading-[19px]",
-                  "xl:text-[25px] xl:leading-[26px]",
+                  "xl:text-[21px] xl:leading-[22px]",
                   size === "large" &&
                      cn(
-                        "text-[25px] leading-[26px]",
-                        "md:text-[40px] md:leading-[45px]",
-                        "xl:text-[40px] xl:leading-[45px]"
+                        "text-[20px] leading-[22px]",
+                        "md:text-[24px] md:leading-[28px]",
+                        "xl:text-[24px] xl:leading-[28px]"
                      )
                )}
             >
@@ -79,12 +79,12 @@ export const MoviePoster = ({
                className={cn(
                   "text-right font-header",
                   "text-[15px]",
-                  "xl:text-[20px] xl:leading-[26px]",
+                  "xl:text-[16px] xl:leading-[22px]",
                   size === "large" &&
                      cn(
-                        "text-[20px] leading-[26px]",
-                        "md:font-normal md:text-[30px]",
-                        "xl:font-normal xl:text-[30px]"
+                        "text-[16px] leading-[22px]",
+                        "md:font-normal md:text-[18px]",
+                        "xl:font-normal xl:text-[17px]"
                      )
                )}
             >

@@ -9,11 +9,11 @@ const homeLayout = ({
    children: React.ReactNode;
 }>) => {
    return (
-      <div className="min-w-screen flex min-h-screen text-lg">
+      <div className="min-w-screen flex justify-center min-h-screen text-lg">
          <Suspense>
             <Background />
          </Suspense>
-         <div className="flex flex-col min-h-screen w-full z-10">
+         <div className="flex flex-col min-h-screen w-full md:w-[1200px] z-10">
             <Suspense>
                <NavBar />
             </Suspense>
@@ -22,7 +22,7 @@ const homeLayout = ({
                   "text-primary",
                   "h-[calc(100vh-45px)]",
                   "md:h-[calc(100vh-65px)]",
-                  "2xl:h-[calc(100vh-80px)]"
+                  "lg:h-[calc(100vh-45px)]",
                )}
             >
                {children}

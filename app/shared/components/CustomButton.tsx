@@ -18,9 +18,7 @@ export const PageButton = ({
    return (
       <button
          className={cn(
-            "flex items-center gap-2 cursor-pointer font-header font-medium text-[18px] py-1 pl-2 pr-3 active:bg-primary/20 rounded-xl",
-            "md:text-[20px]",
-            "2xl:text-[25px]",
+            "flex items-center gap-2 cursor-pointer font-header font-medium text-md py-1 pl-2 pr-3 active:bg-primary/20 rounded-lg leading-none",
             className
          )}
          {...buttonProps}

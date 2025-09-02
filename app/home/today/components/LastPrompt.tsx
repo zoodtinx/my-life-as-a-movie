@@ -71,7 +71,7 @@ export const LastPrompt = ({ handleSubmit, formMethods }: LastPromptProps) => {
                   iconPosition="right"
                   text="Submit"
                   onClick={handleSubmit}
-                  className="border border-primary px-3 pt-0 pb-0 rounded-[9px] active:bg-primary/20"
+                  className="border border-primary px-2 py-1 rounded-[9px] active:bg-primary/20"
                />
          </div>
       </CarouselItem>

@@ -32,6 +32,7 @@
 
 @theme {
   --font-size-base: 20px;
+  --font-size-sm: 12px;
 
   --color-primary: #263647;
   --color-secondary: #FF7F61;
@@ -66,17 +67,23 @@
 
   --color-romantic-drama-from: #F7C9E7;
   --color-romantic-drama-to: #C9F7D7;
-
-  --color-feel-good-musical-to: #ffdbe7;
+--color-feel-good-musical-to: #ffdbe7;
   --color-feel-good-musical-from: #d3f4ff;
 
-  --breakpoint-sm: 0px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1280px;
-}
 
+  --breakpoint-sm: 820px;
+  --breakpoint-md: 1180px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1600px;
+
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 18px;
+  --text-lg: 21px;
+  --text-xl: 30px;
+  --text-2xl: 39px;
+
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

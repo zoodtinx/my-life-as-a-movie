@@ -26,12 +26,10 @@ export const Footer = () => {
    return (
       <div
          className={cn(
-            "flex justify-between",
-            "px-5 pb-5",
-            "2xl:px-0 2xl:pb-0"
+            "flex justify-end",
          )}
       >
-         <div className="flex gap-5 2xl:gap-8">
+         <div className="flex gap-3">
             <PageButton
                onClick={handleQuit}
                icon={<ArrowLeft />}

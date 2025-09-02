@@ -9,42 +9,30 @@ export const MoviePoster = () => {
    return (
       <div
          className={cn(
-            // Base (mobile) styles - made a little bit larger
-            "w-[140px] h-[200px] p-[10px] pb-[8px] shadow-md font-header flex flex-col justify-between font-medium text-primary",
+            "w-[110px] h-[160px] p-[8px] pb-[6px] shadow-md font-header flex flex-col justify-between font-medium text-primary",
             "bg-gradient-to-b from-adventure-fantasy-from to-adventure-fantasy-to shrink-0",
-            // lg: a bit larger than base (increased more)
-            "lg:w-[190px] lg:h-[270px] lg:p-[18px] lg:pb-[15px]",
-            // md: breakpoint overrides - also larger
-            "md:w-[250px] md:h-[360px] md:p-[20px] md:pb-[16px]",
-            // xl: same as md
-            "xl:w-[250px] xl:h-[360px] xl:p-[20px] xl:pb-[16px]"
+            "lg:w-[145px] lg:h-[200px] lg:p-[13px] lg:pb-[9px]",
+            "sm:w-[180px] sm:h-[250px] sm:p-[16px] sm:pb-[11px]",
+            "xl:w-[180px] xl:h-[250px] xl:p-[16px] xl:pb-[11px]"
          )}
       >
          <div className={cn("flex grow flex-col justify-between")}>
             <p
                className={cn(
-                  // Base (mobile) - larger
-                  "text-[22px] leading-[26px]",
-                  // lg: a bit larger than base (increased more)
-                  "lg:text-[32px] lg:leading-[38px]",
-                  // md: breakpoint - larger
-                  "md:text-[38px] md:leading-[44px]",
-                  // xl: same as md
-                  "xl:text-[38px] xl:leading-[44px]"
+                  "text-[18px] leading-[22px]",
+                  "lg:text-[24px] lg:leading-[28px]",
+                  "sm:text-[28px] sm:leading-[32px]",
+                  "xl:text-[28px] xl:leading-[32px]"
                )}
             >
                Adventure Fantasy
             </p>
             <p
                className={cn(
-                  // Base (mobile) - larger
-                  "text-[16px] leading-[20px] text-right font-normal",
-                  // lg: a bit larger than base (increased more)
-                  "lg:text-[24px] lg:leading-[30px]",
-                  // md: breakpoint - larger
-                  "md:text-[28px] md:leading-[32px]",
-                  // xl: same as md
-                  "xl:text-[28px] xl:leading-[32px]"
+                  "text-[12px] leading-[16px] text-right font-normal",
+                  "lg:text-[16px] lg:leading-[20px]",
+                  "sm:text-[18px] sm:leading-[22px]",
+                  "xl:text-[18px] xl:leading-[22px]"
                )}
             >
                {date}

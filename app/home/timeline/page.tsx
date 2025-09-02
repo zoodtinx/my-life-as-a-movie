@@ -35,7 +35,7 @@ const TimeLinePage = async ({ searchParams }: PageProps) => {
    }
 
    return (
-      <div className="flex flex-col justify-between items-center w-full pb-0 px-0 md:px-3 2xl:px-0">
+      <div className="flex flex-col justify-between items-center w-full pb-0 px-0 sm:px-3 2xl:px-0 pt-4">
          <MovieRows movies={movies} />
       </div>
    );
@@ -64,7 +64,7 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
                   <React.Fragment key={i}>
                      <div
                         className={cn(
-                           "flex items-center gap-3 pt-3",
+                           "flex items-center gap-3 pt-3 text-base",
                            "2xl:pt-7"
                         )}
                      >
@@ -90,7 +90,7 @@ const MovieRows = ({ movies }: { movies: Movie[] }) => {
                   </React.Fragment>
                );
             })}
-            <div className="flex w-full justify-center pt-[50px]">
+            <div className="flex w-full justify-center pt-[30px]">
                <LoadMoreButton moviesLength={movies.length} />
             </div>
          </div>

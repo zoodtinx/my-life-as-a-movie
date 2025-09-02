@@ -25,14 +25,14 @@ const SettingsPage = async () => {
             "flex flex-col justify-between w-full h-full overflow-y-auto",
             "px-0 pt-0 items-start",
             "md:px-7",
-            "2xl:px-20 2xl:pt-9 2xl:items-center"
+            "lg:px-20 lg:pt-9 lg:items-center"
          )}
       >
          <div
             className={cn(
                "flex flex-col grow gap-5 w-full h-full",
                "justify-start",
-               "2xl:justify-center 2xl:items-center"
+               "lg:justify-center lg:items-center"
             )}
          >
             <SessionProvider>

@@ -27,25 +27,25 @@ const SettingsPageContent = ({ user }: { user: User }) => {
       <div
          className={cn(
             "flex flex-col gap-10 px-5 pb-16 pt-5",
-            "2xl:gap-5 2xl:px-0 2xl:pt-0"
+            "lg:gap-5 lg:px-0 lg:pt-0"
          )}
       >
-         <div className={cn("flex flex-col", "2xl:flex-row 2xl:gap-10")}>
+         <div className={cn("flex flex-col", "lg:flex-row lg:gap-10")}>
             <p
                className={cn(
                   "h-fit font-header font-medium text-[25px] w-auto text-center",
-                  "2xl:text-[30px] 2xl:w-[300px]"
+                  "lg:text-lg lg:w-[300px]"
                )}
             >
                Personal Context
             </p>
             <PersonalContext user={user} />
          </div>
-         <div className={cn("flex flex-col", "2xl:flex-row 2xl:gap-10")}>
+         <div className={cn("flex flex-col", "lg:flex-row lg:gap-10")}>
             <p
                className={cn(
                   "h-fit font-header font-medium text-[25px] w-auto text-center",
-                  "2xl:text-[30px] 2xl:w-[300px]"
+                  "lg:text-lg lg:w-[300px]"
                )}
             >
                Account Settings
@@ -89,13 +89,13 @@ export const PersonalContext = ({ user }: { user: User }) => {
       <div>
          {!isEditing ? (
             <button
-               className="text-left flex items-center pt-2 text-base w-full 2xl:w-[450px] justify-center"
+               className="text-left flex items-center text-base w-full lg:w-[550px] justify-center"
                onClick={() => setIsEditing(true)}
             >
-               <p className="hidden 2xl:block">
+               <p className="hidden lg:block">
                   {text ? text : "Add Personal Context"}
                </p>
-               <p className="block 2xl:hidden text-center border font-header rounded-lg px-3">
+               <p className="block lg:hidden text-center border font-header rounded-lg px-3">
                   Edit Personal Context
                </p>
             </button>
@@ -105,20 +105,20 @@ export const PersonalContext = ({ user }: { user: User }) => {
                   value={tempText}
                   onChange={(e) => setTempText(e.target.value)}
                   className={cn(
-                     "border outline-primary border-primary/20 resize-none rounded-[10px] px-3 py-2 text-base mt-2 w-full h-[350px]",
-                     "2xl:w-[450px] 2xl:mt-0"
+                     "border outline-primary border-primary/20 resize-none rounded-[10px] px-3 py-2 text-base mt-2 w-full h-[250px]",
+                     "lg:w-[550px] lg:mt-0"
                   )}
                />
-               <div className="flex justify-between font-header font-medium mt-2">
+               <div className="flex justify-between font-header font-medium">
                   <button
-                     className="border px-2 rounded-[7px] hover:bg-primary/10 bg-transparent transition-colors"
+                     className="font-header font-medium text-md border leading-none py-1 px-3 w-fit rounded-lg hover:bg-primary/10 bg-transparent transition-colors"
                      onClick={handleDiscard}
                      disabled={loading}
                   >
                      Discard
                   </button>
                   <button
-                     className="border px-2 rounded-[7px] hover:bg-primary/10 bg-transparent transition-colors flex items-center justify-center gap-2"
+                     className="font-header font-medium text-md border leading-none py-1 px-3 w-fit rounded-lg hover:bg-primary/10 bg-transparent transition-colors"
                      onClick={handleSubmit}
                      disabled={loading}
                   >
@@ -188,7 +188,7 @@ export const AccountSettings = ({ user }: { user: User }) => {
    };
 
    return (
-      <div className="flex flex-col items-start font-header font-medium text-[20px] gap-2">
+      <div className="flex flex-col items-start font-header font-medium text-base gap-2">
          <div className="flex justify-between w-full items-center">
             <button
                onClick={handleExport}
@@ -202,7 +202,7 @@ export const AccountSettings = ({ user }: { user: User }) => {
                <Check />
             )}
          </div>
-         <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
+         <div className="w-full lg:w-[450px] border-b border-b-primary/20" />
 
          <div className="flex justify-between w-full items-center">
             <button
@@ -217,7 +217,7 @@ export const AccountSettings = ({ user }: { user: User }) => {
                <Check />
             )}
          </div>
-         <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
+         <div className="w-full lg:w-[450px] border-b border-b-primary/20" />
 
          <div className="flex justify-between w-full items-center">
             <button
@@ -229,7 +229,7 @@ export const AccountSettings = ({ user }: { user: User }) => {
             </button>
             {loadingDeleteUser && <CircleNotch className="animate-spin ml-2" />}
          </div>
-         <div className="w-full 2xl:w-[450px] border-b border-b-primary/20" />
+         <div className="w-full lg:w-[450px] border-b border-b-primary/20" />
 
          <div className="flex justify-between w-full items-center">
             <button

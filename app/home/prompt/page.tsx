@@ -18,8 +18,6 @@ const PromptPage = async () => {
    if (!userData) {
       return 'unexpected error'
    }
-
-   console.log('userData', userData)
    
    return (
       <SessionProvider>

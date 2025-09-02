@@ -26,7 +26,7 @@ const InsightsPage = async () => {
    });
 
    if (!weeklySummary) {
-      return <InsightPlaceholder />
+      return <InsightPlaceholder />;
    }
 
    return (
@@ -34,14 +34,14 @@ const InsightsPage = async () => {
          className={cn(
             "h-[calc(100vh-45px)]",
             "md:h-[calc(100vh-65px)]",
-            "xl:h-[calc(100vh-80px)]"
+            "lg:h-[calc(100vh-45px)]",
          )}
       >
          <div
             className={cn(
                "flex flex-col justify-between items-center w-screen h-full fade-up-fast px-5 py-0 pt-6 pb-[100px]",
                "md:px-7 md:pt-10",
-               "xl:w-full xl:px-20 xl:py-[90px] xl:pt-12"
+               "lg:w-full lg:px-32 xl:px-0 lg:py-[90px] lg:pt-12 xl:pt-16"
             )}
          >
             <div
@@ -70,7 +70,7 @@ const InsightsPage = async () => {
                      className={cn(
                         "text-center w-auto text-[23px] px-0",
                         "md:px-[55px]",
-                        "xl:text-[35px] xl:w-[850px]"
+                        "xl:text-[30px] xl:w-[850px]"
                      )}
                   >
                      &quot;{weeklySummary?.headline}&quot;
