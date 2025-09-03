@@ -8,7 +8,7 @@ export const Background = () => {
    const bgParam = params.get("bg");
 
    return (
-      <div className="absolute inset-0 z-0 bg-background">
+      <div className="absolute inset-x-0 top-0 bottom-[-100px] z-0 bg-background">
          {/* Base gradient layer (e.g. linear or solid) */}
          <div
             className={cn(
