@@ -85,12 +85,11 @@ const ResultPage = async ({ searchParams }: PageProps) => {
                                  className="flex flex-col leading-snug"
                                  key={movie.movie}
                               >
-                                 <div className="text-base leading-tight flex items-baseline flex-wrap">
-                                    <span className="font-medium pr-1">
-                                       {movie.movie}
-                                    </span>{" "}
-                                    <span className="text-sm">{movie.year}</span>
-                                 </div>
+                                 <div className="text-base leading-tight">
+  <span className="font-medium">{movie.movie}</span>
+  <span className="text-sm font-normal"> {movie.year}</span>
+</div>
+
                               </div>
                            ))}
                         </div>
@@ -172,7 +171,7 @@ const ResultPage = async ({ searchParams }: PageProps) => {
                            "lg:hidden"
                         )}
                      >
-                        <p className="text-[24px] text-center">b Movie</p>
+                        <p className="text-[24px] text-center">Similar Movies</p>
                         <div className="flex flex-col items-center gap-3 pt-1">
                            {similarMovies.map((movie: SimilarMovie) => (
                               <div

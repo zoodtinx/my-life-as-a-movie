@@ -20,10 +20,7 @@ export const MoviePoster = ({
    const router = useRouter();
    const genre = getFormattedGenre(movieData.genre);
    const genreColor = getGenreColorClassNames(movieData.genre);
-   const formattedDate =
-      size === "small"
-         ? format(movieData.date, "EEE, d MMM")
-         : format(movieData.createdAt, "EEE, d MMMM");
+   const formattedDate = format(movieData.date, "EEE, d MMM")
 
    const handleClick = () => {
       if (size === "small") {
@@ -40,15 +37,14 @@ export const MoviePoster = ({
          className={cn(
             "flex cursor-pointer select-none shrink-0",
             "hover:scale-104 transition-transform duration-200 ease-in-out",
-            "w-[105px] h-[148px] p-2 pb-1 shadow-sm",
+            "w-[105px] h-[148px] p-2 pb-1 pt-[7px] shadow-sm",
             "xl:w-[150px] xl:h-[210px] xl:p-[13px] xl:pb-[8px] xl:shadow-md",
             `bg-gradient-to-b ${genreColor}`,
 
-            // Large size override - a bit smaller for "large"
             size === "large" &&
                cn(
                   "w-[150px] h-[210px] p-[10px] pb-[8px] shadow-md",
-                  "md:w-[160px] md:h-[220px] md:p-[11px] md:pb-[8px]",
+                  "md:w-[160px] md:h-[220px] md:p-[11px] md:py-[8px]",
                   "xl:pt-3 xl:pb-3 xl:px-3 xl:w-[180px] xl:h-[255px]"
                )
          )}

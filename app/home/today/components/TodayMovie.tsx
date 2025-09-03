@@ -193,7 +193,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                            "lg:hidden"
                         )}
                      >
-                        <p className="text-[24px] text-center">b Movie</p>
+                        <p className="text-[24px] text-center">Similar Movies</p>
                         <div className="flex flex-col items-center gap-3 pt-1">
                            {similarMovies.map((movie: SimilarMovie) => (
                               <div

@@ -9,7 +9,7 @@ const homeLayout = ({
    children: React.ReactNode;
 }>) => {
    return (
-      <div className="min-w-screen flex justify-center min-h-screen text-lg">
+      <div className="min-w-screen flex justify-center min-h-[100dvh] text-lg">
          <Suspense>
             <Background />
          </Suspense>
