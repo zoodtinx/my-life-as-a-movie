@@ -11,6 +11,7 @@ import {
 import { Check, CircleNotch } from "phosphor-react";
 import { cn } from "@/app/shared/utils";
 import { User } from "@prisma/client";
+import { format } from "date-fns";
 
 const SettingsPageContent = ({ user }: { user: User }) => {
    const { data: session, status } = useSession();
@@ -162,7 +163,8 @@ export const AccountSettings = ({ user }: { user: User }) => {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "export.csv";
+      const formattedDate = format(new Date(), "yyyy-MM-dd_HH-mm-ss");
+      a.download = `entries_export_${formattedDate}.csv`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
