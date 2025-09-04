@@ -51,7 +51,11 @@ const Page = () => {
    };
 
    return (
-      <div className={cn("w-full h-screen flex justify-center items-center text-primary")}>
+      <div
+         className={cn(
+            "w-full h-screen flex justify-center items-center text-primary"
+         )}
+      >
          <div className="w-full h-full z-10">
             <div className="w-full h-full flex flex-col items-center overflow-y-auto overflow-x-hidden">
                <div className="flex flex-col gap-2 w-full lg:w-[1200px] px-3 sm:px-4 lg:px-10 xl:px-0">
@@ -128,7 +132,9 @@ const Page = () => {
                               <p className="font-medium leading-none mb-1">
                                  Mood tracking meets movies
                               </p>
-                              <p className="leading-none">What genre is your day?</p>
+                              <p className="leading-none">
+                                 What genre is your day?
+                              </p>
                            </div>
                            <p className="w-[90%] md:w-3/4 lg:w-[850px] text-center text-sm sm:text-base">
                               Transform your daily diary into a movie with a few
@@ -148,213 +154,213 @@ const Page = () => {
                         <NavArrowDown className="mx-auto animate-shake" />
                      </button>
                   </div>
-                  <div ref={featuresRef} className="w-full pt-[60px]">
-  <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
-    <div className="flex flex-col mb-6 md:mb-0">
-      <div className="flex gap-1 mb-2">
-        <SvgSuperheroEmoji className="size-8" />
-        <SvgFistEmoji className="size-8" />
-        <SvgSparkleEmoji className="size-8" />
-      </div>
-      <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
-        You, <br />
-        The Main Character
-      </p>
-      <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
-        Step back and see your day through a director&apos;s lens. Answer
-        movie-themed questions that help you objectively reflect on your
-        experiences without the emotional weight—because sometimes the best way
-        to understand your story is to view yourself as the protagonist of your
-        own film.
-      </p>
-    </div>
-    <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
-      <Image
-        width={400}
-        height={400}
-        className="w-full h-ull"
-        src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat1.webp?updatedAt=1755573972717"
-        alt=""
-      />
-    </div>
-  </div>
-</div>
-
-<div className="w-full pt-[60px]">
-  <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
-    <div className="flex flex-col mb-6 md:mb-0">
-      <div className="flex gap-1 mb-2">
-        <SvgFilmEmoji className="size-8" />
-        <SvgPopCornEmoji className="size-8" />
-        <SvgPictureFrameEmojiU1F5Bc className="size-8" />
-      </div>
-      <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
-        Every Day Deserves <br />a Movie Poster
-      </p>
-      <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
-        There&apos;s no such thing as a bad day—just different genres. Whether
-        today was an action-packed thriller, a quiet indie drama, or a romantic
-        comedy, your real experiences transform into an imaginative film story
-        that makes every single day worth remembering and rewatching.
-      </p>
-    </div>
-    <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
-      <Image
-        width={400}
-        height={400}
-        className="w-full h-full"
-        src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat2.webp?updatedAt=1755573972757"
-        alt=""
-      />
-    </div>
-  </div>
-</div>
-
-<div className="w-full pt-[60px]">
-  <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
-    <div className="flex flex-col mb-6 md:mb-0">
-      <div className="flex gap-1 mb-2">
-        <SvgWorkingEmoji className="size-8" />
-        <SvgGlassEmoji className="size-8" />
-        <SvgTreeEmoji className="size-8" />
-      </div>
-      <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
-        From Daily Scenes <br />
-        to Life Insights
-      </p>
-      <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
-        More than just a fun gimmick. This is your daily journal reimagined. Log
-        each day as its own film while getting personalized mental health
-        insights that help you live your story better. Because when you see
-        patterns in your personal cinema, you can start directing a better
-        tomorrow.
-      </p>
-    </div>
-    <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
-      <Image
-        width={400}
-        height={400}
-        className="w-full h-full"
-        src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat3.webp?updatedAt=1755573972784"
-        alt=""
-      />
-    </div>
-  </div>
-</div>
-
-
-                  <div className="border-t border-t-secondary mt-14  pt-[30px] mb-[30px]">
-                     <p className="text-center font-header font-medium text-primary text-xl mb-[30px]">
-                        Tech Stack
-                     </p>
-                     <div className="flex flex-col md:flex-row gap-[17px] mb-[30px]">
-                        <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
-                           <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
-                              Client & Server
-                           </p>
-                           <div className="border-b border-secondary/50" />
-                           <div className="flex flex-col gap-1 px-5 pt-3 py-4">
-                              <div className="leading-tight pt-1">
-                                 <p className=" text-xl">Next.js</p>
+                  <div className="sm:px-7 md:px-7 lg:px-0">
+                     <div ref={featuresRef} className="w-full pt-[60px]">
+                        <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
+                           <div className="flex flex-col mb-6 md:mb-0">
+                              <div className="flex gap-1 mb-2">
+                                 <SvgSuperheroEmoji className="size-8" />
+                                 <SvgFistEmoji className="size-8" />
+                                 <SvgSparkleEmoji className="size-8" />
                               </div>
-
-                              <div className="leading-tight opacity-70">
-                                 <p className="font-semibold">Libraries: </p>
-                                 <p>
-                                    Shadcn (Radix UI), Auth.js, Zod, Tailwind,
-                                    Prisma
-                                 </p>
-                              </div>
+                              <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
+                                 You, <br />
+                                 The Main Character
+                              </p>
+                              <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
+                                 Step back and see your day through a
+                                 director&apos;s lens. Answer movie-themed
+                                 questions that help you objectively reflect on
+                                 your experiences without the emotional
+                                 weight—because sometimes the best way to
+                                 understand your story is to view yourself as the
+                                 protagonist of your own film.
+                              </p>
                            </div>
-                        </div>
-
-                        <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
-                           <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
-                              Infrastructure
-                           </p>
-                           <div className="border-b border-secondary/50" />
-                           <div className="flex flex-col gap-1 px-5 pt-3 py-4">
-                              <div className="leading-tight pt-1">
-                                 <p className=" text-xl">Railway</p>
-                              </div>
-
-                              <div className="leading-tight opacity-70">
-                                 <p className="font-semibold">Services: </p>
-                                 <p>
-                                    Compute instance for server, PostgreSQL for
-                                    database
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-
-                        <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
-                           <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
-                              3rd Party API
-                           </p>
-                           <div className="border-b border-secondary/50" />
-                           <div className="flex flex-col gap-1 px-5 pt-3 py-4">
-                              <div className="leading-tight pt-1">
-                                 <p className=" text-xl">OpenAI API</p>
-                              </div>
-
-                              <div className="leading-tight opacity-70">
-                                 <p className="font-semibold">Usage: </p>
-                                 <p>For interpreting user input into a movie & generate weekly mental health insights</p>
-                              </div>
+                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                              <Image
+                                 width={400}
+                                 height={400}
+                                 className="w-full h-ull"
+                                 src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat1.webp?updatedAt=1755573972717"
+                                 alt=""
+                              />
                            </div>
                         </div>
                      </div>
-
-                     <button
-                        className={
-                           "flex items-center text-md bg-secondary h-[34px] text-white mx-auto px-2 pr-3 gap-2 rounded-full " +
-                           "focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-[2.5px]"
-                        }
-                        onClick={(e) => {
-                           e.currentTarget.focus();
-                           window.open(
-                              "https://github.com/zoodtinx/my-life-as-a-movie",
-                              "_blank",
-                              "noopener,noreferrer"
-                           );
-                        }}
-                     >
-                        <GithubLogo className="size-[20px]" />
-                        <span className="text-[16px] font-header uppercase font-semibold tracking-wider">
-                           See The Code
-                        </span>
-                     </button>
-                  </div>
-                  <div className="border-b border-b-secondary mb-[70px]" />
-                  <div className="mb-[90px]">
-                     <p className="text-center font-header font-medium text-primary text-xl mb-[12px]">
-                        Explore Full Features
-                     </p>
-                     <button
-                        onClick={(e) => {
-                           e.currentTarget.focus();
-                           signInWithProvider("credentials");
-                        }}
-                        className={
-                           "flex items-center text-lg bg-secondary h-[36px] text-primary px-[7px] rounded-[10px] font-header uppercase font-semibold tracking-widest  mb-2 mx-auto " +
-                           "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
-                        }
-                     >
-                        <Enter className="size-[30px]" />
-                        <p className="px-3">Launch Demo</p>
-                     </button>
-                     <div className="md:w-[440px] text-sm mx-auto pt-[50px]">
-                        <p className="pb-4">
-                           Each demo session is generated personally for each
-                           user. Users are free to explore features, try
-                           generating their day as a movie, edit existing
-                           records, or delete content during their session.
+                     <div className="w-full pt-[60px]">
+                        <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
+                           <div className="flex flex-col mb-6 md:mb-0">
+                              <div className="flex gap-1 mb-2">
+                                 <SvgFilmEmoji className="size-8" />
+                                 <SvgPopCornEmoji className="size-8" />
+                                 <SvgPictureFrameEmojiU1F5Bc className="size-8" />
+                              </div>
+                              <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
+                                 Every Day Deserves <br />a Movie Poster
+                              </p>
+                              <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
+                                 There&apos;s no such thing as a bad day—just
+                                 different genres. Whether today was an
+                                 action-packed thriller, a quiet indie drama, or a
+                                 romantic comedy, your real experiences transform
+                                 into an imaginative film story that makes every
+                                 single day worth remembering and rewatching.
+                              </p>
+                           </div>
+                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                              <Image
+                                 width={400}
+                                 height={400}
+                                 className="w-full h-full"
+                                 src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat2.webp?updatedAt=1755573972757"
+                                 alt=""
+                              />
+                           </div>
+                        </div>
+                     </div>
+                     <div className="w-full pt-[60px]">
+                        <div className="flex flex-col md:flex-row justify-between border-t border-t-secondary md:h-[500px] pt-[30px] sm:items-center md:items-start">
+                           <div className="flex flex-col mb-6 md:mb-0">
+                              <div className="flex gap-1 mb-2">
+                                 <SvgWorkingEmoji className="size-8" />
+                                 <SvgGlassEmoji className="size-8" />
+                                 <SvgTreeEmoji className="size-8" />
+                              </div>
+                              <p className="md:w-[440px] text-xl font-header text-primary font-medium leading-8 mb-3 md:mb-5">
+                                 From Daily Scenes <br />
+                                 to Life Insights
+                              </p>
+                              <p className="md:w-[600px] leading-tight opacity-70 text-sm sm:text-base">
+                                 More than just a fun gimmick. This is your daily
+                                 journal reimagined. Log each day as its own film
+                                 while getting personalized mental health insights
+                                 that help you live your story better. Because when
+                                 you see patterns in your personal cinema, you can
+                                 start directing a better tomorrow.
+                              </p>
+                           </div>
+                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                              <Image
+                                 width={400}
+                                 height={400}
+                                 className="w-full h-full"
+                                 src="https://ik.imagekit.io/freelanceman/mlam-landingpage/mlam-feat3.webp?updatedAt=1755573972784"
+                                 alt=""
+                              />
+                           </div>
+                        </div>
+                     </div>
+                     <div className="border-t border-t-secondary mt-14  pt-[30px] mb-[30px]">
+                        <p className="text-center font-header font-medium text-primary text-xl mb-[30px]">
+                           Tech Stack
                         </p>
-                        <p className="font-semibold">
-                           All data will be automatically deleted 2 hours after
-                           creation.
+                        <div className="flex flex-col md:flex-row gap-[17px] mb-[30px]">
+                           <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
+                              <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
+                                 Client & Server
+                              </p>
+                              <div className="border-b border-secondary/50" />
+                              <div className="flex flex-col gap-1 px-5 pt-3 py-4">
+                                 <div className="leading-tight pt-1">
+                                    <p className=" text-xl">Next.js</p>
+                                 </div>
+                                 <div className="leading-tight opacity-70">
+                                    <p className="font-semibold">Libraries: </p>
+                                    <p>
+                                       Shadcn (Radix UI), Auth.js, Zod, Tailwind,
+                                       Prisma
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
+                              <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
+                                 Infrastructure
+                              </p>
+                              <div className="border-b border-secondary/50" />
+                              <div className="flex flex-col gap-1 px-5 pt-3 py-4">
+                                 <div className="leading-tight pt-1">
+                                    <p className=" text-xl">Railway</p>
+                                 </div>
+                                 <div className="leading-tight opacity-70">
+                                    <p className="font-semibold">Services: </p>
+                                    <p>
+                                       Compute instance for server, PostgreSQL for
+                                       database
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div className="flex-1 border border-secondary/50 rounded-xl h-auto overflow-hidden">
+                              <p className="px-3 py-1 text-[17px] text-primary bg-secondary/20 font-header font-medium text-center">
+                                 3rd Party API
+                              </p>
+                              <div className="border-b border-secondary/50" />
+                              <div className="flex flex-col gap-1 px-5 pt-3 py-4">
+                                 <div className="leading-tight pt-1">
+                                    <p className=" text-xl">OpenAI API</p>
+                                 </div>
+                                 <div className="leading-tight opacity-70">
+                                    <p className="font-semibold">Usage: </p>
+                                    <p>
+                                       For interpreting user input into a movie &
+                                       generate weekly mental health insights
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <button
+                           className={
+                              "flex items-center text-md bg-secondary h-[34px] text-white mx-auto px-2 pr-3 gap-2 rounded-full " +
+                              "focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-[2.5px]"
+                           }
+                           onClick={(e) => {
+                              e.currentTarget.focus();
+                              window.open(
+                                 "https://github.com/zoodtinx/my-life-as-a-movie",
+                                 "_blank",
+                                 "noopener,noreferrer"
+                              );
+                           }}
+                        >
+                           <GithubLogo className="size-[20px]" />
+                           <span className="text-[16px] font-header uppercase font-semibold tracking-wider">
+                              See The Code
+                           </span>
+                        </button>
+                     </div>
+                     <div className="border-b border-b-secondary mb-[70px]" />
+                     <div className="mb-[90px]">
+                        <p className="text-center font-header font-medium text-primary text-xl mb-[12px]">
+                           Explore Full Features
                         </p>
+                        <button
+                           onClick={(e) => {
+                              e.currentTarget.focus();
+                              signInWithProvider("credentials");
+                           }}
+                           className={
+                              "flex items-center text-lg bg-secondary h-[36px] text-primary px-[7px] rounded-[10px] font-header uppercase font-semibold tracking-widest  mb-2 mx-auto " +
+                              "focus:outline-none focus:ring-[1.5px] focus:ring-secondary focus:ring-offset-[2.5px]"
+                           }
+                        >
+                           <Enter className="size-[30px]" />
+                           <p className="px-3">Launch Demo</p>
+                        </button>
+                        <div className="md:w-[440px] text-sm mx-auto pt-[50px]">
+                           <p className="pb-4">
+                              Each demo session is generated personally for each
+                              user. Users are free to explore features, try
+                              generating their day as a movie, edit existing
+                              records, or delete content during their session.
+                           </p>
+                           <p className="font-semibold">
+                              All data will be automatically deleted 2 hours after
+                              creation.
+                           </p>
+                        </div>
                      </div>
                   </div>
                   <div className="flex justify-between items-center text-[14px] pt-1 px-4 w-full h-[39px] bg-secondary font-medium rounded-tr-2xl rounded-tl-2xl">
