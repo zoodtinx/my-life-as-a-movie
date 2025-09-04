@@ -363,7 +363,14 @@ const Page = () => {
                         </div>
                      </div>
                   </div>
-                  <div className="flex justify-between items-center text-[14px] pt-1 px-4 w-full h-[39px] bg-secondary font-medium rounded-tr-2xl rounded-tl-2xl">
+                  <div
+                     className={[
+                        "flex justify-between items-center text-[14px] pt-1 px-4 w-full h-[39px] bg-secondary font-medium",
+                        "rounded-tr-2xl rounded-tl-2xl",
+                        "md:rounded-br-none md:rounded-bl-none",
+                        "rounded-bl-2xl rounded-br-2xl"
+                     ].join(" ")}
+                  >
                      <a
                         href="https://www.peerapol.dev/"
                         target="_blank"

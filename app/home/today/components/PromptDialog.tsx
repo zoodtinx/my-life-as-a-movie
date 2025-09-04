@@ -32,6 +32,7 @@ import { useEffect } from "react";
 
 export const PromptDialog = ({user}:{user: User}) => {
    const [isLoading, setIsLoading] = useState(false);
+   const [showLongLoading, setShowLongLoading] = useState(false);
 
    const formMethods = useForm<MovieFormData>({
       defaultValues: {
@@ -45,6 +46,18 @@ export const PromptDialog = ({user}:{user: User}) => {
          formMethods.setValue("userId", user.id);
       }
    }, [user, formMethods]);
+
+   useEffect(() => {
+      let timer: ReturnType<typeof setTimeout> | null = null;
+      if (isLoading) {
+         timer = setTimeout(() => setShowLongLoading(true), 5000);
+      } else {
+         setShowLongLoading(false);
+      }
+      return () => {
+         if (timer) clearTimeout(timer);
+      };
+   }, [isLoading]);
 
    const prompts = movieFormQuestions.map((question) => {
       return (
@@ -91,6 +104,9 @@ export const PromptDialog = ({user}:{user: User}) => {
                         <CircleNotch className="animate-spin size-[40px] text-primary mb-3" />
                         <LoadingTexts />
                         <p className="font-header text-sm font-medium opacity-50">Getting result. This may take a while.</p>
+                        {showLongLoading && (
+                           <p className="font-header text-sm font-medium opacity-50">Anytime now.</p>
+                        )}
                      </div>
                   </CarouselItem>
                ) : (

@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { deleteMovie } from "@/app/home/result/actions";
 import { useEffect } from "react";
 import { cn } from "@/app/shared/utils";
+import { Toaster, toast } from 'sonner'
 
 interface SimilarMovie {
    year: number;
@@ -37,6 +38,11 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
       }
    }, [movie, router, searchParams]);
 
+   useEffect(() => {
+      toast.success("That's a wrap for today. Next scenes tomorrow.", { id: 'single-toast' })
+   }, [])
+
+   
    if (!movie) {
       return "Unexpected Error";
    }
@@ -46,6 +52,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
       : typeof movie.similarMovie === "string"
       ? JSON.parse(movie.similarMovie)
       : [];
+
 
    return (
       <div
@@ -98,7 +105,9 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                                     <span className="font-medium pr-1">
                                        {movie.movie}
                                     </span>{" "}
-                                    <span className="text-sm">{movie.year}</span>
+                                    <span className="text-sm">
+                                       {movie.year}
+                                    </span>
                                  </div>
                               </div>
                            ))}
@@ -146,11 +155,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                            Review
                         </p>
                         <p
-                           className={cn(
-                              "text-sm px-5",
-                              " md:px-7",
-                              "lg:px-0"
-                           )}
+                           className={cn("text-sm px-5", " md:px-7", "lg:px-0")}
                         >
                            &quot;{movie.review}&quot;
                         </p>
@@ -172,11 +177,7 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                            Sequel Idea
                         </p>
                         <p
-                           className={cn(
-                              "text-sm px-5",
-                              " md:px-7",
-                              "lg:px-0"
-                           )}
+                           className={cn("text-sm px-5", " md:px-7", "lg:px-0")}
                         >
                            &quot;{movie.sequelIdea}&quot;
                         </p>
@@ -193,14 +194,18 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                            "lg:hidden"
                         )}
                      >
-                        <p className="text-[24px] text-center">Similar Movies</p>
+                        <p className="text-[24px] text-center">
+                           Similar Movies
+                        </p>
                         <div className="flex flex-col items-center gap-3 pt-1">
                            {similarMovies.map((movie: SimilarMovie) => (
                               <div
                                  className="flex flex-col leading-snug"
                                  key={movie.movie}
                               >
-                                 <p className="text-center text-base">{movie.movie}</p>
+                                 <p className="text-center text-base">
+                                    {movie.movie}
+                                 </p>
                                  <div className="flex justify-center font-normal text-[17px]">
                                     <p>{movie.director}</p>,
                                     <p className="pl-2">{movie.year}</p>
@@ -219,6 +224,17 @@ const TodayMovie = ({ movie }: { movie: Movie }) => {
                </div>
             </div>
             <Footer movieId={movie.id} />
+            <Toaster
+               position="bottom-center"
+               duration={6000}
+               toastOptions={{
+                  classNames: {
+                     toast: "!bg-white !py-2 !pr-4 !pl-3 !rounded-xl !border-white",
+                     title: "!text-primary",
+                     icon: "!text-secondary",
+                  },
+               }}
+            />
          </div>
          <div></div>
       </div>
