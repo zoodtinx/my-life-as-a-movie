@@ -5,18 +5,27 @@ export async function GET(req: NextRequest) {
    const apiKey = req.headers.get('x-api-key');
    const expectedKey = process.env.CRON_SECRET;
 
-   console.log('apiKey', apiKey)
-   console.log('expectedKey', expectedKey)
- 
+   console.log('apiKey', apiKey);
+   console.log('expectedKey', expectedKey);
+
    if (apiKey !== expectedKey) {
      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
    }
-  
+
    try {
-    await prisma.user.deleteMany({});
-    return NextResponse.json({ success: true, message: "All users deleted." });
-  } catch (error) {
-    return NextResponse.json({ success: false, error: error }, { status: 500 });
-  }
+      const threeHoursAgo = new Date(Date.now() - 3 * 60 * 60 * 1000);
+
+      const deleted = await prisma.user.deleteMany({
+         where: {
+            createdAt: { lt: threeHoursAgo },
+         },
+      });
+
+      return NextResponse.json({ 
+         success: true, 
+         message: `${deleted.count} users deleted.` 
+      });
+   } catch (error) {
+      return NextResponse.json({ success: false, error }, { status: 500 });
+   }
 }
- 
