@@ -177,7 +177,7 @@ const Page = () => {
                                  protagonist of your own film.
                               </p>
                            </div>
-                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                           <div className="sm:w-2/3 md:w-[385px]">
                               <Image
                                  width={400}
                                  height={400}
@@ -208,7 +208,7 @@ const Page = () => {
                                  single day worth remembering and rewatching.
                               </p>
                            </div>
-                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                           <div className="sm:w-2/3 md:w-[355px]">
                               <Image
                                  width={400}
                                  height={400}
@@ -240,7 +240,7 @@ const Page = () => {
                                  start directing a better tomorrow.
                               </p>
                            </div>
-                           <div className="sm:w-2/3 md:w-[385px] md:h-[480px]">
+                           <div className="sm:w-2/3 md:w-[395px]">
                               <Image
                                  width={400}
                                  height={400}
