@@ -36,7 +36,7 @@ export const TodayPageContent = () => {
             className={cn(
                "flex flex-col items-center justify-between",
                "border-b border-t border-b-primary/25 border-t-primary/25",
-               "w-full h-[240px] pb-3 pt-3",
+               "w-full h-[240px] pb-4 pt-3",
                "md:w-[650px] md:h-[400px] lg:h-[350px]"
             )}
          >

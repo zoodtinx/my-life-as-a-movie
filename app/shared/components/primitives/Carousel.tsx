@@ -187,7 +187,7 @@ function CarouselPrevious({
          variant={variant}
          size={size}
          className={cn(
-            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20",
+            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20 w-fit px-2",
             className
          )}
          disabled={!canScrollPrev}
@@ -195,7 +195,7 @@ function CarouselPrevious({
          {...props}
       >
          <CaretLeft className="size-6" />
-         <span className="sr-only">Previous slide</span>
+         <span className="font-header text-md hidden lg:block">Previous</span>
       </Button>
    );
 }
@@ -214,15 +214,15 @@ function CarouselNext({
          variant={variant}
          size={size}
          className={cn(
-            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20",
+            "rounded-full border-0 cursor-pointer shadow-none bg-transparent active:bg-primary/20 w-fit px-2",
             className
          )}
          disabled={!canScrollNext}
          onClick={scrollNext}
          {...props}
       >
+         <span className="font-header text-md hidden lg:block">Next</span>
          <CaretRight className="size-6" />
-         <span className="sr-only">Next slide</span>
       </Button>
    );
 }

@@ -89,7 +89,7 @@ export const PromptDialog = ({user}:{user: User}) => {
          <Carousel className="flex flex-col">
             <div
                className={cn(
-                  "flex justify-between items-center opacity-100",
+                  "flex justify-between items-center opacity-100 ",
                   "h-[35px] px-1 py-3",
                   isLoading && "opacity-0"
                )}

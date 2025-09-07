@@ -7,10 +7,11 @@ import {
    DropdownMenuTrigger,
 } from "@/app/shared/components/DropdownMenu";
 import { MLAMLogo } from "@/app/shared/icons/Logo";
-import { List, SlidersHorizontal, Calendar, Sliders, FilmSlate, Flower } from "phosphor-react";
+import { List, SlidersHorizontal, Calendar, Sliders, FilmSlate, Flower, SignOut, CircleNotch } from "phosphor-react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { cn } from "@/app/shared/utils";
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
+import { signOut } from "next-auth/react";
 
 export const NavBar = () => {
    return (
@@ -22,12 +23,7 @@ export const NavBar = () => {
                "lg:hidden"
             )}
          >
-            <MLAMLogo
-               className={cn(
-                  "text-primary w-[170px]",
-                  "md:w-[210px]",
-                  "h-auto"
-               )}
+            <LogoMenu
             />
             <MobileMenu />
          </nav>
@@ -39,12 +35,8 @@ export const NavBar = () => {
             )}
          >
             <div className="w-1/3 flex items-center">
-               <MLAMLogo
-                  className={cn(
-                     "text-primary pl-2",
-                     "lg:w-[200px]",
-                  )}
-               />
+            <LogoMenu
+            />
             </div>
             <div className="w-1/3 flex justify-center items-center">
                <Suspense>
@@ -61,6 +53,39 @@ export const NavBar = () => {
       </>
    );
 };
+
+const LogoMenu = () => {
+   const [isLoading, setIsLoading] = useState(false)
+
+   const handleClick = async () => {
+      setIsLoading(true)
+      await signOut()
+      setIsLoading(false)
+   };
+   
+   return (
+      <DropdownMenu>
+         <DropdownMenuTrigger className="focus:outline-none">
+            <MLAMLogo
+               className={cn(
+                  "text-primary w-[170px]",
+                  "md:w-[210px]",
+                  "h-auto"
+               )}
+            />
+         </DropdownMenuTrigger>
+         <DropdownMenuContent className="bg-white border-transparent shadow-sm font-medium rounded-[13px] mt-1">
+            <DropdownMenuItem
+               className="gap-1 cursor-pointer w-fit pr-0"
+               onClick={handleClick}
+            >
+               {isLoading ? <CircleNotch className="animate-spin" /> : <SignOut />}
+               <p className="text-[16px]">Exit Demo</p>
+            </DropdownMenuItem>
+         </DropdownMenuContent>
+      </DropdownMenu>
+   );
+}
 
 const MobileMenu = () => {
    const router = useRouter();
