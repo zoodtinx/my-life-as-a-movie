@@ -14,7 +14,7 @@ export const getDemoInsight = (userId: string) => {
 
    return {
       userId,
-      week: `${yLabel} - ${weekAgoLabel}`,
+      week: `${weekAgoLabel} - ${yLabel}`,
       headline:
          "A week painted in shades of struggle and triumph, where quiet reflections lead to moments of unexpected clarity, illuminating the path forward.",
       personalitySnapshot:
